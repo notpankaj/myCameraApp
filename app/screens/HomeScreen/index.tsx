@@ -261,7 +261,7 @@ const HomeScreen = () => {
           )}
         </View>
         {/* footer start */}
-        <View style={{}}>
+        <View style={{paddingBottom: 30}}>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
             {showImageModeOnValue ? (
               <BtnV2 text="Cancel" onPress={hideImageModeOn} />
@@ -292,7 +292,7 @@ const HomeScreen = () => {
               <FontAwesome color={COLORS.white} size={24} name="image" />
             </TouchableOpacity>
           </View>
-          <View
+          {/* <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-evenly',
@@ -368,7 +368,7 @@ const HomeScreen = () => {
               />
               <Text style={{fontSize: 9}}>Past Answers</Text>
             </TouchableOpacity>
-          </View>
+          </View> */}
         </View>
         {/* footer end */}
       </View>

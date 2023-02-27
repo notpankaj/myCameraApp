@@ -3,6 +3,7 @@ import React from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {COLORS} from '../helper/COLOR';
 import {StyleSheet} from 'react-native';
+import GradientWrapper from './GradientWrapper';
 
 interface Props {
   visible: boolean;
@@ -39,27 +40,28 @@ const WelcomePopup = ({visible, onHide}: Props) => {
           What would like to know ?
         </Text>
 
-        <TouchableOpacity
-          onPress={onHide}
-          style={{
-            // backgroundColor: COLORS.skyBlue,
-            backgroundColor: COLORS.accent,
-            flexDirection: 'row',
-            alignItems: 'center',
-            padding: 10,
-            borderRadius: 10,
-          }}>
-          <Entypo color={COLORS.iconDark} name="camera" size={24} />
-          <Text
+        <GradientWrapper
+          containerStyle={{borderRadius: 40, paddingHorizontal: 10}}>
+          <TouchableOpacity
+            onPress={onHide}
             style={{
-              marginLeft: 10,
-              letterSpacing: 1,
-              color: COLORS.white,
-              fontSize: 16,
+              flexDirection: 'row',
+              alignItems: 'center',
+              padding: 10,
+              borderRadius: 10,
             }}>
-            SCAN TO SOLVE{' '}
-          </Text>
-        </TouchableOpacity>
+            <Entypo color={COLORS.iconDark} name="camera" size={24} />
+            <Text
+              style={{
+                marginLeft: 10,
+                letterSpacing: 1,
+                color: COLORS.white,
+                fontSize: 16,
+              }}>
+              SCAN TO SOLVE
+            </Text>
+          </TouchableOpacity>
+        </GradientWrapper>
       </View>
     </View>
   );

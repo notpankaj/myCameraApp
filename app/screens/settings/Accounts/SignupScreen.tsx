@@ -32,7 +32,7 @@ const SignupScreen = () => {
           }}>
           <Text
             style={{
-              color: COLORS.text,
+              color: COLORS.textDark,
               fontSize: 15,
               fontWeight: 'bold',
               marginRight: 10,

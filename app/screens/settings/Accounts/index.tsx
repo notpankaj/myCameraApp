@@ -39,7 +39,7 @@ const AccountScreen = () => {
         </TouchableOpacity>
         <Text
           style={{
-            color: COLORS.text,
+            color: COLORS.textDark,
             fontSize: 18,
             fontWeight: 'bold',
             margin: 10,
@@ -69,7 +69,7 @@ const AccountScreen = () => {
           />
           <Text
             style={{
-              color: COLORS.text,
+              color: COLORS.textDark,
               fontSize: 13,
               fontWeight: 'bold',
               margin: 10,

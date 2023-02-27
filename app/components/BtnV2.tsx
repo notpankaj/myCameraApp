@@ -23,7 +23,7 @@ const BtnV2 = ({onPress, text, containerStyle, textStyle}: Props) => {
           width: 100,
           backgroundColor: COLORS.white,
           borderRadius: 10,
-          borderColor: COLORS.text,
+          borderColor: COLORS.textDark,
           borderWidth: 0.4,
           paddingHorizontal: 12,
           paddingVertical: 15,
@@ -34,7 +34,7 @@ const BtnV2 = ({onPress, text, containerStyle, textStyle}: Props) => {
         style={[
           {
             textAlign: 'center',
-            color: COLORS.text,
+            color: COLORS.textDark,
             fontWeight: 'bold',
             fontSize: 17,
             letterSpacing: 1,

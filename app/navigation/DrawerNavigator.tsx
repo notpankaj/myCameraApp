@@ -3,6 +3,7 @@ import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import HomeScreen from '../screens/HomeScreen';
 import MyDrawer from './MyDrawer';
+import TabNavigator from './TabNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -17,6 +18,7 @@ const DrawerNavigator = () => {
         },
       }}
       drawerContent={() => <MyDrawer />}>
+      <Drawer.Screen name="TabNavigator" component={TabNavigator} />
       <Drawer.Screen name="Home" component={HomeScreen} />
     </Drawer.Navigator>
   );
