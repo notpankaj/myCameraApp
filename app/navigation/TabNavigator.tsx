@@ -13,10 +13,21 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import GradientWrapper from '../components/GradientWrapper';
 import TypeQuestionScreen from '../screens/TypeQuestionScreen';
+import {BoldText} from '../components/MyText';
 
 const Tab = createBottomTabNavigator();
 
-const Dummy = () => <View style={{flex: 1, backgroundColor: 'pink'}} />;
+const Dummy = () => (
+  <View
+    style={{
+      flex: 1,
+      backgroundColor: COLORS.primaryBg,
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}>
+    <BoldText text="Comming soon" />
+  </View>
+);
 
 const TabNavigator = () => {
   return (

@@ -33,7 +33,7 @@ const AccountScreen = () => {
           />
         </View>
         <TouchableOpacity style={{margin: 10, marginTop: 15}}>
-          <Text style={{color: COLORS.skyblue, fontSize: 13}}>
+          <Text style={{color: COLORS.accentTwo, fontSize: 13}}>
             Forget Password ?
           </Text>
         </TouchableOpacity>

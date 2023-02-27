@@ -1,5 +1,6 @@
 import React from 'react';
 import {TextInput, Text, TouchableOpacity, View} from 'react-native';
+import {COLORS} from '../../helper/COLOR';
 
 function TypeQuestionScreen() {
   const [height, setHeight] = React.useState(250);
@@ -27,7 +28,7 @@ function TypeQuestionScreen() {
         style={{
           height: 40,
           width: '100%',
-          backgroundColor: 'skyblue',
+          backgroundColor: COLORS.accentTwo,
           borderRadius: 10,
           marginVertical: 10,
           justifyContent: 'center',

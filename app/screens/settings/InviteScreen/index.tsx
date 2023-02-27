@@ -97,7 +97,7 @@ const InviteScreen = () => {
             <TouchableOpacity
               style={[
                 {
-                  backgroundColor: COLORS.skyblue,
+                  backgroundColor: COLORS.accentTwo,
                   borderRadius: 10,
                   height: 60,
                   width: 150,

@@ -20,7 +20,7 @@ const BtnV1 = ({onPress, text, containerStyle, textStyle}: Props) => {
       onPress={onPress}
       style={[
         {
-          backgroundColor: COLORS.skyblue,
+          backgroundColor: COLORS.accentTwo,
           borderRadius: 10,
           paddingHorizontal: 12,
           paddingVertical: 15,

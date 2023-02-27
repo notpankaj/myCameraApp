@@ -31,6 +31,7 @@ import {
 import BtnV2 from '../../components/BtnV2';
 import {COLORS} from '../../helper/COLOR';
 import WelcomePopup from '../../components/WelcomePopup';
+import CropView from './CropView';
 
 const {width} = Dimensions.get('window');
 
@@ -164,6 +165,7 @@ const HomeScreen = () => {
           resizeMode="contain"
           style={[StyleSheet.absoluteFill]}
         />
+        // <CropView imageUri={imageUrl} />
       )}
       <View style={styles.container}>
         {/* header start */}
