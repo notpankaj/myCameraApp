@@ -31,7 +31,7 @@ function ResultSheet(props: SheetProps) {
         style={{
           width: 30,
           height: 30,
-          backgroundColor: 'tomato',
+          backgroundColor: COLORS.textLight,
           borderRadius: 30,
           position: 'absolute',
           top: 10,

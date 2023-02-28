@@ -31,15 +31,16 @@ function HistoryScreen() {
         paddingHorizontal: 30,
         backgroundColor: COLORS.primaryBg,
       }}>
-      <Text style={{fontSize: 18, fontWeight: 'bold', textAlign: 'center'}}>
-        History
-      </Text>
+      <BoldText
+        text="History"
+        style={{fontSize: 33, textAlign: 'center', paddingTop: 10}}
+      />
       <TouchableOpacity
         onPress={navigation.goBack}
         style={{
           width: 30,
           height: 30,
-          backgroundColor: COLORS.red,
+          backgroundColor: COLORS.textLight,
           borderRadius: 30,
           position: 'absolute',
           top: 10,

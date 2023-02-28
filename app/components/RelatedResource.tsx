@@ -36,7 +36,7 @@ const RelatedResource = () => {
                   alignItems: 'center',
                 }}>
                 <Octicons name="link" color={'black'} size={15} />
-                <SmallText text={item.link} style={{color: COLORS.skyblue}} />
+                <SmallText text={item.link} style={{color: 'blue'}} />
               </TouchableOpacity>
             </View>
           );

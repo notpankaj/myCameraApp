@@ -116,7 +116,11 @@ const FaqScreen = () => {
               customIcon={() => <></>}
               data={data}
               customTitle={item => (
-                <Text style={{fontWeight: 'bold', fontSize: 15}}>
+                <Text
+                  style={{
+                    fontWeight: 'bold',
+                    fontSize: 15,
+                  }}>
                   <Text style={{color: COLORS.accentOne}}>Ques: </Text>
                   {item.title}
                 </Text>
