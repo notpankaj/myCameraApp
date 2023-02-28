@@ -1,6 +1,10 @@
 import React from 'react';
 import {TextInput, Text, TouchableOpacity, View} from 'react-native';
+import GradientWrapper from '../../components/GradientWrapper';
+import {BoldText} from '../../components/MyText';
 import {COLORS} from '../../helper/COLOR';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import CommonHeader from '../../components/CommonHeader';
 
 function TypeQuestionScreen() {
   const [height, setHeight] = React.useState(250);
@@ -9,36 +13,56 @@ function TypeQuestionScreen() {
     <View
       style={{
         flex: 1,
-        justifyContent: 'center',
         paddingHorizontal: 30,
+        paddingTop: 10,
       }}>
-      {/* <View style={{flex: 1, paddingHorizontal: 30}}> */}
+      <CommonHeader />
+      <BoldText
+        style={{textAlign: 'center', paddingVertical: 50}}
+        text="What would like you to know?"
+      />
       <TextInput
         onFocus={() => setHeight(450)}
         onBlur={() => setHeight(250)}
         placeholder="Type a question"
         style={{
+          textAlign: 'left',
+          verticalAlign: 'top',
           borderRadius: 10,
           paddingHorizontal: 10,
-          borderColor: 'gray',
-          borderWidth: 0.4,
+          flex: 0.8,
+          fontSize: 16,
+          color: COLORS.textLight,
         }}
       />
       <TouchableOpacity
-        style={{
-          height: 40,
-          width: '100%',
-          backgroundColor: COLORS.accentTwo,
-          borderRadius: 10,
-          marginVertical: 10,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Text style={{fontSize: 17, fontWeight: 'bold', color: 'white'}}>
-          Ask Question
-        </Text>
+        style={{justifyContent: 'center', alignItems: 'center'}}>
+        <GradientWrapper
+          dark
+          containerStyle={{
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            borderRadius: 70,
+            height: 40,
+            width: 180,
+          }}>
+          <MaterialCommunityIcons
+            color={COLORS.white}
+            size={24}
+            name="lightbulb-on-outline"
+          />
+          <Text
+            style={{
+              fontSize: 17,
+              fontWeight: 'bold',
+              color: 'white',
+              paddingRight: 10,
+            }}>
+            Ask Question
+          </Text>
+        </GradientWrapper>
       </TouchableOpacity>
-      {/* </View> */}
     </View>
   );
 }

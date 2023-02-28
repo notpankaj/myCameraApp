@@ -32,6 +32,8 @@ import BtnV2 from '../../components/BtnV2';
 import {COLORS} from '../../helper/COLOR';
 import WelcomePopup from '../../components/WelcomePopup';
 import CropView from './CropView';
+import {SmallText} from '../../components/MyText';
+import GradientWrapper from '../../components/GradientWrapper';
 
 const {width} = Dimensions.get('window');
 
@@ -201,19 +203,19 @@ const HomeScreen = () => {
             {/* <TouchableOpacity>
               <FontAwesome name="save" size={24} color="white" />
             </TouchableOpacity> */}
-            <Text
-              style={{
-                borderWidth: 0.9,
+            <GradientWrapper
+              containerStyle={{
                 borderRadius: 20,
-                height: 20,
-                width: 40,
-                color: COLORS.white,
-                fontSize: 11,
-                textAlign: 'center',
-                backgroundColor: COLORS.accent,
+                width: 45,
+                height: 25,
+                justifyContent: 'center',
+                alignItems: 'center',
               }}>
-              plus+
-            </Text>
+              <SmallText
+                style={{color: COLORS.white, fontSize: 9}}
+                text={'PLUS +'}
+              />
+            </GradientWrapper>
             <TouchableOpacity onPress={() => setIsFullScreenMode(s => !s)}>
               {isFullScreenMode ? (
                 <MaterialIcons name="fullscreen-exit" size={24} color="white" />
