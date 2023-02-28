@@ -55,20 +55,26 @@ const InviteScreen = () => {
           style={{textAlign: 'center', marginVertical: 25}}
           text="Invite friends and get 10 FREE scans everyday for every new player."
         />
-
         <View
           style={{
-            backgroundColor: COLORS.white,
-            borderRadius: 10,
             justifyContent: 'center',
             alignItems: 'center',
-            height: 220,
           }}>
-          <Image
-            style={styles.image}
-            resizeMode="contain"
-            source={require('../../../../assets/icons/qr.png')}
-          />
+          <View
+            style={{
+              backgroundColor: COLORS.white,
+              borderRadius: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: 220,
+              width: 220,
+            }}>
+            <Image
+              style={styles.image}
+              resizeMode="contain"
+              source={require('../../../../assets/icons/qr.png')}
+            />
+          </View>
         </View>
         <View
           style={{

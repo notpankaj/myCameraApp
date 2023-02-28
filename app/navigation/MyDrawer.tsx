@@ -8,6 +8,7 @@ import {useNavigation, DrawerActions} from '@react-navigation/native';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from './RootNavigator';
 import {COLORS} from '../helper/COLOR';
+import {BoldText} from '../components/MyText';
 
 type ItemProps = {
   icon: () => ReactNode;
@@ -61,14 +62,17 @@ const MyDrawer = () => {
     <View style={{flex: 1, alignItems: 'center'}}>
       {/* header */}
       <TouchableOpacity
-        style={{position: 'absolute', left: 10, top: 10}}
+        style={{position: 'absolute', left: 10, top: 30}}
         onPress={handleClose}>
         <Ionicons name="arrow-back" size={24} color="black" />
       </TouchableOpacity>
-      <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-        <Text style={{fontSize: 24, fontWeight: 'bold', marginVertical: 5}}>
-          Settings
-        </Text>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+          paddingTop: 20,
+        }}>
+        <BoldText style={{fontSize: 30}} text="Settings" />
       </View>
 
       <Text
@@ -87,7 +91,7 @@ const MyDrawer = () => {
           <MaterialCommunityIcons
             name="face-man-profile"
             size={35}
-            color="black"
+            color={COLORS.accentTwo}
           />
         )}
         onPress={() => navigation.navigate('Account')}
@@ -99,7 +103,7 @@ const MyDrawer = () => {
           <MaterialCommunityIcons
             name="email-plus-outline"
             size={35}
-            color="black"
+            color={COLORS.accentTwo}
           />
         )}
         onPress={() => navigation.navigate('Subscription')}
@@ -108,7 +112,11 @@ const MyDrawer = () => {
       />
       <Item
         icon={() => (
-          <Ionicons name="mail-open-outline" size={35} color="black" />
+          <Ionicons
+            name="mail-open-outline"
+            size={35}
+            color={COLORS.accentTwo}
+          />
         )}
         onPress={() => navigation.navigate('InviteScreen')}
         title="Invite Friends"
@@ -128,7 +136,11 @@ const MyDrawer = () => {
       {/* other */}
       <Item
         icon={() => (
-          <FontAwesome name="question-circle-o" size={35} color="black" />
+          <FontAwesome
+            name="question-circle-o"
+            size={35}
+            color={COLORS.accentTwo}
+          />
         )}
         onPress={() => navigation.navigate('HelpScreen')}
         title="Help and Support"
@@ -136,14 +148,20 @@ const MyDrawer = () => {
       />
       <Item
         icon={() => (
-          <FontAwesome name="question-circle-o" size={35} color="black" />
+          <FontAwesome
+            name="question-circle-o"
+            size={35}
+            color={COLORS.accentTwo}
+          />
         )}
         onPress={() => navigation.navigate('FaqScreen')}
         title="FAQ"
         des="Most Freqently asked Question"
       />
       <Item
-        icon={() => <AntDesign name="contacts" size={35} color="black" />}
+        icon={() => (
+          <AntDesign name="contacts" size={35} color={COLORS.accentTwo} />
+        )}
         title="Contact Us"
         des="Send an email to us: app@gamail.com"
         disbaleRightArrow
