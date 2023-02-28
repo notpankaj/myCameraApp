@@ -26,7 +26,7 @@ const CropView = ({imageUri, close}: Props) => {
       const res = await TextRecognition.recognize(path);
       console.log(res, 'res');
       SheetManager.show(TEMP_SHEET, {
-        payload: {value: res.length ? res : 'no text found!'},
+        payload: {value: res.length !== 0 ? res : 'no text found!'},
       });
     } catch (error: any) {
       Alert.alert('Alert', error.message || 'something went wrong!');
