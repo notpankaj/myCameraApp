@@ -162,12 +162,12 @@ const HomeScreen = () => {
       )}
 
       {imageUrl && (
-        <Image
-          source={{uri: imageUrl}}
-          resizeMode="contain"
-          style={[StyleSheet.absoluteFill]}
-        />
-        // <CropView imageUri={imageUrl} />
+        // <Image
+        //   source={{uri: imageUrl}}
+        //   resizeMode="contain"
+        //   style={[StyleSheet.absoluteFill]}
+        // />
+        <CropView imageUri={imageUrl} close={hideImageModeOn} />
       )}
       <View style={styles.container}>
         {/* header start */}
@@ -267,9 +267,8 @@ const HomeScreen = () => {
         {/* footer start */}
         <View style={{paddingBottom: 30}}>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            {showImageModeOnValue ? (
-              <BtnV2 text="Cancel" onPress={hideImageModeOn} />
-            ) : (
+            {showImageModeOnValue ? null : (
+              // <BtnV2 text="Cancel" onPress={hideImageModeOn} />
               <TouchableOpacity
                 onPress={() => {
                   tookPhoto();
