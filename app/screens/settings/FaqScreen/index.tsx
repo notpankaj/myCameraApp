@@ -9,7 +9,7 @@ import React from 'react';
 import {Image, Platform, UIManager} from 'react-native';
 import DrawerPageContainer from '../../../components/DrawerPageContainer';
 import {useNavigation} from '@react-navigation/native';
-import {BoldText, RegularText} from '../../../components/MyText';
+import {BoldText, RegularText, SmallText} from '../../../components/MyText';
 import {COLORS} from '../../../helper/COLOR';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -21,73 +21,72 @@ const FaqScreen = () => {
   const navigation = useNavigation();
   const data = [
     {
-      body: 'Answer: AskMojo is a mobile app that allows users to take a photo of a problem and receive solutions and explanations.',
-      title: '1. What is AskMojo?',
+      body: 'Ans, AskMojo is a mobile app that allows users to take a photo of a problem and receive solutions and explanations.',
+      title: 'What is AskMojo?',
     },
     {
-      body: 'Answer: The accuracy of answers is based on the collective knowledge and the AskMojo App extension does not alter or manipulate this information.',
-      title:
-        '2. How does AskMojo ensure the accuracy of the answers it provides?',
+      body: 'Ans, The accuracy of answers is based on the collective knowledge and the AskMojo App extension does not alter or manipulate this information.',
+      title: 'How does AskMojo ensure the accuracy of the answers it provides?',
     },
     {
-      body: 'Answer: While AskMojo is primarily designed for academic purposes, it can be used to solve a wide variety of questions and puzzles that require factual answers. However, it should not be used for academic dishonesty.',
+      body: 'Ans, While AskMojo is primarily designed for academic purposes, it can be used to solve a wide variety of questions and puzzles that require factual answers. However, it should not be used for academic dishonesty.',
       title:
-        '3. Can AskMojo be used for non-academic purposes, such as solving trivia questions or crossword puzzles?',
+        'Can AskMojo be used for non-academic purposes, such as solving trivia questions or crossword puzzles?',
     },
 
     {
-      body: 'Answer: AskMojo is primarily a search tool for finding specific answers, but it may sometimes provide explanations or context depending on the nature of the question and the available study sets.',
+      body: 'Ans, AskMojo is primarily a search tool for finding specific answers, but it may sometimes provide explanations or context depending on the nature of the question and the available study sets.',
       title:
-        '4. Is AskMojo able to provide explanations or step-by-step solutions to problems in addition to direct answers?',
+        'Is AskMojo able to provide explanations or step-by-step solutions to problems in addition to direct answers?',
     },
 
     {
-      body: "Answer: AskMojo can search for questions and answers in a wide variety of supported languages including Spanish, French, German, Japanese, Chinese, and more. The language of the search is determined by the user's browser settings or the language of the Quizlet set being searched.",
+      body: "Ans, AskMojo can search for questions and answers in a wide variety of supported languages including Spanish, French, German, Japanese, Chinese, and more. The language of the search is determined by the user's browser settings or the language of the Quizlet set being searched.",
       title:
-        '5. Can an AskMojo search for answers in languages other than English?',
+        'Can an AskMojo search for answers in languages other than English?',
     },
 
     {
-      body: 'Answer: AskMojo offers free attempts but after a while you need to buy the subscription. There is a monthly and annual subscription plan available. To get free bonus scans, you can refer the application to your friends as well.',
+      body: 'Ans, AskMojo offers free attempts but after a while you need to buy the subscription. There is a monthly and annual subscription plan available. To get free bonus scans, you can refer the application to your friends as well.',
       title:
-        '6. Is the AskMojo free to use, or do I need to pay for a subscription?',
+        'Is the AskMojo free to use, or do I need to pay for a subscription?',
     },
     {
-      body: 'Answer: AskMojo can work with a wide variety of homework and test questions and it tries to provide the user with the best and most relevant answer.',
+      body: 'Ans, AskMojo can work with a wide variety of homework and test questions and it tries to provide the user with the best and most relevant answer.',
       title:
-        '7. Does the AskMojo work with all types of homework and test questions, or are there any limitations?',
+        'Does the AskMojo work with all types of homework and test questions, or are there any limitations?',
     },
 
     {
-      body: 'Answer: AskMojo can sometimes provide definitions or explanations depending on the nature of the question. However, it is primarily designed to search for specific answers rather than general information.',
+      body: 'Ans, AskMojo can sometimes provide definitions or explanations depending on the nature of the question. However, it is primarily designed to search for specific answers rather than general information.',
       title:
-        '8. Can an AskMojo help me with finding definitions and explanations in addition to specific answers?',
+        'Can an AskMojo help me with finding definitions and explanations in addition to specific answers?',
     },
 
     {
-      body: 'Answer: To use AskMojo effectively, be sure to enter your search query as specifically as possible, including any relevant keywords or phrases. You can also type in your question using the keyboard option to get the best result.',
+      body: 'Ans, To use AskMojo effectively, be sure to enter your search query as specifically as possible, including any relevant keywords or phrases. You can also type in your question using the keyboard option to get the best result.',
       title:
-        '9. How do I use an AskMojo effectively to get the best results from my searches?',
+        'How do I use an AskMojo effectively to get the best results from my searches?',
     },
 
     {
-      body: 'Answer: Yes, AskMojo can solve handwritten math problems, but the handwriting needs to be clear and legible for accurate results.',
-      title: '10. Can AskMojo solve handwritten problems?',
+      body: 'Ans, Yes, AskMojo can solve handwritten math problems, but the handwriting needs to be clear and legible for accurate results.',
+      title: 'Can AskMojo solve handwritten problems?',
     },
 
     {
-      body: "Answer: The AskMojo can scan both printed and handwritten questions, as long as the handwriting is legible and the question is written in a language that the AskMojo is programmed to recognize.  \n However, it's important to note that AskMojo's accuracy may be affected by factors such as handwriting quality, lighting, and image resolution. To maximize the chances of getting an accurate answer, users should ensure that their images are well-lit and in focus, and that the handwriting is clear and easy to read. You can also type your question using the keyboard option.",
+      body: "Ans, The AskMojo can scan both printed and handwritten questions, as long as the handwriting is legible and the question is written in a language that the AskMojo is programmed to recognize.  \n However, it's important to note that AskMojo's accuracy may be affected by factors such as handwriting quality, lighting, and image resolution. To maximize the chances of getting an accurate answer, users should ensure that their images are well-lit and in focus, and that the handwriting is clear and easy to read. You can also type your question using the keyboard option.",
       title:
-        '11. Can AskMojo scan handwritten questions, or does it only work with printed text?',
+        'Can AskMojo scan handwritten questions, or does it only work with printed text?',
     },
 
     {
-      body: 'Answer: If AskMojo does not provide a correct solution, users can report the problem and receive assistance from customer support.',
-      title: '13. Does AskMojo store or share user data?',
+      body: 'Ans, If AskMojo does not provide a correct solution, users can report the problem and receive assistance from customer support.',
+      title: 'Does AskMojo store or share user data?',
     },
     {
-      body: 'Answer: The AskMojo may store user data, such as images of scanned questions, for the purpose of improving its algorithms and providing better service to users. \n However, the AskMojo has a clear privacy policy that outlines how user data is collected, stored, and used. Users should review the privacy policy and ensure that they are comfortable with the level of data collection and sharing before using the platform.',
-      title: '12. What if AskMojo does not provide a correct solution?',
+      body: 'Ans, The AskMojo may store user data, such as images of scanned questions, for the purpose of improving its algorithms and providing better service to users. \n However, the AskMojo has a clear privacy policy that outlines how user data is collected, stored, and used. Users should review the privacy policy and ensure that they are comfortable with the level of data collection and sharing before using the platform.',
+      title: 'What if AskMojo does not provide a correct solution?',
     },
   ];
 
@@ -100,50 +99,29 @@ const FaqScreen = () => {
   }, []);
   return (
     <DrawerPageContainer title="FAQ" onBack={navigation.goBack}>
-      <View style={{paddingHorizontal: 20, flex: 0.9}}>
+      <View
+        style={{
+          paddingHorizontal: 20,
+          flex: 0.9,
+          backgroundColor: COLORS.primaryBg,
+        }}>
         <View
           style={{
-            backgroundColor: COLORS.white,
             borderRadius: 10,
             flex: 0.98,
             paddingHorizontal: 20,
           }}>
-          {/* <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              backgroundColor: COLORS.primaryBg,
-              paddingHorizontal: 10,
-              marginVertical: 10,
-              borderRadius: 10,
-            }}>
-            <FontAwesome name="search" size={24} color="black" />
-            <TextInput placeholder="Search topics or questions" />
-          </View> */}
           <View style={styles.container}>
             <AccordionList
               customIcon={() => <></>}
               data={data}
               customTitle={item => (
-                <Text
-                  style={{
-                    borderBottomColor: '#000',
-                    borderBottomWidth: 0.5,
-                    width: '100%',
-                  }}>
+                <Text style={{fontWeight: 'bold', fontSize: 15}}>
+                  <Text style={{color: COLORS.accentOne}}>Ques: </Text>
                   {item.title}
                 </Text>
               )}
-              customBody={item => (
-                <Text
-                  style={{
-                    backgroundColor: COLORS.primaryBg,
-                    padding: 10,
-                    borderRadius: 5,
-                  }}>
-                  {item.body}
-                </Text>
-              )}
+              customBody={item => <SmallText text={item.body} />}
               animationDuration={400}
               expandMultiple={false}
             />
@@ -162,6 +140,5 @@ const styles = StyleSheet.create({
     paddingVertical: '2%',
     paddingHorizontal: '3%',
     height: '100%',
-    backgroundColor: 'white',
   },
 });
