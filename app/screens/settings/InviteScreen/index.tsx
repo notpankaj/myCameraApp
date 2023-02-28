@@ -16,6 +16,7 @@ import {COLORS} from '../../../helper/COLOR';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Clipboard from '@react-native-clipboard/clipboard';
+import GradientWrapper from '../../../components/GradientWrapper';
 
 const InviteScreen = () => {
   const navigation = useNavigation();
@@ -52,90 +53,76 @@ const InviteScreen = () => {
       <View style={{paddingHorizontal: 20, flex: 0.9}}>
         <BoldText
           style={{textAlign: 'center', marginVertical: 25}}
-          text="Invite friends and get a bonus scanning times for every new player!"
+          text="Invite friends and get 10 FREE scans everyday for every new player."
         />
 
         <View
           style={{
             backgroundColor: COLORS.white,
             borderRadius: 10,
-            minHeight: 350,
             justifyContent: 'center',
+            alignItems: 'center',
+            height: 220,
           }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
+          <Image
+            style={styles.image}
+            resizeMode="contain"
+            source={require('../../../../assets/icons/qr.png')}
+          />
+        </View>
+        <View
+          style={{
+            backgroundColor: COLORS.primaryBg,
+            marginHorizontal: 20,
+            height: 60,
+            borderRadius: 10,
+            marginVertical: 20,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+          <BoldText text={`code: ${code}`} style={{marginLeft: 40}} />
+          <GradientWrapper
+            containerStyle={{
+              width: 120,
+              height: 35,
+              justifyContent: 'center',
               alignItems: 'center',
-              padding: 10,
+              borderRadius: 100,
             }}>
-            <Image
-              style={styles.image}
-              resizeMode="contain"
-              source={require('../../../../assets/icons/profile1.png')}
-            />
-            <Entypo name="arrow-with-circle-right" color={'black'} size={50} />
-            <Image
-              style={styles.image}
-              resizeMode="contain"
-              source={require('../../../../assets/icons/profile2.png')}
-            />
-          </View>
-
-          <View
-            style={{
-              backgroundColor: COLORS.primaryBg,
-              marginHorizontal: 20,
-              height: 60,
-              borderRadius: 10,
-              marginVertical: 20,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}>
-            <BoldText text={code} style={{marginLeft: 40}} />
-            <TouchableOpacity
+            <Text
+              onPress={() => copyToClipboard(code)}
               style={[
                 {
-                  backgroundColor: COLORS.accentTwo,
-                  borderRadius: 10,
-                  height: 60,
-                  width: 150,
-                  flexDirection: 'row',
-                  justifyContent: 'center',
-                  alignItems: 'center',
+                  textAlign: 'center',
+                  color: COLORS.white,
+                  fontWeight: 'bold',
+                  fontSize: 15,
+
+                  marginLeft: 10,
                 },
               ]}>
-              <FontAwesome name="copy" size={15} color={COLORS.white} />
-              <Text
-                onPress={() => copyToClipboard(code)}
-                style={[
-                  {
-                    textAlign: 'center',
-                    color: COLORS.white,
-                    fontWeight: 'bold',
-                    fontSize: 15,
-                    marginLeft: 10,
-                  },
-                ]}>
-                Copy Code
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              marginHorizontal: 20,
-              alignItems: 'center',
-            }}>
-            <BoldText text="Share this code via link:" />
-            <FontAwesome
-              onPress={onShare}
-              name={'share-alt-square'}
-              size={24}
-              color="black"
-            />
-          </View>
+              Copy Code
+            </Text>
+          </GradientWrapper>
+        </View>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <BoldText
+            style={{textAlign: 'center'}}
+            text="Share this code via link:"
+          />
+          <FontAwesome
+            onPress={onShare}
+            name={'share-alt'}
+            size={24}
+            color={COLORS.textLight}
+          />
         </View>
       </View>
     </DrawerPageContainer>
@@ -145,5 +132,5 @@ const InviteScreen = () => {
 export default InviteScreen;
 
 const styles = StyleSheet.create({
-  image: {width: 75, height: 75, borderRadius: 75},
+  image: {width: 150, height: 150, borderRadius: 10, padding: 25},
 });
