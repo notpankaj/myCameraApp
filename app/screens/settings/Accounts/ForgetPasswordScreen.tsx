@@ -9,7 +9,7 @@ import GradientWrapper from '../../../components/GradientWrapper';
 import {BoldText} from '../../../components/MyText';
 import CheckBox from '@react-native-community/checkbox';
 
-const LoginScreen = () => {
+const ForgetPasswordScreen = () => {
   const navigation = useNavigation();
 
   return (
@@ -42,4 +42,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default ForgetPasswordScreen;

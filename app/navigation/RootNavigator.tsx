@@ -10,6 +10,7 @@ import FaqScreen from '../screens/settings/FaqScreen';
 import InviteScreen from '../screens/settings/InviteScreen';
 import HelpScreen from '../screens/settings/HelpScreen';
 import HistoryScreen from '../screens/HistoryScreen';
+import ForgetPasswordScreen from '../screens/settings/Accounts/ForgetPasswordScreen';
 
 export type RootStackParamList = {
   Drawer: undefined;
@@ -22,6 +23,7 @@ export type RootStackParamList = {
   HelpScreen: undefined;
   InviteScreen: undefined;
   HistoryScreen: undefined;
+  ForgetPasswordScreen: undefined;
 };
 
 const Root = createNativeStackNavigator<RootStackParamList>();
@@ -40,6 +42,10 @@ const RootNavigator = () => {
       <Root.Screen name="SignupScreen" component={SignupScreen} />
       <Root.Screen name="FaqScreen" component={FaqScreen} />
       <Root.Screen name="HelpScreen" component={HelpScreen} />
+      <Root.Screen
+        name="ForgetPasswordScreen"
+        component={ForgetPasswordScreen}
+      />
       <Root.Screen name="InviteScreen" component={InviteScreen} />
       <Root.Screen name="HistoryScreen" component={HistoryScreen} />
     </Root.Navigator>
