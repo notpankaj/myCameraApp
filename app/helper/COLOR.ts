@@ -1,5 +1,6 @@
 export const COLORS = {
-  primaryBg: '#ebe8e8',
+  // primaryBg: '#ebe8e8',
+  primaryBg: '#efeee9',
   transparentBlack: 'rgba(0,0,0,0.5)',
   skyBlue: '#3c9bd5',
   skyblue: 'skyblue',

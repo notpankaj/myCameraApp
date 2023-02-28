@@ -19,24 +19,45 @@ const HelpScreen = () => {
             minHeight: 550,
             paddingHorizontal: 20,
             marginBottom: 10,
+            elevation: 0.8,
           }}
           showsVerticalScrollIndicator={false}>
-          <BoldText text={`Intro to ${APP_NAME}`} />
+          <BoldText style={{fontSize: 22}} text={`Intro to ${APP_NAME}`} />
           <RegularText text="Updated * 1 month ago" />
-          <BoldText
-            style={{textAlign: 'left', marginVertical: 5, fontSize: 15}}
+          <RegularText
+            style={{
+              color: COLORS.textLight,
+              textAlign: 'left',
+              marginVertical: 5,
+              fontSize: 15,
+            }}
             text="Welcome to the AskMojo Help and Support Section!"
           />
-          <BoldText
-            style={{textAlign: 'left', marginVertical: 5, fontSize: 15}}
+          <RegularText
+            style={{
+              color: COLORS.textLight,
+              textAlign: 'left',
+              marginVertical: 5,
+              fontSize: 15,
+            }}
             text="AskMojo is here to help you with all problems by providing you with the best answers and helping you to make the most out of the application.            "
           />
-          <BoldText
-            style={{textAlign: 'left', marginVertical: 5, fontSize: 15}}
+          <RegularText
+            style={{
+              color: COLORS.textLight,
+              textAlign: 'left',
+              marginVertical: 5,
+              fontSize: 15,
+            }}
             text="Watch the video below for step-by-step instructions on downloading and installing the app, creating an account, and using the photo scanner to get answers."
           />
-          <BoldText
-            style={{textAlign: 'left', marginVertical: 5, fontSize: 15}}
+          <RegularText
+            style={{
+              color: COLORS.textLight,
+              textAlign: 'left',
+              marginVertical: 5,
+              fontSize: 15,
+            }}
             text="If you have any questions or concerns that are not addressed in this section, please contact our customer support team by emailing them."
           />
           <View style={{}}>

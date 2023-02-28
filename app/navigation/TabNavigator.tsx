@@ -14,6 +14,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import GradientWrapper from '../components/GradientWrapper';
 import TypeQuestionScreen from '../screens/TypeQuestionScreen';
 import {BoldText} from '../components/MyText';
+import AudioQuestionScreen from '../screens/AudioQuestionScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,98 +32,110 @@ const Dummy = () => (
 
 const TabNavigator = () => {
   return (
-    <Tab.Navigator
-      initialRouteName="Scan"
-      screenOptions={{
-        headerShown: false,
-        tabBarShowLabel: false,
-        tabBarStyle: {
-          borderTopColor: COLORS.pinkBorder,
-          borderTopWidth: 5,
-          paddingBottom: 12,
-          paddingTop: 10,
-          height: 75,
-          paddingLeft: 40,
-          paddingRight: 40,
-        },
-      }}>
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({focused}) => {
-            return (
-              <GradientWrapper
-                containerStyle={styles.iconWrapper}
-                off={!focused}>
-                <FontAwesome
-                  color={focused ? COLORS.white : COLORS.textDark}
-                  size={24}
-                  name="keyboard-o"
-                />
-              </GradientWrapper>
-            );
-          },
+    <View style={{flex: 1}}>
+      <GradientWrapper
+        containerStyle={{
+          width: '100%',
+          height: 5,
+          position: 'absolute',
+          bottom: 70,
+          zIndex: 1,
+          left: 0,
+          right: 0,
         }}
-        name="Type"
-        component={TypeQuestionScreen}
+        children={<></>}
       />
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({focused}) => {
-            return (
-              <GradientWrapper
-                containerStyle={styles.iconWrapper}
-                off={!focused}>
-                <Entypo
-                  color={focused ? COLORS.white : COLORS.textDark}
-                  size={24}
-                  name="camera"
-                />
-              </GradientWrapper>
-            );
+      <Tab.Navigator
+        initialRouteName="Scan"
+        screenOptions={{
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarStyle: {
+            paddingBottom: 12,
+            paddingTop: 10,
+            height: 75,
+            paddingLeft: 40,
+            paddingRight: 40,
           },
-        }}
-        name="Scan"
-        component={HomeScreen}
-      />
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({focused, color}) => {
-            return (
-              <GradientWrapper
-                containerStyle={styles.iconWrapper}
-                off={!focused}>
-                <FontAwesome5
-                  color={focused ? COLORS.white : COLORS.textDark}
-                  size={24}
-                  name="microphone"
-                />
-              </GradientWrapper>
-            );
-          },
-        }}
-        name="Audio"
-        component={Dummy}
-      />
-      <Tab.Screen
-        options={{
-          tabBarIcon: ({focused}) => {
-            return (
-              <GradientWrapper
-                containerStyle={styles.iconWrapper}
-                off={!focused}>
-                <FontAwesome
-                  color={focused ? COLORS.white : COLORS.textDark}
-                  size={24}
-                  name="history"
-                />
-              </GradientWrapper>
-            );
-          },
-        }}
-        name="Past Answer"
-        component={HistoryScreen}
-      />
-    </Tab.Navigator>
+        }}>
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({focused}) => {
+              return (
+                <GradientWrapper
+                  containerStyle={styles.iconWrapper}
+                  off={!focused}>
+                  <FontAwesome
+                    color={focused ? COLORS.white : COLORS.textDark}
+                    size={24}
+                    name="keyboard-o"
+                  />
+                </GradientWrapper>
+              );
+            },
+          }}
+          name="Type"
+          component={TypeQuestionScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({focused}) => {
+              return (
+                <GradientWrapper
+                  containerStyle={styles.iconWrapper}
+                  off={!focused}>
+                  <Entypo
+                    color={focused ? COLORS.white : COLORS.textDark}
+                    size={24}
+                    name="camera"
+                  />
+                </GradientWrapper>
+              );
+            },
+          }}
+          name="Scan"
+          component={HomeScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({focused, color}) => {
+              return (
+                <GradientWrapper
+                  containerStyle={styles.iconWrapper}
+                  off={!focused}>
+                  <FontAwesome5
+                    color={focused ? COLORS.white : COLORS.textDark}
+                    size={24}
+                    name="microphone"
+                  />
+                </GradientWrapper>
+              );
+            },
+          }}
+          name="Audio"
+          component={AudioQuestionScreen}
+        />
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({focused}) => {
+              return (
+                <GradientWrapper
+                  containerStyle={styles.iconWrapper}
+                  off={!focused}>
+                  <FontAwesome
+                    color={focused ? COLORS.white : COLORS.textDark}
+                    size={24}
+                    name="history"
+                  />
+                </GradientWrapper>
+              );
+            },
+          }}
+          name="Past Answer"
+          component={HistoryScreen}
+        />
+      </Tab.Navigator>
+    </View>
   );
 };
 
