@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import ActionSheet, {SheetProps} from 'react-native-actions-sheet';
 import {RadioButton} from 'react-native-radio-buttons-group';
+import GradientWrapper from '../components/GradientWrapper';
 import {BoldText, RegularText, SmallText} from '../components/MyText';
 import {COLORS} from '../helper/COLOR';
 
@@ -20,16 +21,27 @@ function GetSubscriptionSheet(props: SheetProps) {
   return (
     <ActionSheet
       id={props.sheetId}
-      containerStyle={{height: 410, backgroundColor: COLORS.primaryBg}}
+      containerStyle={{height: 600, backgroundColor: COLORS.primaryBg}}
       gestureEnabled={true}>
       <View style={{flex: 1, paddingHorizontal: 30}}>
         <View
           style={{
-            flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <BoldText text="3" style={{fontSize: 25}} />
+          <View
+            style={{
+              width: 60,
+              height: 60,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderWidth: 1,
+              borderRadius: 60,
+              borderColor: COLORS.accentTwo,
+              backgroundColor: '#fdeaff',
+            }}>
+            <BoldText text="3" style={{fontSize: 35}} />
+          </View>
           <BoldText text="Scans Remaining" style={{fontSize: 24}} />
         </View>
 
@@ -61,30 +73,51 @@ function GetSubscriptionSheet(props: SheetProps) {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity
+        <TouchableOpacity style={{alignSelf: 'center', marginVertical: 10}}>
+          <GradientWrapper
+            containerStyle={{
+              width: 150,
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: 40,
+              borderRadius: 10,
+            }}>
+            <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
+              Subscribe
+            </Text>
+          </GradientWrapper>
+        </TouchableOpacity>
+
+        <View
           style={{
-            height: 40,
-            width: '100%',
-            backgroundColor: 'skyblue',
-            borderRadius: 10,
-            marginVertical: 10,
             justifyContent: 'center',
             alignItems: 'center',
+            marginVertical: 20,
           }}>
-          <Text style={{fontSize: 17, fontWeight: 'bold', color: 'white'}}>
-            Subscribe
-          </Text>
-        </TouchableOpacity>
+          <RegularText text="Invite friends and get 10 FREE scans for every new players" />
 
-        <TouchableOpacity>
-          <SmallText text="invite Friends" style={{color: '#238ee6'}} />
-        </TouchableOpacity>
-
-        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity>
+            <RegularText
+              text="Invite Friends"
+              style={{color: COLORS.accentOne, textDecorationLine: 'underline'}}
+            />
+          </TouchableOpacity>
+        </View>
+        <View
+          style={{
+            marginVertical: 20,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderTopColor: `rgba(0,0,0,0.3)`,
+            borderTopWidth: 0.7,
+          }}>
           <RegularText text="Do not have account yet?." />
 
           <TouchableOpacity>
-            <RegularText text="Create An Account" style={{color: '#238ee6'}} />
+            <RegularText
+              text="Create an Account!"
+              style={{color: COLORS.accentOne, textDecorationLine: 'underline'}}
+            />
           </TouchableOpacity>
         </View>
       </View>
