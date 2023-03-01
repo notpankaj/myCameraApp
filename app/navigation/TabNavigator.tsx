@@ -10,13 +10,17 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import GradientWrapper from '../components/GradientWrapper';
 import TypeQuestionScreen from '../screens/TypeQuestionScreen';
 import AudioQuestionScreen from '../screens/AudioQuestionScreen';
+import {useSelector} from 'react-redux';
+import {tabBarVisibilitySelector} from '../redux/features/theme/themeSlice';
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
+  const tabVisible = useSelector(tabBarVisibilitySelector);
   return (
     <View style={{flex: 1}}>
       <GradientWrapper
+        off={!tabVisible}
         containerStyle={{
           width: '100%',
           height: 5,
@@ -33,13 +37,7 @@ const TabNavigator = () => {
         screenOptions={{
           headerShown: false,
           tabBarShowLabel: true,
-          tabBarStyle: {
-            paddingBottom: 12,
-            paddingTop: 10,
-            height: 75,
-            paddingLeft: 10,
-            paddingRight: 10,
-          },
+          tabBarStyle: styles.tabBar,
           tabBarActiveTintColor: COLORS.accentOne,
         }}>
         <Tab.Screen
@@ -76,6 +74,7 @@ const TabNavigator = () => {
                 // {/* </GradientWrapper> */}
               );
             },
+            tabBarStyle: tabVisible ? styles.tabBar : {display: 'none'},
           }}
           name="Scan"
           component={HomeScreen}
@@ -134,5 +133,12 @@ const styles = StyleSheet.create({
     width: 50,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  tabBar: {
+    paddingBottom: 12,
+    paddingTop: 10,
+    height: 75,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
 });

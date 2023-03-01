@@ -34,6 +34,11 @@ import WelcomePopup from '../../components/WelcomePopup';
 import CropView from './CropView';
 import {SmallText} from '../../components/MyText';
 import GradientWrapper from '../../components/GradientWrapper';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  setTabBarVisiblity,
+  tabBarVisibilitySelector,
+} from '../../redux/features/theme/themeSlice';
 
 const {width} = Dimensions.get('window');
 
@@ -51,7 +56,7 @@ const TABS = {
 };
 
 const HomeScreen = () => {
-  const [activeTab, setActiveTab] = React.useState(TABS.SCAN);
+  const dispatch = useDispatch();
   const [welcomePopVisible, setWelcomePopVisible] = React.useState(true);
   const [isFullScreenMode, setIsFullScreenMode] = React.useState(false);
   const devices = useCameraDevices('wide-angle-camera');
@@ -67,7 +72,7 @@ const HomeScreen = () => {
     const newCameraPermission = await Camera.requestCameraPermission();
     console.log(newCameraPermission, 'newCameraPermission');
   };
-
+  const tabVisible = useSelector(tabBarVisibilitySelector);
   const openDrawer = () => {
     navigation?.dispatch(DrawerActions.openDrawer());
   };
@@ -82,12 +87,13 @@ const HomeScreen = () => {
       console.log(photo);
 
       showImageModeOn(`file://${photo.path}`);
-      // navigation.navigate('TranslationScreen', {
-      //   imageUrl: `file://${photo.path}`,
-      // });
     } catch (err: any) {
       console.log(err, 'err');
     }
+  };
+
+  const toggleTabBar = (bool: boolean) => {
+    dispatch(setTabBarVisiblity(!tabVisible));
   };
 
   const showImageModeOn = (uri: string) => {
@@ -161,14 +167,7 @@ const HomeScreen = () => {
         />
       )}
 
-      {imageUrl && (
-        // <Image
-        //   source={{uri: imageUrl}}
-        //   resizeMode="contain"
-        //   style={[StyleSheet.absoluteFill]}
-        // />
-        <CropView imageUri={imageUrl} close={hideImageModeOn} />
-      )}
+      {imageUrl && <CropView imageUri={imageUrl} close={hideImageModeOn} />}
       <View style={styles.container}>
         {/* header start */}
         <View
@@ -216,7 +215,11 @@ const HomeScreen = () => {
                 text={'PLUS +'}
               />
             </GradientWrapper>
-            <TouchableOpacity onPress={() => setIsFullScreenMode(s => !s)}>
+            <TouchableOpacity
+              onPress={() => {
+                toggleTabBar(!isFullScreenMode);
+                setIsFullScreenMode(!isFullScreenMode);
+              }}>
               {isFullScreenMode ? (
                 <MaterialIcons name="fullscreen-exit" size={24} color="white" />
               ) : (
