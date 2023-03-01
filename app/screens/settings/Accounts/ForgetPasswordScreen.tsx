@@ -13,7 +13,7 @@ const ForgetPasswordScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <DrawerPageContainer title="Account" onBack={navigation.goBack}>
+    <DrawerPageContainer title="Change Password" onBack={navigation.goBack}>
       <View style={{paddingHorizontal: 20, flex: 0.9}}>
         <Input label="Email Addess" placeholder="Old Password" />
         <Input label="Password" placeholder="New Password" />
@@ -23,17 +23,32 @@ const ForgetPasswordScreen = () => {
             justifyContent: 'center',
             alignItems: 'center',
             marginTop: 10,
+            flexDirection: 'row',
+            gap: 10,
           }}>
           <TouchableOpacity>
             <GradientWrapper
               containerStyle={{
-                borderRadius: 60,
-                width: 150,
+                borderRadius: 10,
+                width: 120,
                 height: 45,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <BoldText text={'LOGIN'} style={{color: COLORS.white}} />
+              <BoldText text={'REGISTER'} style={{color: COLORS.white}} />
+            </GradientWrapper>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <GradientWrapper
+              dark
+              containerStyle={{
+                borderRadius: 10,
+                width: 120,
+                height: 45,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <BoldText text={'CONFIRM'} style={{color: COLORS.white}} />
             </GradientWrapper>
           </TouchableOpacity>
         </View>

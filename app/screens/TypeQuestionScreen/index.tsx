@@ -38,12 +38,11 @@ function TypeQuestionScreen() {
       <TouchableOpacity
         style={{justifyContent: 'center', alignItems: 'center'}}>
         <GradientWrapper
-          dark
           containerStyle={{
             flexDirection: 'row',
             justifyContent: 'space-around',
             alignItems: 'center',
-            borderRadius: 70,
+            borderRadius: 10,
             height: 40,
             width: 180,
           }}>

@@ -98,7 +98,7 @@ const FaqScreen = () => {
     }
   }, []);
   return (
-    <DrawerPageContainer title="FAQ" onBack={navigation.goBack}>
+    <DrawerPageContainer title="FAQs" onBack={navigation.goBack}>
       <View
         style={{
           paddingHorizontal: 20,
@@ -119,9 +119,9 @@ const FaqScreen = () => {
                 <Text
                   style={{
                     fontWeight: 'bold',
-                    fontSize: 15,
+                    fontSize: 16,
                   }}>
-                  <Text style={{color: COLORS.accentOne}}>Ques: </Text>
+                  {/* <Text style={{color: COLORS.accentOne}}>Ques: </Text> */}
                   {item.title}
                 </Text>
               )}

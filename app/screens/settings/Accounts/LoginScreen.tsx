@@ -27,7 +27,7 @@ const LoginScreen = () => {
           <TouchableOpacity>
             <GradientWrapper
               containerStyle={{
-                borderRadius: 60,
+                borderRadius: 10,
                 width: 150,
                 height: 45,
                 justifyContent: 'center',

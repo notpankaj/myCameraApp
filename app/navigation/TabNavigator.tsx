@@ -1,34 +1,17 @@
-import {View, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import HistoryScreen from '../screens/HistoryScreen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {COLORS} from '../helper/COLOR';
-
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Octicons from 'react-native-vector-icons/Octicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import GradientWrapper from '../components/GradientWrapper';
 import TypeQuestionScreen from '../screens/TypeQuestionScreen';
-import {BoldText} from '../components/MyText';
 import AudioQuestionScreen from '../screens/AudioQuestionScreen';
 
 const Tab = createBottomTabNavigator();
-
-const Dummy = () => (
-  <View
-    style={{
-      flex: 1,
-      backgroundColor: COLORS.primaryBg,
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
-    <BoldText text="Comming soon" />
-  </View>
-);
 
 const TabNavigator = () => {
   return (
@@ -49,28 +32,29 @@ const TabNavigator = () => {
         initialRouteName="Scan"
         screenOptions={{
           headerShown: false,
-          tabBarShowLabel: false,
+          tabBarShowLabel: true,
           tabBarStyle: {
             paddingBottom: 12,
             paddingTop: 10,
             height: 75,
-            paddingLeft: 40,
-            paddingRight: 40,
+            paddingLeft: 10,
+            paddingRight: 10,
           },
+          tabBarActiveTintColor: COLORS.accentOne,
         }}>
         <Tab.Screen
           options={{
             tabBarIcon: ({focused}) => {
               return (
-                <GradientWrapper
-                  containerStyle={styles.iconWrapper}
-                  off={!focused}>
-                  <FontAwesome
-                    color={focused ? COLORS.white : COLORS.textDark}
-                    size={24}
-                    name="keyboard-o"
-                  />
-                </GradientWrapper>
+                // <GradientWrapper
+                //   containerStyle={styles.iconWrapper}
+                //   off={!focused}>
+                <FontAwesome
+                  color={focused ? COLORS.accentOne : COLORS.textDark}
+                  size={24}
+                  name="keyboard-o"
+                />
+                // </GradientWrapper>
               );
             },
           }}
@@ -81,15 +65,15 @@ const TabNavigator = () => {
           options={{
             tabBarIcon: ({focused}) => {
               return (
-                <GradientWrapper
-                  containerStyle={styles.iconWrapper}
-                  off={!focused}>
-                  <Entypo
-                    color={focused ? COLORS.white : COLORS.textDark}
-                    size={24}
-                    name="camera"
-                  />
-                </GradientWrapper>
+                // <GradientWrapper
+                //   containerStyle={styles.iconWrapper}
+                //   off={!focused}>
+                <Entypo
+                  color={focused ? COLORS.accentOne : COLORS.textDark}
+                  size={24}
+                  name="camera"
+                />
+                // {/* </GradientWrapper> */}
               );
             },
           }}
@@ -100,15 +84,15 @@ const TabNavigator = () => {
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
-                <GradientWrapper
-                  containerStyle={styles.iconWrapper}
-                  off={!focused}>
-                  <FontAwesome5
-                    color={focused ? COLORS.white : COLORS.textDark}
-                    size={24}
-                    name="microphone"
-                  />
-                </GradientWrapper>
+                // <GradientWrapper
+                //   containerStyle={styles.iconWrapper}
+                //   off={!focused}>
+                <FontAwesome5
+                  color={focused ? COLORS.accentOne : COLORS.textDark}
+                  size={24}
+                  name="microphone"
+                />
+                // </GradientWrapper>
               );
             },
           }}
@@ -119,19 +103,19 @@ const TabNavigator = () => {
           options={{
             tabBarIcon: ({focused}) => {
               return (
-                <GradientWrapper
-                  containerStyle={styles.iconWrapper}
-                  off={!focused}>
-                  <FontAwesome
-                    color={focused ? COLORS.white : COLORS.textDark}
-                    size={24}
-                    name="history"
-                  />
-                </GradientWrapper>
+                // <GradientWrapper
+                //   containerStyle={styles.iconWrapper}
+                //   off={!focused}>
+                <FontAwesome
+                  color={focused ? COLORS.accentOne : COLORS.textDark}
+                  size={24}
+                  name="history"
+                />
+                // </GradientWrapper>
               );
             },
           }}
-          name="Past Answer"
+          name="History"
           component={HistoryScreen}
         />
       </Tab.Navigator>

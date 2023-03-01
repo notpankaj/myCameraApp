@@ -26,12 +26,13 @@ const AccountScreen = () => {
             justifyContent: 'space-between',
             flexDirection: 'row',
             marginTop: 10,
+            marginBottom: 15,
+            paddingHorizontal: 10,
           }}>
-          {/* <BtnV1 text="Login" containerStyle={{marginLeft: 10, width: 100}} /> */}
           <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
             <GradientWrapper
               containerStyle={{
-                borderRadius: 60,
+                borderRadius: 10,
                 width: 150,
                 height: 45,
                 justifyContent: 'center',
@@ -40,16 +41,12 @@ const AccountScreen = () => {
               <BoldText text={'LOGIN'} style={{color: COLORS.white}} />
             </GradientWrapper>
           </TouchableOpacity>
-          {/* <BtnV2
-            text="Sign Up"
-            containerStyle={{marginRight: 10}}
-            onPress={() => navigation.navigate('SignupScreen')}
-          /> */}
+
           <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
             <GradientWrapper
               dark
               containerStyle={{
-                borderRadius: 60,
+                borderRadius: 10,
                 width: 150,
                 height: 45,
                 justifyContent: 'center',
@@ -59,14 +56,6 @@ const AccountScreen = () => {
             </GradientWrapper>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={{margin: 10, marginTop: 15}}
-          onPress={() => navigation.navigate('ForgetPasswordScreen')}>
-          <Text
-            style={{color: COLORS.accentTwo, fontSize: 13, textAlign: 'right'}}>
-            Forget Password ?
-          </Text>
-        </TouchableOpacity>
 
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
           <View
@@ -91,6 +80,18 @@ const AccountScreen = () => {
             Signin with Google or Apple
           </Text>
         </View>
+        <TouchableOpacity
+          style={{margin: 10, marginBottom: 15}}
+          onPress={() => navigation.navigate('ForgetPasswordScreen')}>
+          <Text
+            style={{
+              color: COLORS.accentTwo,
+              fontSize: 13,
+              textAlign: 'center',
+            }}>
+            Forget Password ?
+          </Text>
+        </TouchableOpacity>
 
         <View
           style={{

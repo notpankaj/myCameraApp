@@ -1,12 +1,13 @@
-import {View, Text, TextInput, ScrollView} from 'react-native';
+import {View, Text, TextInput, StyleProp, ViewStyle} from 'react-native';
 import {COLORS} from '../helper/COLOR';
 type InputProps = {
   placeholder: string;
   label: string;
+  inputWrapperStyle?: StyleProp<ViewStyle>;
 };
-const Input = ({placeholder, label}: InputProps) => {
+const Input = ({placeholder, label, inputWrapperStyle}: InputProps) => {
   return (
-    <View style={{width: '100%', paddingHorizontal: 10}}>
+    <View style={[{width: '100%', paddingHorizontal: 10}, inputWrapperStyle]}>
       {/* <Text
         style={{
           fontSize: 24,

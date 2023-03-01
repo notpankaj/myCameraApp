@@ -12,4 +12,6 @@ export const COLORS = {
   textLight: '#767676',
   accentOne: '#d125d3',
   accentTwo: '#874187',
+  greenLight: '#dbfbec',
+  greenDark: '#279a61',
 };

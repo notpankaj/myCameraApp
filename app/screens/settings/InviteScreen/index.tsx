@@ -21,7 +21,7 @@ import GradientWrapper from '../../../components/GradientWrapper';
 const InviteScreen = () => {
   const navigation = useNavigation();
 
-  const [code, setCode] = React.useState('QU!123X');
+  const [code, setCode] = React.useState('ASKMOJO123');
 
   const onShare = async () => {
     try {
@@ -83,7 +83,7 @@ const InviteScreen = () => {
             height: 60,
             borderRadius: 10,
             marginVertical: 20,
-            flexDirection: 'row',
+
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
@@ -127,7 +127,7 @@ const InviteScreen = () => {
             onPress={onShare}
             name={'share-alt'}
             size={24}
-            color={COLORS.textLight}
+            color={COLORS.accentTwo}
           />
         </View>
       </View>

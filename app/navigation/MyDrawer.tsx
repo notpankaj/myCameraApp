@@ -75,7 +75,7 @@ const MyDrawer = () => {
         <BoldText style={{fontSize: 30}} text="Settings" />
       </View>
 
-      <Text
+      {/* <Text
         style={{
           textAlign: 'left',
           alignSelf: 'flex-start',
@@ -83,7 +83,7 @@ const MyDrawer = () => {
           marginBottom: 10,
         }}>
         Account
-      </Text>
+      </Text> */}
       {/* Account */}
 
       <Item

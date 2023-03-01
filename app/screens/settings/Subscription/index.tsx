@@ -42,11 +42,11 @@ const Subscription = () => {
                       height: 25,
                       borderRadius: 25,
                       borderColor: COLORS.accentOne,
-                      borderWidth: 0.7,
+                      borderWidth: 2,
                       justifyContent: 'center',
                       alignItems: 'center',
                     }}>
-                    <Feather name="check" color={COLORS.accentOne} />
+                    <Feather size={20} name="check" color={COLORS.accentOne} />
                   </View>
                   <SmallText text={i} />
                 </View>
@@ -66,7 +66,14 @@ const Subscription = () => {
               }}>
               <SmallText text="Month to Month" />
               <RegularText text="Only $8.99 / Month" />
-              <SmallText text="14 Days Trail" />
+              <SmallText
+                text="14 Days Free Trail"
+                style={{
+                  margin: 10,
+                  color: COLORS.greenDark,
+                  backgroundColor: COLORS.greenLight,
+                }}
+              />
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -99,7 +106,14 @@ const Subscription = () => {
                 }}>
                 $120.99
               </Text>
-              <SmallText text="14 Days Trail" />
+              <SmallText
+                text="14 Days Free Trail"
+                style={{
+                  margin: 10,
+                  color: COLORS.greenDark,
+                  backgroundColor: COLORS.greenLight,
+                }}
+              />
             </TouchableOpacity>
           </View>
 
@@ -131,65 +145,6 @@ const Subscription = () => {
               />
             </View>
           </View>
-
-          {/* <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <BoldText text="Subscription Status" />
-            <Text
-              style={{
-                backgroundColor: 'lightgreen',
-                fontSize: 15,
-                width: 100,
-                textAlign: 'center',
-                padding: 5,
-              }}>
-              active
-            </Text>
-          </View>
-          <RegularText text="8 days left in your subscription" />
-          <View style={{flexDirection: 'row', alignItems: 'flex-end'}}>
-            <BoldText text="Renewal Date:" />
-            <RegularText text="March 3rd, 2023" />
-          </View>
-          <BtnV1
-            containerStyle={{width: 100, paddingVertical: 5, marginTop: 10}}
-            text={'Renew'}
-          />
-          <BoldText text="Paln" style={{marginBottom: -10, marginTop: 10}} />
-          <RegularText text="1 month subscription" />
-          <BoldText text="Manage Subscription" style={{marginTop: 10}} />
-
-          <View style={{flexDirection: 'row'}}>
-            <RadioButton
-              selected={selectedRadio === RADIO_TYPE.month}
-              id="1"
-              onPress={() => setSelectedRadio(RADIO_TYPE.month)}
-              size={15}
-            />
-            <RegularText text="Month to month subscription: $2.99/month" />
-          </View>
-          <View style={{flexDirection: 'row'}}>
-            <RadioButton
-              selected={selectedRadio === RADIO_TYPE.year}
-              id="2"
-              size={15}
-              onPress={() => setSelectedRadio(RADIO_TYPE.year)}
-            />
-            <RegularText text="Anual Subscription: $59.99/month" />
-          </View>
-          <View style={{flexDirection: 'row'}}>
-            <RadioButton
-              selected={selectedRadio === RADIO_TYPE.cancel}
-              id="3"
-              size={15}
-              onPress={() => setSelectedRadio(RADIO_TYPE.cancel)}
-            />
-            <RegularText text="Cancel subscription" />
-          </View>
-
-          <BtnV1
-            containerStyle={{width: 100, paddingVertical: 5, marginTop: 10}}
-            text={'Update'}
-          /> */}
         </ScrollView>
       </View>
     </DrawerPageContainer>

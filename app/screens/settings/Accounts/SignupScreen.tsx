@@ -16,10 +16,26 @@ const SignupScreen = () => {
   return (
     <DrawerPageContainer title="Sign Up" onBack={navigation.goBack}>
       <View style={{paddingHorizontal: 20, flex: 0.9}}>
+        <View style={{flexDirection: 'row'}}>
+          <Input
+            inputWrapperStyle={{
+              flex: 1,
+            }}
+            label="Email Addess"
+            placeholder="*First Name"
+          />
+          <Input
+            inputWrapperStyle={{
+              flex: 1,
+            }}
+            label="Email Addess"
+            placeholder="*Last Name"
+          />
+        </View>
         <Input label="Email Addess" placeholder="*Email Address" />
         <Input label="Password" placeholder="*Password" />
         <Input label="Confirm Password" placeholder="*Confirm Password" />
-        <Input label="Invitation Code" placeholder="Invitation Code" />
+        <Input label="Invitation Code" placeholder="Referrer Code" />
         <View
           style={{
             justifyContent: 'space-between',
@@ -32,13 +48,13 @@ const SignupScreen = () => {
           <TouchableOpacity>
             <GradientWrapper
               containerStyle={{
-                borderRadius: 60,
+                borderRadius: 10,
                 width: 150,
                 height: 45,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <BoldText text={'SIGNUP'} style={{color: COLORS.white}} />
+              <BoldText text={'CREATE'} style={{color: COLORS.white}} />
             </GradientWrapper>
           </TouchableOpacity>
 
@@ -46,7 +62,7 @@ const SignupScreen = () => {
             <GradientWrapper
               dark
               containerStyle={{
-                borderRadius: 60,
+                borderRadius: 10,
                 width: 150,
                 height: 45,
                 justifyContent: 'center',
@@ -71,7 +87,7 @@ const SignupScreen = () => {
           <Text
             style={{
               color: COLORS.textDark,
-              fontSize: 13,
+              fontSize: 15,
               fontWeight: 'bold',
               margin: 10,
             }}>
@@ -83,7 +99,6 @@ const SignupScreen = () => {
 
         <View
           style={{
-            flexDirection: 'row',
             margin: 10,
             marginTop: 20,
             alignItems: 'center',
@@ -98,16 +113,25 @@ const SignupScreen = () => {
             }}>
             Already have an Account ?
           </Text>
-
           <TouchableOpacity>
-            <Text
-              style={{
-                color: COLORS.accentOne,
-                fontSize: 18,
-                fontWeight: 'bold',
+            <GradientWrapper
+              containerStyle={{
+                width: 90,
+                height: 30,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 10,
+                marginTop: 10,
               }}>
-              Login
-            </Text>
+              <Text
+                style={{
+                  color: COLORS.white,
+                  fontSize: 18,
+                  fontWeight: 'bold',
+                }}>
+                Login
+              </Text>
+            </GradientWrapper>
           </TouchableOpacity>
         </View>
       </View>
