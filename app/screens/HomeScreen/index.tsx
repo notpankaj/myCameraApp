@@ -84,7 +84,7 @@ const HomeScreen = () => {
     if (camera.current === null) return;
     try {
       const snapshot = await camera.current.takeSnapshot({
-        quality: 85,
+        quality: 100,
         skipMetadata: true,
       });
 
