@@ -83,10 +83,12 @@ const HomeScreen = () => {
   const tookPhoto = async () => {
     if (camera.current === null) return;
     try {
-      const photo = await camera.current.takePhoto({});
-      console.log(photo);
+      const snapshot = await camera.current.takeSnapshot({
+        quality: 85,
+        skipMetadata: true,
+      });
 
-      showImageModeOn(`file://${photo.path}`);
+      showImageModeOn(`file://${snapshot.path}`);
     } catch (err: any) {
       console.log(err, 'err');
     }
@@ -242,7 +244,7 @@ const HomeScreen = () => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          {showImageModeOnValue || (
+          {tabVisible && (
             <View style={{flexDirection: 'column'}}>
               <Text
                 style={{
