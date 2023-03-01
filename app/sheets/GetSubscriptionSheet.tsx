@@ -1,7 +1,12 @@
+import {
+  presentPaymentSheet,
+  initPaymentSheet,
+} from '@stripe/stripe-react-native';
 import React from 'react';
 import {
   TextInput,
   Text,
+  Alert,
   TouchableOpacity,
   View,
   StyleSheet,
@@ -18,6 +23,37 @@ const RADIO_TYPE = {
 };
 function GetSubscriptionSheet(props: SheetProps) {
   const [selectedRadio, setSelectedRadio] = React.useState(RADIO_TYPE.month);
+
+  const fetchPaymentSheetParams = async () => {
+    const data =
+      '{"publishableKey":"sk_test_51MU2jiKfFoFhc3tbJhpBV7qkOJA3qvSbRYy4s3eTfl9aPvtrdxDTrfjEpyo7DlRLettF4lodG61eqLXvXzOLEdaB00KCcTqFMD","paymentIntent":"pi_3MgobvKfFoFhc3tb1NlrdELA_secret_zxm7BWsB3NRKDEWqLEsc3Wuax","customer":"cus_NRi1WWix7qaOWB","ephemeralKey":"ek_test_YWNjdF8xTVUyamlLZkZvRmhjM3RiLHZQWGhuaDFIUmhEZUNPRDRzRUxENEdSNWJ1b25GUlY_00iH2l5fmM"}';
+    return JSON.parse(data);
+  };
+
+  const initializePaymentSheet = async () => {
+    const {paymentIntent, ephemeralKey, customer} =
+      await fetchPaymentSheetParams();
+
+    console.log({paymentIntent, ephemeralKey, customer});
+    const {error} = await initPaymentSheet({
+      merchantDisplayName: 'Example, Inc.',
+      customerId: customer,
+      customerEphemeralKeySecret: ephemeralKey,
+      paymentIntentClientSecret: paymentIntent,
+
+      allowsDelayedPaymentMethods: true,
+      defaultBillingDetails: {
+        name: 'Jane Doe',
+      },
+    });
+
+    await presentPaymentSheet();
+  };
+
+  const openPaymentSheet = async () => {
+    await initializePaymentSheet();
+  };
+
   return (
     <ActionSheet
       id={props.sheetId}
@@ -73,7 +109,9 @@ function GetSubscriptionSheet(props: SheetProps) {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity style={{alignSelf: 'center', marginVertical: 10}}>
+        <TouchableOpacity
+          style={{alignSelf: 'center', marginVertical: 10}}
+          onPress={openPaymentSheet}>
           <GradientWrapper
             containerStyle={{
               width: 150,
