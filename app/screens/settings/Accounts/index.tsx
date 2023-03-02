@@ -3,8 +3,6 @@ import React from 'react';
 import DrawerPageContainer from '../../../components/DrawerPageContainer';
 import {useNavigation} from '@react-navigation/native';
 import Input from '../../../components/Input';
-import BtnV1 from '../../../components/BtnV1';
-import BtnV2 from '../../../components/BtnV2';
 import {COLORS} from '../../../helper/COLOR';
 import CheckBox from '@react-native-community/checkbox';
 import {RootStackParamList} from '../../../navigation/RootNavigator';

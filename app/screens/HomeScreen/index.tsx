@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   Dimensions,
   Alert,
-  Image,
 } from 'react-native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -14,8 +13,6 @@ import {launchImageLibrary} from 'react-native-image-picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
-import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   DrawerActions,
@@ -33,6 +30,7 @@ import {
   setTabBarVisiblity,
   tabBarVisibilitySelector,
 } from '../../redux/features/theme/themeSlice';
+import BtnV1 from '../../components/BtnV1';
 
 const {width} = Dimensions.get('window');
 
@@ -125,7 +123,6 @@ const HomeScreen = () => {
   }, []);
 
   React.useEffect(() => {
-    console.log('*****');
     setIsCameraActive(true);
     return () => setIsCameraActive(false);
   }, [navigation]);
@@ -138,7 +135,7 @@ const HomeScreen = () => {
     );
   return (
     <View style={[styles.container]}>
-      {isFocused && (
+      {/* {isFocused && (
         <Camera
           ref={camera}
           photo={true}
@@ -147,7 +144,7 @@ const HomeScreen = () => {
           isActive={isCameraActive}
           torch={flash}
         />
-      )}
+      )} */}
 
       {imageUrl && <CropView imageUri={imageUrl} close={hideImageModeOn} />}
       <View style={styles.container}>
@@ -159,7 +156,7 @@ const HomeScreen = () => {
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <TouchableOpacity onPress={openDrawer}>
               <Ionicons name="settings-sharp" size={24} color="white" />
             </TouchableOpacity>
@@ -172,31 +169,22 @@ const HomeScreen = () => {
                   marginLeft: 10,
                   borderColor: COLORS.white,
                   borderWidth: 0.9,
-                  borderRadius: 20,
-                  padding: 5,
+                  borderRadius: 5,
                   color: COLORS.white,
+                  padding: 5,
+                  paddingHorizontal: 12,
                 }}>
-                3 scans left
+                3 Scans Left
               </Text>
             </TouchableOpacity>
           </View>
-          <View style={{flexDirection: 'row', gap: 30}}>
-            {/* <TouchableOpacity>
-              <FontAwesome name="save" size={24} color="white" />
-            </TouchableOpacity> */}
-            <GradientWrapper
-              containerStyle={{
-                borderRadius: 20,
-                width: 45,
-                height: 25,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
+          <View style={{flexDirection: 'row', gap: 10, alignItems: 'center'}}>
+            <BtnV1 containerStyle={{padding: 1, borderRadius: 5}}>
               <SmallText
-                style={{color: COLORS.white, fontSize: 9}}
-                text={'PLUS +'}
+                style={{color: COLORS.white, fontSize: 11}}
+                text={'plus +'}
               />
-            </GradientWrapper>
+            </BtnV1>
             <TouchableOpacity
               onPress={() => {
                 toggleTabBar(!isFullScreenMode);
@@ -253,7 +241,6 @@ const HomeScreen = () => {
         <View style={{paddingBottom: 30}}>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
             {showImageModeOnValue ? null : (
-              // <BtnV2 text="Cancel" onPress={hideImageModeOn} />
               <TouchableOpacity
                 onPress={() => {
                   tookPhoto();
@@ -280,83 +267,6 @@ const HomeScreen = () => {
               <FontAwesome color={COLORS.white} size={24} name="image" />
             </TouchableOpacity>
           </View>
-          {/* <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-evenly',
-              alignItems: 'center',
-              gap: 20,
-              paddingVertical: 20,
-              backgroundColor: 'white',
-              marginTop: 20,
-              borderTopWidth: 5,
-              borderTopColor: COLORS.pinkBorder,
-              opacity: isFullScreenMode ? 0 : 1,
-              display: isFullScreenMode ? 'none' : 'flex',
-            }}>
-            <TouchableOpacity
-              onPress={() => {
-                setActiveTab(TABS.TYPE);
-                SheetManager.show(ASK_QUESTION_SHEET);
-              }}
-              style={{justifyContent: 'center', alignItems: 'center'}}>
-              <FontAwesome
-                color={
-                  activeTab === TABS.TYPE ? COLORS.pinkBorder : COLORS.iconDark
-                }
-                size={25}
-                name="keyboard-o"
-              />
-              <Text style={{fontSize: 9}}>Type</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setActiveTab(TABS.SCAN);
-                SheetManager.show(HISTORY_SHEET);
-              }}
-              style={{justifyContent: 'center', alignItems: 'center'}}>
-              <Entypo
-                color={
-                  activeTab === TABS.SCAN ? COLORS.pinkBorder : COLORS.iconDark
-                }
-                size={24}
-                name="camera"
-              />
-              <Text style={{fontSize: 9}}>Scan</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setActiveTab(TABS.AUDIO);
-                SheetManager.show(HISTORY_SHEET);
-              }}
-              style={{justifyContent: 'center', alignItems: 'center'}}>
-              <FontAwesome5
-                color={
-                  activeTab === TABS.AUDIO ? COLORS.pinkBorder : COLORS.iconDark
-                }
-                size={24}
-                name="microphone"
-              />
-              <Text style={{fontSize: 9}}>Audio</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setActiveTab(TABS.HISTORY);
-                navigation.navigate('HistoryScreen');
-              }}
-              style={{justifyContent: 'center', alignItems: 'center'}}>
-              <FontAwesome
-                color={
-                  activeTab === TABS.HISTORY
-                    ? COLORS.pinkBorder
-                    : COLORS.iconDark
-                }
-                size={24}
-                name="history"
-              />
-              <Text style={{fontSize: 9}}>Past Answers</Text>
-            </TouchableOpacity>
-          </View> */}
         </View>
         {/* footer end */}
       </View>
