@@ -1,4 +1,11 @@
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  Alert,
+  ActivityIndicator,
+} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {COLORS} from '../../../helper/COLOR';
@@ -6,6 +13,13 @@ import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {BoldText, RegularText, SmallText} from '../../../components/MyText';
 import GradientWrapper from '../../../components/GradientWrapper';
+import {api_stripePayment} from '../../../api';
+import {
+  initPaymentSheet,
+  presentPaymentSheet,
+} from '@stripe/stripe-react-native';
+import {myAlert} from '../../../helper/myAlert';
+import {ALERT_TYPE, Dialog} from 'react-native-alert-notification';
 
 const list = [
   'Free tail days',
@@ -18,6 +32,61 @@ const list = [
 ];
 const Subscription = () => {
   const navigation = useNavigation();
+  const [loading, setLoading] = React.useState(false);
+
+  const handleBuyPress = async () => {
+    // const payload = {
+    //   name: 'ravi',
+    //   address: '53 street',
+    //   postal_code: '99501',
+    //   city: 'cal',
+    //   state: 'california',
+    //   country: 'US',
+    //   product: {
+    //     amount: '2000',
+    //     des: 'asduhas asdas da',
+    //   },
+    // };
+    // setLoading(true);
+    // try {
+    //   const res = await api_stripePayment(payload);
+    //   console.log(res);
+    // } catch (error: any) {
+    //   console.log(error);
+    //   Alert.alert('Alert', error.message);
+    // } finally {
+    //   setLoading(false);
+    // }
+    // await presentPaymentSheet();
+    myAlert({type: ALERT_TYPE.SUCCESS, title: 'SUCCESS', textBody: 'SUCCESS'});
+  };
+
+  const initializePaymentSheet = async () => {
+    const {paymentIntent, ephemeralKey, customer} = {
+      paymentIntent:
+        'pi_3Mh78ISFJgtn9Lb916PH8ugc_secret_8eI6O1h6C30Fni1nXdAnkbBVZ',
+      customer: 'cus_NS1ANDEXyoUD3Q',
+      ephemeralKey:
+        'ek_test_YWNjdF8xTTBMMlZTRkpndG45TGI5LEo0cGFreHA4Q0dld1Q3cGJpZkVOSmxTd2xjQ210Uks_00QGg6So46',
+    };
+
+    console.log({paymentIntent, ephemeralKey, customer});
+    const {error} = await initPaymentSheet({
+      merchantDisplayName: 'Example, Inc.',
+      customerId: customer,
+      customerEphemeralKeySecret: ephemeralKey,
+      paymentIntentClientSecret: paymentIntent,
+
+      allowsDelayedPaymentMethods: true,
+      defaultBillingDetails: {
+        name: 'Jane Doe',
+      },
+    });
+  };
+
+  React.useEffect(() => {
+    initializePaymentSheet();
+  }, []);
   return (
     <View style={{flex: 1, backgroundColor: COLORS.primaryBg}}>
       {/* header start */}
@@ -144,7 +213,7 @@ const Subscription = () => {
           </View>
 
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleBuyPress}>
               <GradientWrapper
                 containerStyle={{
                   height: 40,
@@ -154,7 +223,11 @@ const Subscription = () => {
                   borderRadius: 5,
                   marginBottom: 10,
                 }}>
-                <RegularText text="START NOW" style={{color: COLORS.white}} />
+                {loading ? (
+                  <ActivityIndicator size={'small'} color={'white'} />
+                ) : (
+                  <RegularText text="START NOW" style={{color: COLORS.white}} />
+                )}
               </GradientWrapper>
             </TouchableOpacity>
 

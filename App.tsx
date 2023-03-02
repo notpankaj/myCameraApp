@@ -6,17 +6,36 @@ import './app/sheets/sheets';
 import {Provider} from 'react-redux';
 import {store} from './app/redux/store';
 import {StripeProvider} from '@stripe/stripe-react-native';
+
+import {AlertNotificationRoot} from 'react-native-alert-notification';
+import {COLORS} from './app/helper/COLOR';
+const STRIPE_PK =
+  'pk_test_51M0L2VSFJgtn9Lb9roXIXnZekNjTrHMsY4fpXNp5h4QQDIWdkE4ZWRipXmKFd216tS213M9MGRT0vK07udT1FkKI00t1mHCVh3';
+
+const alertThemeConfig = {
+  label: COLORS.textDark,
+  card: COLORS.primaryBg,
+  overlay: COLORS.textDark,
+  success: COLORS.greenDark,
+  danger: 'red',
+  warning: 'yellow',
+};
+
 const App = () => {
   return (
-    <Provider store={store}>
-      <StripeProvider publishableKey="pk_test_51M0L2VSFJgtn9Lb9roXIXnZekNjTrHMsY4fpXNp5h4QQDIWdkE4ZWRipXmKFd216tS213M9MGRT0vK07udT1FkKI00t1mHCVh3">
-        <NavigationContainer>
-          <SheetProvider>
-            <RootNavigator />
-          </SheetProvider>
-        </NavigationContainer>
-      </StripeProvider>
-    </Provider>
+    <AlertNotificationRoot
+      theme="light"
+      colors={[alertThemeConfig, alertThemeConfig]}>
+      <Provider store={store}>
+        <StripeProvider publishableKey={STRIPE_PK}>
+          <NavigationContainer>
+            <SheetProvider>
+              <RootNavigator />
+            </SheetProvider>
+          </NavigationContainer>
+        </StripeProvider>
+      </Provider>
+    </AlertNotificationRoot>
   );
 };
 

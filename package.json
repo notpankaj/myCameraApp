@@ -24,6 +24,7 @@
     "react-native": "0.71.2",
     "react-native-accordion-list-view": "^2.0.1",
     "react-native-actions-sheet": "^0.8.21",
+    "react-native-alert-notification": "^0.3.4",
     "react-native-gesture-handler": "^2.9.0",
     "react-native-image-cropper": "^0.4.5",
     "react-native-image-picker": "^5.0.2",
@@ -38,7 +39,8 @@
     "react-native-vision-camera": "^2.15.4",
     "react-native-webview": "^11.26.1",
     "react-native-youtube-iframe": "^2.2.2",
-    "react-redux": "^8.0.5"
+    "react-redux": "^8.0.5",
+    "stripe": "^11.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
