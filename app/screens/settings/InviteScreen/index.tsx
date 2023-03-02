@@ -11,17 +11,18 @@ import React from 'react';
 import {Image} from 'react-native';
 import DrawerPageContainer from '../../../components/DrawerPageContainer';
 import {useNavigation} from '@react-navigation/native';
-import {BoldText} from '../../../components/MyText';
+import {BoldText, RegularText} from '../../../components/MyText';
 import {COLORS} from '../../../helper/COLOR';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Clipboard from '@react-native-clipboard/clipboard';
 import GradientWrapper from '../../../components/GradientWrapper';
-
+import QRCode from 'react-native-qrcode-svg';
+import BtnV1 from '../../../components/BtnV1';
 const InviteScreen = () => {
   const navigation = useNavigation();
 
-  const [code, setCode] = React.useState('ASKMOJO123');
+  const [code, setCode] = React.useState('Chappie123');
 
   const onShare = async () => {
     try {
@@ -69,10 +70,10 @@ const InviteScreen = () => {
               height: 220,
               width: 220,
             }}>
-            <Image
-              style={styles.image}
-              resizeMode="contain"
-              source={require('../../../../assets/icons/qr.png')}
+            <QRCode
+              value={code}
+              logoSize={50}
+              logoBackgroundColor="transparent"
             />
           </View>
         </View>
@@ -87,30 +88,17 @@ const InviteScreen = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-          <BoldText text={`code: ${code}`} style={{marginLeft: 40}} />
-          <GradientWrapper
+          <BoldText text={code} style={{}} />
+          <BtnV1
+            onPress={() => copyToClipboard(code)}
             containerStyle={{
-              width: 120,
-              height: 35,
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 100,
+              borderRadius: 5,
             }}>
-            <Text
-              onPress={() => copyToClipboard(code)}
-              style={[
-                {
-                  textAlign: 'center',
-                  color: COLORS.white,
-                  fontWeight: 'bold',
-                  fontSize: 15,
-
-                  marginLeft: 10,
-                },
-              ]}>
-              Copy Code
-            </Text>
-          </GradientWrapper>
+            <RegularText
+              text={'copy code'}
+              style={{fontSize: 15, color: COLORS.white}}
+            />
+          </BtnV1>
         </View>
 
         <View
@@ -126,8 +114,8 @@ const InviteScreen = () => {
           <FontAwesome
             onPress={onShare}
             name={'share-alt'}
-            size={24}
-            color={COLORS.accentTwo}
+            size={20}
+            color={COLORS.accentOne}
           />
         </View>
       </View>

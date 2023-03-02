@@ -96,7 +96,7 @@ const Subscription = () => {
           alignItems: 'center',
           marginVertical: 20,
         }}>
-        <BoldText text="Try AskMojo Plus!" style={{fontSize: 30}} />
+        <BoldText text="Try Chappie Plus!" style={{fontSize: 30}} />
         <TouchableOpacity
           onPress={navigation.goBack}
           style={{

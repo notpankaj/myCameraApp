@@ -31,7 +31,7 @@ const HelpScreen = () => {
               marginVertical: 5,
               fontSize: 15,
             }}
-            text="Welcome to the AskMojo Help and Support Section!"
+            text="Welcome to the Chappie Help and Support Section!"
           />
           <RegularText
             style={{
@@ -40,7 +40,7 @@ const HelpScreen = () => {
               marginVertical: 5,
               fontSize: 15,
             }}
-            text="AskMojo is here to help you with all problems by providing you with the best answers and helping you to make the most out of the application.            "
+            text="Chappie is here to help you with all problems by providing you with the best answers and helping you to make the most out of the application.            "
           />
           <RegularText
             style={{

@@ -86,7 +86,7 @@ function GetSubscriptionSheet(props: SheetProps) {
           onPress={() => setSelectedRadio(RADIO_TYPE.month)}>
           <View>
             <BoldText text="Month to Month Subscription" />
-            <SmallText text="$ 9.99 / Month" />
+            <SmallText text="$ 8.99 / Month" />
           </View>
           <RadioButton
             selected={selectedRadio === RADIO_TYPE.month}
