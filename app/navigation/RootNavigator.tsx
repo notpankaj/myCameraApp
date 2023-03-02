@@ -11,8 +11,10 @@ import InviteScreen from '../screens/settings/InviteScreen';
 import HelpScreen from '../screens/settings/HelpScreen';
 import HistoryScreen from '../screens/HistoryScreen';
 import ForgetPasswordScreen from '../screens/settings/Accounts/ForgetPasswordScreen';
+import SplashScreen from '../screens/SplashScreen';
 
 export type RootStackParamList = {
+  Splash: undefined;
   Drawer: undefined;
   Home: undefined;
   Subscription: undefined;
@@ -34,6 +36,7 @@ const RootNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
+      <Root.Screen name="Splash" component={SplashScreen} />
       <Root.Screen name="Drawer" component={MyDrawer} />
       <Root.Screen name="Home" component={HomeScreen} />
       <Root.Screen name="Subscription" component={Subscription} />

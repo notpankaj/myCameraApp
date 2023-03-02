@@ -14,4 +14,6 @@ export const COLORS = {
   accentTwo: '#874187',
   greenLight: '#dbfbec',
   greenDark: '#279a61',
+  SPLASH_START: '#ca12d8',
+  SPLASH_END: '#9123af',
 };
