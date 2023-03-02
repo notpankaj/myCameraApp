@@ -1,20 +1,11 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import {Image, Platform, UIManager} from 'react-native';
+import {Platform, UIManager} from 'react-native';
 import DrawerPageContainer from '../../../components/DrawerPageContainer';
 import {useNavigation} from '@react-navigation/native';
-import {BoldText, RegularText, SmallText} from '../../../components/MyText';
+import {SmallText} from '../../../components/MyText';
 import {COLORS} from '../../../helper/COLOR';
-import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import YoutubePlayer from 'react-native-youtube-iframe';
-import Input from '../../../components/Input';
+
 import {AccordionList} from 'react-native-accordion-list-view';
 
 const FaqScreen = () => {
@@ -101,32 +92,36 @@ const FaqScreen = () => {
     <DrawerPageContainer title="FAQs" onBack={navigation.goBack}>
       <View
         style={{
-          paddingHorizontal: 20,
+          paddingHorizontal: 10,
           flex: 0.9,
           backgroundColor: COLORS.primaryBg,
         }}>
         <View
           style={{
             borderRadius: 10,
-            flex: 0.98,
-            paddingHorizontal: 20,
           }}>
           <View style={styles.container}>
             <AccordionList
               customIcon={() => <></>}
+              style={{padding: 10}}
+              containerItemStyle={{
+                marginBottom: 10,
+              }}
               data={data}
               customTitle={item => (
                 <Text
                   style={{
                     fontWeight: 'bold',
-                    fontSize: 16,
+                    fontSize: 17,
+                    color: COLORS.textDark,
                   }}>
-                  {/* <Text style={{color: COLORS.accentOne}}>Ques: </Text> */}
                   {item.title}
                 </Text>
               )}
-              customBody={item => <SmallText text={item.body} />}
-              animationDuration={400}
+              customBody={item => (
+                <SmallText text={item.body} style={{fontSize: 12}} />
+              )}
+              animationDuration={150}
               expandMultiple={false}
             />
           </View>
