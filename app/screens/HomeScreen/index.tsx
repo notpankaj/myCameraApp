@@ -23,14 +23,8 @@ import {
   useIsFocused,
 } from '@react-navigation/native';
 import {SheetManager} from 'react-native-actions-sheet';
-import {
-  ASK_QUESTION_SHEET,
-  GET_SUBSCRIPTION_SHEET,
-  HISTORY_SHEET,
-} from '../../sheets/types';
-import BtnV2 from '../../components/BtnV2';
+import {GET_SUBSCRIPTION_SHEET} from '../../sheets/types';
 import {COLORS} from '../../helper/COLOR';
-import WelcomePopup from '../../components/WelcomePopup';
 import CropView from './CropView';
 import {SmallText} from '../../components/MyText';
 import GradientWrapper from '../../components/GradientWrapper';
@@ -48,16 +42,8 @@ const FLASH: FlashType = {
   OFF: 'off',
 };
 
-const TABS = {
-  TYPE: 'TYPE',
-  SCAN: 'SCAN',
-  AUDIO: 'AUDIO',
-  HISTORY: 'HISTORY',
-};
-
 const HomeScreen = () => {
   const dispatch = useDispatch();
-  const [welcomePopVisible, setWelcomePopVisible] = React.useState(true);
   const [isFullScreenMode, setIsFullScreenMode] = React.useState(false);
   const devices = useCameraDevices('wide-angle-camera');
   const device = devices.back;
@@ -138,10 +124,6 @@ const HomeScreen = () => {
     init();
   }, []);
 
-  const onHideWelcomePopup = () => {
-    setWelcomePopVisible(false);
-  };
-
   React.useEffect(() => {
     console.log('*****');
     setIsCameraActive(true);
@@ -156,8 +138,6 @@ const HomeScreen = () => {
     );
   return (
     <View style={[styles.container]}>
-      {/* @ts-ignore */}
-      <WelcomePopup visible={welcomePopVisible} onHide={onHideWelcomePopup} />
       {isFocused && (
         <Camera
           ref={camera}
@@ -230,7 +210,7 @@ const HomeScreen = () => {
             </TouchableOpacity>
             <TouchableOpacity onPress={toggleFlash}>
               <MaterialCommunityIcons
-                name={flash === FLASH.ON ? 'flash' : 'flash-off'}
+                name={flash === FLASH.ON ? 'flash-off' : 'flash'}
                 size={24}
                 color="white"
               />
