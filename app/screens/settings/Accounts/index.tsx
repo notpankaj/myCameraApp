@@ -45,7 +45,7 @@ const AccountScreen = () => {
               dark
               containerStyle={{
                 borderRadius: 10,
-                width: 150,
+                width: 170,
                 height: 45,
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -79,7 +79,7 @@ const AccountScreen = () => {
           </Text>
         </View>
         <TouchableOpacity
-          style={{margin: 10, marginBottom: 15}}
+          style={{marginBottom: 20}}
           onPress={() => navigation.navigate('ForgetPasswordScreen')}>
           <Text
             style={{
@@ -98,24 +98,38 @@ const AccountScreen = () => {
             gap: 10,
             flexDirection: 'row',
           }}>
-          <Image
+          <TouchableOpacity
             style={{
-              width: 35,
-              height: 35,
-              resizeMode: 'contain',
-              borderRadius: 35,
-            }}
-            source={require('../../../../assets/icons/google.png')}
-          />
-          <Image
+              backgroundColor: 'rgba(0,0,0,0.1)',
+              padding: 8,
+              borderRadius: 25,
+            }}>
+            <Image
+              style={{
+                width: 25,
+                height: 25,
+                resizeMode: 'contain',
+                borderRadius: 25,
+              }}
+              source={require('../../../../assets/icons/google.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
             style={{
-              width: 35,
-              height: 35,
-              resizeMode: 'contain',
-              borderRadius: 35,
-            }}
-            source={require('../../../../assets/icons/apple.png')}
-          />
+              backgroundColor: 'rgba(0,0,0,0.1)',
+              padding: 8,
+              borderRadius: 25,
+            }}>
+            <Image
+              style={{
+                width: 25,
+                height: 25,
+                resizeMode: 'contain',
+                borderRadius: 25,
+              }}
+              source={require('../../../../assets/icons/apple.png')}
+            />
+          </TouchableOpacity>
         </View>
         <Text
           style={{
@@ -141,10 +155,10 @@ const AccountScreen = () => {
               margin: 6,
               justifyContent: 'center',
               alignItems: 'center',
-              borderWidth: 2,
+              borderWidth: 1,
               borderColor: COLORS.accentOne,
             }}>
-            <BoldText text="invite Frined" style={{}} />
+            <BoldText text="INVITE FRIEND" style={{fontSize: 14}} />
           </TouchableOpacity>
         </View>
 

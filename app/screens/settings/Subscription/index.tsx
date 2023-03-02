@@ -1,9 +1,9 @@
 import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
 import React from 'react';
-import DrawerPageContainer from '../../../components/DrawerPageContainer';
 import {useNavigation} from '@react-navigation/native';
 import {COLORS} from '../../../helper/COLOR';
 import Feather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import {BoldText, RegularText, SmallText} from '../../../components/MyText';
 import GradientWrapper from '../../../components/GradientWrapper';
 
@@ -19,12 +19,38 @@ const list = [
 const Subscription = () => {
   const navigation = useNavigation();
   return (
-    <DrawerPageContainer title="Try AskMojo Plus!" onBack={navigation.goBack}>
-      <View style={{paddingHorizontal: 20, flex: 0.9}}>
+    <View style={{flex: 1, backgroundColor: COLORS.primaryBg}}>
+      {/* header start */}
+      <View
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginVertical: 20,
+        }}>
+        <BoldText text="Try AskMojo Plus!" style={{fontSize: 30}} />
+        <TouchableOpacity
+          onPress={navigation.goBack}
+          style={{
+            width: 30,
+            height: 30,
+            backgroundColor: COLORS.white,
+            borderRadius: 30,
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            right: 25,
+          }}>
+          <AntDesign name="close" color={COLORS.textDark} size={15} />
+        </TouchableOpacity>
+      </View>
+      {/* header end */}
+      <View style={{paddingHorizontal: 20, flex: 0.95}}>
         <ScrollView
+          showsVerticalScrollIndicator={false}
           style={{
             backgroundColor: COLORS.white,
             borderRadius: 10,
+            elevation: 1,
           }}
           contentContainerStyle={{
             paddingHorizontal: 10,
@@ -125,13 +151,14 @@ const Subscription = () => {
                   width: 130,
                   justifyContent: 'center',
                   alignItems: 'center',
-                  borderRadius: 20,
+                  borderRadius: 5,
+                  marginBottom: 10,
                 }}>
                 <RegularText text="START NOW" style={{color: COLORS.white}} />
               </GradientWrapper>
             </TouchableOpacity>
 
-            <SmallText text="cancel any time  in the App Store" />
+            <SmallText text="Cancel any time  in the App Store" />
 
             <View style={{flexDirection: 'row'}}>
               <RegularText
@@ -147,7 +174,7 @@ const Subscription = () => {
           </View>
         </ScrollView>
       </View>
-    </DrawerPageContainer>
+    </View>
   );
 };
 
