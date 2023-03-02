@@ -6,8 +6,8 @@ import {SheetManager} from 'react-native-actions-sheet';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {GET_SUBSCRIPTION_SHEET} from '../sheets/types';
 import {COLORS} from '../helper/COLOR';
-import GradientWrapper from './GradientWrapper';
 import {SmallText} from './MyText';
+import BtnV1 from './BtnV1';
 
 const CommonHeader = ({isDark}: {isDark?: boolean}) => {
   const navigation = useNavigation();
@@ -17,13 +17,16 @@ const CommonHeader = ({isDark}: {isDark?: boolean}) => {
   return (
     <View
       style={{
-        paddingVertical: 10,
+        padding: 15,
+        paddingVertical: 20,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: COLORS.transparentBlack,
       }}>
-      <View style={{flexDirection: 'row'}}>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <TouchableOpacity onPress={openDrawer}>
-          <Ionicons name="settings-sharp" size={24} color={COLORS.textLight} />
+          <Ionicons name="settings-sharp" size={24} color={COLORS.white} />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
@@ -32,40 +35,34 @@ const CommonHeader = ({isDark}: {isDark?: boolean}) => {
           <Text
             style={{
               marginLeft: 10,
-              borderColor: COLORS.textLight,
+              borderColor: COLORS.white,
               borderWidth: 0.9,
-              borderRadius: 20,
+              borderRadius: 5,
+              color: COLORS.white,
               padding: 5,
-              color: COLORS.textLight,
+              paddingHorizontal: 12,
             }}>
             3 Scans Left
           </Text>
         </TouchableOpacity>
       </View>
-      <View style={{flexDirection: 'row', gap: 10}}>
-        <GradientWrapper
-          containerStyle={{
-            borderRadius: 20,
-            width: 45,
-            height: 25,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
+      <View style={{flexDirection: 'row', gap: 10, alignItems: 'center'}}>
+        <BtnV1 containerStyle={{padding: 1, borderRadius: 5}}>
           <SmallText
-            style={{color: COLORS.white, fontSize: 9}}
-            text={'PLUS +'}
+            style={{color: COLORS.white, fontSize: 11}}
+            text={'plus +'}
           />
-        </GradientWrapper>
+        </BtnV1>
         <TouchableOpacity
           style={{
-            backgroundColor: COLORS.textLight,
+            backgroundColor: COLORS.white,
             width: 25,
             height: 25,
             borderRadius: 25,
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <FontAwesome5 name="question" size={12} color={COLORS.white} />
+          <FontAwesome5 name="question" size={12} color={COLORS.textLight} />
         </TouchableOpacity>
       </View>
     </View>

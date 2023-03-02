@@ -14,55 +14,61 @@ import CommonHeader from '../../components/CommonHeader';
 const AudioQuestionScreen = () => {
   const [listening, setListening] = React.useState(false);
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: COLORS.primaryBg,
-        paddingHorizontal: 40,
-      }}>
+    <>
       <CommonHeader />
-      <View style={{flex: 1, justifyContent: 'center'}}>
-        <BoldText
-          text={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, aut sequi velit quisquam blanditiis quaerat maxime consequuntur veniam facilis? Quia ab perspiciatis labore est modi maxime unde sint nisi magni.`}
-        />
-      </View>
-
-      <Pressable
-        onPressIn={() => setListening(true)}
-        onPressOut={() => setListening(false)}
+      <View
         style={{
-          width: 75,
-          height: 75,
-          borderRadius: 75,
-          borderWidth: listening ? 2 : 6,
-          borderColor: COLORS.pinkBorder,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: 'white',
-          alignSelf: 'center',
-          marginBottom: 20,
+          flex: 1,
+          backgroundColor: COLORS.primaryBg,
+          paddingHorizontal: 40,
         }}>
-        {({pressed}) => {
-          if (pressed) {
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <BoldText
+            text={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, aut sequi velit quisquam blanditiis quaerat maxime consequuntur veniam facilis? Quia ab perspiciatis labore est modi maxime unde sint nisi magni.`}
+          />
+        </View>
+
+        <Pressable
+          onPressIn={() => setListening(true)}
+          onPressOut={() => setListening(false)}
+          style={{
+            width: 75,
+            height: 75,
+            borderRadius: 75,
+            borderWidth: listening ? 2 : 6,
+            borderColor: COLORS.pinkBorder,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'white',
+            alignSelf: 'center',
+            marginBottom: 20,
+          }}>
+          {({pressed}) => {
+            if (pressed) {
+              return (
+                <FontAwesome
+                  name="microphone-slash"
+                  size={35}
+                  color={COLORS.textDark}
+                />
+              );
+            }
             return (
               <FontAwesome
-                name="microphone-slash"
+                name="microphone"
                 size={35}
                 color={COLORS.textDark}
               />
             );
-          }
-          return (
-            <FontAwesome name="microphone" size={35} color={COLORS.textDark} />
-          );
-        }}
-      </Pressable>
+          }}
+        </Pressable>
 
-      <RegularText
-        style={{textAlign: 'center'}}
-        text={listening ? 'Let go when done!' : 'Hold when speek!'}
-      />
-    </View>
+        <RegularText
+          style={{textAlign: 'center'}}
+          text={listening ? 'Let go when done!' : 'Hold when speek!'}
+        />
+      </View>
+    </>
   );
 };
 
