@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
 import React, {ReactNode} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -75,17 +75,6 @@ const MyDrawer = () => {
         <BoldText style={{fontSize: 30}} text="Settings" />
       </View>
 
-      {/* <Text
-        style={{
-          textAlign: 'left',
-          alignSelf: 'flex-start',
-          marginLeft: 25,
-          marginBottom: 10,
-        }}>
-        Account
-      </Text> */}
-      {/* Account */}
-
       <Item
         icon={() => (
           <MaterialCommunityIcons
@@ -153,6 +142,10 @@ const MyDrawer = () => {
             size={35}
             color={COLORS.accentTwo}
           />
+          // <Image
+          //   style={{width: 35, height: 35, resizeMode: 'contain'}}
+          //   source={require('../../assets/nav/faq.png')}
+          // />
         )}
         onPress={() => navigation.navigate('FaqScreen')}
         title="FAQ"
@@ -161,6 +154,10 @@ const MyDrawer = () => {
       <Item
         icon={() => (
           <AntDesign name="contacts" size={35} color={COLORS.accentTwo} />
+          // <Image
+          //   style={{width: 100, height: 100, resizeMode: 'center'}}
+          //   source={require('../../assets/nav/contact.png')}
+          // />
         )}
         title="Contact Us"
         des="Send an email to us: app@gamail.com"

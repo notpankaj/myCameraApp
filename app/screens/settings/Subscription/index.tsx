@@ -57,19 +57,20 @@ const Subscription = () => {
     // } finally {
     //   setLoading(false);
     // }
-    // await presentPaymentSheet();
+    await presentPaymentSheet();
     myAlert({type: ALERT_TYPE.SUCCESS, title: 'SUCCESS', textBody: 'SUCCESS'});
   };
 
   const initializePaymentSheet = async () => {
     const {paymentIntent, ephemeralKey, customer} = {
+      publishableKey:
+        'pk_test_51M0L2VSFJgtn9Lb9roXIXnZekNjTrHMsY4fpXNp5h4QQDIWdkE4ZWRipXmKFd216tS213M9MGRT0vK07udT1FkKI00t1mHCVh3',
       paymentIntent:
-        'pi_3Mh78ISFJgtn9Lb916PH8ugc_secret_8eI6O1h6C30Fni1nXdAnkbBVZ',
-      customer: 'cus_NS1ANDEXyoUD3Q',
+        'pi_3MhB6BSFJgtn9Lb90VD846cB_secret_Er8oehuB7n9tjPfknDS3nhoFE',
+      customer: 'cus_NS5GH5IhCx4Rz2',
       ephemeralKey:
-        'ek_test_YWNjdF8xTTBMMlZTRkpndG45TGI5LEo0cGFreHA4Q0dld1Q3cGJpZkVOSmxTd2xjQ210Uks_00QGg6So46',
+        'ek_test_YWNjdF8xTTBMMlZTRkpndG45TGI5LHptQk9WMzFmbWpsSmdGTXV1azNkR0xRRjluM2hXQ1E_00zeep3hHj',
     };
-
     console.log({paymentIntent, ephemeralKey, customer});
     const {error} = await initPaymentSheet({
       merchantDisplayName: 'Example, Inc.',

@@ -135,7 +135,7 @@ const HomeScreen = () => {
     );
   return (
     <View style={[styles.container]}>
-      {/* {isFocused && (
+      {isFocused && (
         <Camera
           ref={camera}
           photo={true}
@@ -144,7 +144,7 @@ const HomeScreen = () => {
           isActive={isCameraActive}
           torch={flash}
         />
-      )} */}
+      )}
 
       {imageUrl && <CropView imageUri={imageUrl} close={hideImageModeOn} />}
       <View style={styles.container}>

@@ -19,6 +19,7 @@ import Clipboard from '@react-native-clipboard/clipboard';
 import GradientWrapper from '../../../components/GradientWrapper';
 import QRCode from 'react-native-qrcode-svg';
 import BtnV1 from '../../../components/BtnV1';
+
 const InviteScreen = () => {
   const navigation = useNavigation();
 
