@@ -31,6 +31,7 @@ import {
 } from '../../redux/features/theme/themeSlice';
 import BtnV1 from '../../components/BtnV1';
 import ImagePicker from 'react-native-image-crop-picker';
+import {APP_NAME} from '../../helper/constants';
 
 const {width} = Dimensions.get('window');
 
@@ -97,6 +98,10 @@ const HomeScreen = () => {
     // @ts-ignore
     ImagePicker.openCropper({
       path: imagePath,
+      freeStyleCropEnabled: true,
+      cropperToolbarTitle: '',
+      cropperActiveWidgetColor: COLORS.accentOne,
+      cropperToolbarWidgetColor: COLORS.accentOne,
     })
       .then(image => {
         console.log(image, 'image');
@@ -126,6 +131,10 @@ const HomeScreen = () => {
     try {
       const image = await ImagePicker.openPicker({
         cropping: true,
+        freeStyleCropEnabled: true,
+        cropperToolbarTitle: '',
+        cropperActiveWidgetColor: COLORS.accentOne,
+        cropperToolbarWidgetColor: COLORS.accentOne,
       });
       console.log(image);
 
@@ -134,7 +143,7 @@ const HomeScreen = () => {
       }
     } catch (error: any) {
       console.log(error);
-      Alert.alert('Alert', error?.messgae || 'Something Went Wrong!');
+      // Alert.alert('Alert', error?.messgae || 'Something Went Wrong!');
     }
   };
 
@@ -239,7 +248,7 @@ const HomeScreen = () => {
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          {tabVisible && (
+          {/* {tabVisible && (
             <View
               style={{
                 flexDirection: 'column',
@@ -266,7 +275,7 @@ const HomeScreen = () => {
                 }}
               />
             </View>
-          )}
+          )} */}
         </View>
         {/* footer start */}
         <View style={{paddingBottom: 30}}>
@@ -310,6 +319,7 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.transparentBlack,
+    // backgroundColor: COLORS.transparentBlack,
+    backgroundColor: 'rgba(0,0,0,0.3)',
   },
 });
