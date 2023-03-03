@@ -288,7 +288,7 @@ const HomeScreen = () => {
                 style={{
                   width: 80,
                   height: 80,
-                  backgroundColor: 'tomato',
+                  backgroundColor: COLORS.white,
                   borderRadius: 80,
                   borderWidth: 5,
                   borderColor: 'rgba(255,255,255,0.6)',
