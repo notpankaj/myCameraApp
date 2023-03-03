@@ -14,13 +14,19 @@ import {RootStackParams} from './types';
 
 const Root = createNativeStackNavigator<RootStackParams>();
 const RootNavigator = () => {
+  const [slpashVisible, setSplashVisible] = React.useState(true);
+
+  if (slpashVisible) {
+    return <SplashScreen hideSplash={() => setSplashVisible(false)} />;
+  }
+
   return (
     <Root.Navigator
       id="RootStack"
       screenOptions={{
         headerShown: false,
       }}>
-      <Root.Screen name="Splash" component={SplashScreen} />
+      {/* <Root.Screen name="Splash" component={SplashScreen} /> */}
       <Root.Screen name="Drawer" component={MyDrawer} />
       {/* account stack start*/}
       <Root.Screen name="Account" component={AccountScreen} />

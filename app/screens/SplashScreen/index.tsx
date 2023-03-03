@@ -8,9 +8,13 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParams} from '../../navigation/types';
 
 const LOGO_SIZE = 150;
-const SplashScreen = () => {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParams>>();
+
+type Props = {
+  hideSplash: () => void;
+};
+const SplashScreen = ({hideSplash}: Props) => {
+  // const navigation =
+  //   useNavigation<NativeStackNavigationProp<RootStackParams>>();
   const logoHeightValue = useRef(new Animated.Value(0)).current;
   const textHeightValue = useRef(new Animated.Value(0)).current;
 
@@ -28,7 +32,8 @@ const SplashScreen = () => {
       }),
     ]).start(() => {
       setTimeout(() => {
-        navigation.navigate('Drawer');
+        // navigation.navigate('Drawer');
+        hideSplash();
       }, 500);
     });
   };

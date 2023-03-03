@@ -32,6 +32,7 @@ import {
 import BtnV1 from '../../components/BtnV1';
 import ImagePicker from 'react-native-image-crop-picker';
 import {APP_NAME} from '../../helper/constants';
+import useBackHandler from '../../hook/useBackHandler';
 
 const {width} = Dimensions.get('window');
 
