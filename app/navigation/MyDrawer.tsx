@@ -9,6 +9,7 @@ import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from './RootNavigator';
 import {COLORS} from '../helper/COLOR';
 import {BoldText} from '../components/MyText';
+import AppIcon from '../components/icons/AppIcon';
 
 type ItemProps = {
   icon: () => ReactNode;
@@ -164,7 +165,7 @@ const MyDrawer = () => {
         disbaleRightArrow
       />
 
-      <Text style={{textAlign: 'center', opacity: 0.6}}>App Verison 1.2.1</Text>
+      <AppIcon />
     </View>
   );
 };

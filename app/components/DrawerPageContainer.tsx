@@ -3,6 +3,7 @@ import React, {ReactNode} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {BoldText} from './MyText';
 import {COLORS} from '../helper/COLOR';
+import AppIcon from './icons/AppIcon';
 
 interface Props {
   children: ReactNode;
@@ -33,6 +34,9 @@ const DrawerPageContainer = ({children, onBack, title}: Props) => {
       </View>
       {children}
       {/* <Text style={{textAlign: 'center', opacity: 0.6}}>App Verison 1.2.1</Text> */}
+      <View style={{alignItems: 'center'}}>
+        <AppIcon />
+      </View>
     </View>
   );
 };
