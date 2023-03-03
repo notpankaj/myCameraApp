@@ -24,6 +24,7 @@ const DrawerPageContainer = ({children, onBack, title}: Props) => {
             position: 'absolute',
             top: 35,
             left: 25,
+            zIndex: 1,
           }}
           onPress={onBack}>
           <Ionicons name="chevron-back" size={24} color={COLORS.textLight} />

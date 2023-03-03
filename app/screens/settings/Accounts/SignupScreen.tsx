@@ -8,9 +8,12 @@ import {COLORS} from '../../../helper/COLOR';
 import GradientWrapper from '../../../components/GradientWrapper';
 import {BoldText} from '../../../components/MyText';
 import CheckBox from '@react-native-community/checkbox';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParams} from '../../../navigation/types';
 
 const SignupScreen = () => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
 
   const [toggleCheckBox, setToggleCheckBox] = React.useState(false);
   return (
@@ -42,7 +45,7 @@ const SignupScreen = () => {
             flexDirection: 'row',
             marginTop: 10,
           }}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={navigation.goBack}>
             <GradientWrapper
               containerStyle={{
                 borderRadius: 10,
@@ -55,7 +58,7 @@ const SignupScreen = () => {
             </GradientWrapper>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={navigation.goBack}>
             <GradientWrapper
               dark
               containerStyle={{
@@ -110,7 +113,7 @@ const SignupScreen = () => {
             }}>
             Already have an Account ?
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
             <GradientWrapper
               containerStyle={{
                 width: 90,

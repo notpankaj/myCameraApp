@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Alert, TouchableOpacity} from 'react-native';
 import React from 'react';
 import DrawerPageContainer from '../../../components/DrawerPageContainer';
 import {useNavigation} from '@react-navigation/native';
@@ -8,13 +8,15 @@ import {COLORS} from '../../../helper/COLOR';
 import GradientWrapper from '../../../components/GradientWrapper';
 import {BoldText} from '../../../components/MyText';
 import CheckBox from '@react-native-community/checkbox';
-import AppIcon from '../../../components/icons/AppIcon';
 
 const ForgetPasswordScreen = () => {
   const navigation = useNavigation();
 
+  const onBack = () => {
+    navigation.goBack();
+  };
   return (
-    <DrawerPageContainer title="Change Password" onBack={navigation.goBack}>
+    <DrawerPageContainer title="Change Password" onBack={onBack}>
       <View style={{paddingHorizontal: 20, flex: 0.9}}>
         <Input label="Email Addess" placeholder="Old Password" />
         <Input label="Password" placeholder="New Password" />

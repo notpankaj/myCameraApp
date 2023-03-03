@@ -1,3 +1,5 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {
   presentPaymentSheet,
   initPaymentSheet,
@@ -11,17 +13,25 @@ import {
   View,
   StyleSheet,
 } from 'react-native';
-import ActionSheet, {SheetProps} from 'react-native-actions-sheet';
+import ActionSheet, {
+  SheetManager,
+  SheetProps,
+} from 'react-native-actions-sheet';
 import {RadioButton} from 'react-native-radio-buttons-group';
 import GradientWrapper from '../components/GradientWrapper';
 import {BoldText, RegularText, SmallText} from '../components/MyText';
+import {shareAPI} from '../helper';
 import {COLORS} from '../helper/COLOR';
+import {RootStackParams} from '../navigation/types';
+import {GET_SUBSCRIPTION_SHEET} from './types';
 
 const RADIO_TYPE = {
   month: 'month',
   year: 'year',
 };
 function GetSubscriptionSheet(props: SheetProps) {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   const [selectedRadio, setSelectedRadio] = React.useState(RADIO_TYPE.month);
 
   const fetchPaymentSheetParams = async () => {
@@ -134,7 +144,7 @@ function GetSubscriptionSheet(props: SheetProps) {
           }}>
           <RegularText text="Invite friends and get 10 FREE scans for every new players" />
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => shareAPI()}>
             <RegularText
               text="Invite Friends"
               style={{color: COLORS.accentOne, textDecorationLine: 'underline'}}
@@ -151,7 +161,11 @@ function GetSubscriptionSheet(props: SheetProps) {
           }}>
           <RegularText text="Do not have account yet?." />
 
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              SheetManager.hide(GET_SUBSCRIPTION_SHEET);
+              navigation.navigate('SignupScreen');
+            }}>
             <RegularText
               text="Create an Account!"
               style={{color: COLORS.accentOne, textDecorationLine: 'underline'}}

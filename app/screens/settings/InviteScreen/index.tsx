@@ -2,7 +2,6 @@ import {
   View,
   Text,
   Alert,
-  Share,
   StyleSheet,
   TouchableOpacity,
   ToastAndroid,
@@ -19,6 +18,7 @@ import Clipboard from '@react-native-clipboard/clipboard';
 import GradientWrapper from '../../../components/GradientWrapper';
 import QRCode from 'react-native-qrcode-svg';
 import BtnV1 from '../../../components/BtnV1';
+import {shareAPI} from '../../../helper';
 
 const InviteScreen = () => {
   const navigation = useNavigation();
@@ -26,23 +26,7 @@ const InviteScreen = () => {
   const [code, setCode] = React.useState('Chappie123');
 
   const onShare = async () => {
-    try {
-      const result = await Share.share({
-        message:
-          'React Native | A framework for building native apps using React',
-      });
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          // shared with activity type of result.activityType
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        // dismissed
-      }
-    } catch (error: any) {
-      Alert.alert(error.message);
-    }
+    shareAPI();
   };
 
   const copyToClipboard = (text: string) => {

@@ -23,7 +23,7 @@ const LoginScreen = () => {
             alignItems: 'center',
             marginTop: 10,
           }}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={navigation.goBack}>
             <GradientWrapper
               containerStyle={{
                 borderRadius: 10,
