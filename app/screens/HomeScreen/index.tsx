@@ -24,13 +24,13 @@ import {GET_SUBSCRIPTION_SHEET} from '../../sheets/types';
 import {COLORS} from '../../helper/COLOR';
 import CropView from './CropView';
 import {SmallText} from '../../components/MyText';
-import GradientWrapper from '../../components/GradientWrapper';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   setTabBarVisiblity,
   tabBarVisibilitySelector,
 } from '../../redux/features/theme/themeSlice';
 import BtnV1 from '../../components/BtnV1';
+import ImagePicker from 'react-native-image-crop-picker';
 
 const {width} = Dimensions.get('window');
 
@@ -71,8 +71,8 @@ const HomeScreen = () => {
         quality: 100,
         skipMetadata: true,
       });
-
-      showImageModeOn(`file://${snapshot.path}`);
+      const imagePath = `file://${snapshot.path}`;
+      openImageCroper(imagePath);
     } catch (err: any) {
       console.log(err, 'err');
     }
@@ -93,17 +93,44 @@ const HomeScreen = () => {
     setImageUrl(null);
   };
 
-  const pickPhotoFormGallery = async () => {
-    try {
-      const result = await launchImageLibrary({
-        mediaType: 'photo',
+  const openImageCroper = (imagePath: string) => {
+    // @ts-ignore
+    ImagePicker.openCropper({
+      path: imagePath,
+    })
+      .then(image => {
+        console.log(image, 'image');
+        showImageModeOn(image.path);
+      })
+      .catch(err => {
+        console.log(err, 'err');
       });
+  };
 
-      if (result.assets === undefined) return;
-      const imageUrl = result?.assets[0];
-      console.log(imageUrl, 'imageUrl');
-      if (imageUrl?.uri) {
-        showImageModeOn(imageUrl.uri);
+  const pickPhotoFormGallery = async () => {
+    // try {
+    //   const result = await launchImageLibrary({
+    //     mediaType: 'photo',
+    //   });
+
+    //   if (result.assets === undefined) return;
+    //   const imageUrl = result?.assets[0];
+    //   console.log(imageUrl, 'imageUrl');
+    //   if (imageUrl?.uri) {
+    //     showImageModeOn(imageUrl.uri);
+    //   }
+    // } catch (error: any) {
+    //   console.log(error);
+    //   Alert.alert('Alert', error?.messgae || 'Something Went Wrong!');
+    // }
+    try {
+      const image = await ImagePicker.openPicker({
+        cropping: true,
+      });
+      console.log(image);
+
+      if (image?.path) {
+        showImageModeOn(image.path);
       }
     } catch (error: any) {
       console.log(error);
@@ -213,7 +240,11 @@ const HomeScreen = () => {
             alignItems: 'center',
           }}>
           {tabVisible && (
-            <View style={{flexDirection: 'column'}}>
+            <View
+              style={{
+                flexDirection: 'column',
+                display: !showImageModeOnValue ? 'flex' : 'none',
+              }}>
               <Text
                 style={{
                   color: COLORS.white,

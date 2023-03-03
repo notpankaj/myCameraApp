@@ -27,6 +27,7 @@
     "react-native-actions-sheet": "^0.8.21",
     "react-native-alert-notification": "^0.3.4",
     "react-native-gesture-handler": "^2.9.0",
+    "react-native-image-crop-picker": "^0.39.0",
     "react-native-image-cropper": "^0.4.5",
     "react-native-image-picker": "^5.0.2",
     "react-native-image-zoom-viewer": "^3.0.1",
