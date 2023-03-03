@@ -12,8 +12,9 @@ import TypeQuestionScreen from '../screens/TypeQuestionScreen';
 import AudioQuestionScreen from '../screens/AudioQuestionScreen';
 import {useSelector} from 'react-redux';
 import {tabBarVisibilitySelector} from '../redux/features/theme/themeSlice';
+import {TabNavigatorParams} from './types';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<TabNavigatorParams>();
 
 const TabNavigator = () => {
   const tabVisible = useSelector(tabBarVisibilitySelector);
@@ -33,6 +34,7 @@ const TabNavigator = () => {
         children={<></>}
       />
       <Tab.Navigator
+        id="TabNavigator"
         initialRouteName="Scan"
         screenOptions={{
           headerShown: false,
@@ -44,15 +46,11 @@ const TabNavigator = () => {
           options={{
             tabBarIcon: ({focused}) => {
               return (
-                // <GradientWrapper
-                //   containerStyle={styles.iconWrapper}
-                //   off={!focused}>
                 <FontAwesome
                   color={focused ? COLORS.accentOne : COLORS.textDark}
                   size={24}
                   name="keyboard-o"
                 />
-                // </GradientWrapper>
               );
             },
           }}
@@ -63,15 +61,11 @@ const TabNavigator = () => {
           options={{
             tabBarIcon: ({focused}) => {
               return (
-                // <GradientWrapper
-                //   containerStyle={styles.iconWrapper}
-                //   off={!focused}>
                 <Entypo
                   color={focused ? COLORS.accentOne : COLORS.textDark}
                   size={24}
                   name="camera"
                 />
-                // {/* </GradientWrapper> */}
               );
             },
             tabBarStyle: tabVisible ? styles.tabBar : {display: 'none'},
@@ -83,15 +77,11 @@ const TabNavigator = () => {
           options={{
             tabBarIcon: ({focused, color}) => {
               return (
-                // <GradientWrapper
-                //   containerStyle={styles.iconWrapper}
-                //   off={!focused}>
                 <FontAwesome5
                   color={focused ? COLORS.accentOne : COLORS.textDark}
                   size={24}
                   name="microphone"
                 />
-                // </GradientWrapper>
               );
             },
           }}
@@ -102,15 +92,11 @@ const TabNavigator = () => {
           options={{
             tabBarIcon: ({focused}) => {
               return (
-                // <GradientWrapper
-                //   containerStyle={styles.iconWrapper}
-                //   off={!focused}>
                 <FontAwesome
                   color={focused ? COLORS.accentOne : COLORS.textDark}
                   size={24}
                   name="history"
                 />
-                // </GradientWrapper>
               );
             },
           }}

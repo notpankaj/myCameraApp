@@ -1,15 +1,14 @@
-import {View} from 'react-native';
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import HomeScreen from '../screens/HomeScreen';
 import MyDrawer from './MyDrawer';
 import TabNavigator from './TabNavigator';
-
-const Drawer = createDrawerNavigator();
+import {DrawerNavigatorParams} from './types';
+const Drawer = createDrawerNavigator<DrawerNavigatorParams>();
 
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
+      id="DrawerNavigator"
       screenOptions={{
         headerShown: false,
         drawerStyle: {
@@ -18,8 +17,7 @@ const DrawerNavigator = () => {
         },
       }}
       drawerContent={() => <MyDrawer />}>
-      <Drawer.Screen name="TabNavigator" component={TabNavigator} />
-      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Tabs" component={TabNavigator} />
     </Drawer.Navigator>
   );
 };

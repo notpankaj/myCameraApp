@@ -4,16 +4,14 @@ import DrawerPageContainer from '../../../components/DrawerPageContainer';
 import {useNavigation} from '@react-navigation/native';
 import Input from '../../../components/Input';
 import {COLORS} from '../../../helper/COLOR';
-import CheckBox from '@react-native-community/checkbox';
-import {RootStackParamList} from '../../../navigation/RootNavigator';
-import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import GradientWrapper from '../../../components/GradientWrapper';
 import {BoldText} from '../../../components/MyText';
-type NavigationProps = NativeStackScreenProps<RootStackParamList, 'Account'>;
+import {RootStackParams} from '../../../navigation/types';
 
 const AccountScreen = () => {
-  const [toggleCheckBox, setToggleCheckBox] = React.useState(false);
-  const navigation = useNavigation<NavigationProps>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
     <DrawerPageContainer title="Accounts" onBack={navigation.goBack}>
       <View style={{paddingHorizontal: 20, flex: 0.9}}>

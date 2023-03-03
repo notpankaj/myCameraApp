@@ -5,11 +5,12 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {useNavigation, DrawerActions} from '@react-navigation/native';
-import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from './RootNavigator';
+
 import {COLORS} from '../helper/COLOR';
 import {BoldText} from '../components/MyText';
 import AppIcon from '../components/icons/AppIcon';
+import {DrawerNavigationProp} from '@react-navigation/drawer';
+import {RootStackParams} from './types';
 
 type ItemProps = {
   icon: () => ReactNode;
@@ -48,14 +49,10 @@ const Item = ({icon, title, des, onPress, disbaleRightArrow}: ItemProps) => {
   );
 };
 
-type NavigationProps = NativeStackScreenProps<
-  RootStackParamList,
-  'Drawer',
-  'RootStack'
->;
+type NavigationProp = DrawerNavigationProp<RootStackParams>;
 
 const MyDrawer = () => {
-  const navigation = useNavigation<NavigationProps>();
+  const navigation = useNavigation<NavigationProp>();
   const handleClose = () => {
     navigation?.dispatch(DrawerActions.closeDrawer());
   };

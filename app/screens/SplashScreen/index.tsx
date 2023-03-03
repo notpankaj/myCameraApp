@@ -4,10 +4,13 @@ import {useNavigation} from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS} from '../../helper/COLOR';
 import {APP_NAME} from '../../helper/constants';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParams} from '../../navigation/types';
 
 const LOGO_SIZE = 150;
 const SplashScreen = () => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   const logoHeightValue = useRef(new Animated.Value(0)).current;
   const textHeightValue = useRef(new Animated.Value(0)).current;
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from '../screens/HomeScreen';
 import MyDrawer from './DrawerNavigator';
 import Subscription from '../screens/settings/Subscription';
 import AccountScreen from '../screens/settings/Accounts';
@@ -9,26 +8,11 @@ import SignupScreen from '../screens/settings/Accounts/SignupScreen';
 import FaqScreen from '../screens/settings/FaqScreen';
 import InviteScreen from '../screens/settings/InviteScreen';
 import HelpScreen from '../screens/settings/HelpScreen';
-import HistoryScreen from '../screens/HistoryScreen';
 import ForgetPasswordScreen from '../screens/settings/Accounts/ForgetPasswordScreen';
 import SplashScreen from '../screens/SplashScreen';
+import {RootStackParams} from './types';
 
-export type RootStackParamList = {
-  Splash: undefined;
-  Drawer: undefined;
-  Home: undefined;
-  Subscription: undefined;
-  Account: undefined;
-  LoginScreen: undefined;
-  SignupScreen: undefined;
-  FaqScreen: undefined;
-  HelpScreen: undefined;
-  InviteScreen: undefined;
-  HistoryScreen: undefined;
-  ForgetPasswordScreen: undefined;
-};
-
-const Root = createNativeStackNavigator<RootStackParamList>();
+const Root = createNativeStackNavigator<RootStackParams>();
 const RootNavigator = () => {
   return (
     <Root.Navigator
@@ -38,19 +22,19 @@ const RootNavigator = () => {
       }}>
       <Root.Screen name="Splash" component={SplashScreen} />
       <Root.Screen name="Drawer" component={MyDrawer} />
-      <Root.Screen name="Home" component={HomeScreen} />
-      <Root.Screen name="Subscription" component={Subscription} />
+      {/* account stack start*/}
       <Root.Screen name="Account" component={AccountScreen} />
       <Root.Screen name="LoginScreen" component={LoginScreen} />
       <Root.Screen name="SignupScreen" component={SignupScreen} />
-      <Root.Screen name="FaqScreen" component={FaqScreen} />
-      <Root.Screen name="HelpScreen" component={HelpScreen} />
       <Root.Screen
         name="ForgetPasswordScreen"
         component={ForgetPasswordScreen}
       />
+      {/* account stack end */}
+      <Root.Screen name="Subscription" component={Subscription} />
       <Root.Screen name="InviteScreen" component={InviteScreen} />
-      <Root.Screen name="HistoryScreen" component={HistoryScreen} />
+      <Root.Screen name="HelpScreen" component={HelpScreen} />
+      <Root.Screen name="FaqScreen" component={FaqScreen} />
     </Root.Navigator>
   );
 };
