@@ -8,7 +8,7 @@ export const COLORS = {
   white: 'white',
   pinkBorder: 'rgba(234, 57, 249, 1)',
   iconDark: '#222',
-  textDark: '#353535',
+  textDark: '#444',
   textLight: '#767676',
   accentOne: '#d125d3',
   accentTwo: '#874187',

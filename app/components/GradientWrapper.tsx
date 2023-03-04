@@ -8,18 +8,29 @@ interface Props {
   containerStyle?: StyleProp<ViewStyle>;
   off?: boolean;
   dark?: boolean;
+  reverse?: boolean;
 }
-const GradientWrapper = ({children, containerStyle, off, dark}: Props) => {
+const GradientWrapper = ({
+  children,
+  containerStyle,
+  off,
+  dark,
+  reverse,
+}: Props) => {
   if (off) {
     return <View style={containerStyle}>{children}</View>;
   }
+
+  const colors = dark
+    ? reverse
+      ? [COLORS.textLight, COLORS.textDark]
+      : [COLORS.textDark, COLORS.textLight]
+    : reverse
+    ? [COLORS.accentTwo, COLORS.accentOne]
+    : [COLORS.accentOne, COLORS.accentTwo];
   return (
     <LinearGradient
-      colors={
-        dark
-          ? [COLORS.textDark, COLORS.textLight]
-          : [COLORS.accentOne, COLORS.accentTwo]
-      }
+      colors={colors}
       start={{x: 0, y: 0}}
       end={{x: dark ? 2 : 0.8, y: 0}}
       style={containerStyle}>

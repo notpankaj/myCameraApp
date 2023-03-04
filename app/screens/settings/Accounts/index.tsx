@@ -6,7 +6,7 @@ import Input from '../../../components/Input';
 import {COLORS} from '../../../helper/COLOR';
 import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import GradientWrapper from '../../../components/GradientWrapper';
-import {BoldText} from '../../../components/MyText';
+import {BoldText, RegularText} from '../../../components/MyText';
 import {RootStackParams} from '../../../navigation/types';
 
 const AccountScreen = () => {
@@ -19,37 +19,35 @@ const AccountScreen = () => {
         <Input label="Password" placeholder="Password" />
         <View
           style={{
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            marginTop: 10,
-            marginBottom: 15,
+            alignItems: 'center',
+            marginTop: 20,
+            marginBottom: 20,
             paddingHorizontal: 10,
           }}>
           <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
             <GradientWrapper
               containerStyle={{
                 borderRadius: 10,
-                width: 150,
-                height: 45,
+                width: 120,
+                height: 40,
                 justifyContent: 'center',
                 alignItems: 'center',
-              }}>
-              <BoldText text={'LOGIN'} style={{color: COLORS.white}} />
+              }}
+              reverse>
+              <BoldText
+                text={'LOGIN'}
+                style={{color: COLORS.white, fontSize: 20}}
+              />
             </GradientWrapper>
           </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
-            <GradientWrapper
-              dark
-              containerStyle={{
-                borderRadius: 10,
-                width: 170,
-                height: 45,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <BoldText text={'SINGUP'} style={{color: COLORS.white}} />
-            </GradientWrapper>
+          <TouchableOpacity
+            style={{marginTop: 15}}
+            onPress={() => navigation.navigate('ForgetPasswordScreen')}>
+            <RegularText
+              text="Forget Password?"
+              bold
+              style={{color: COLORS.accentOne}}
+            />
           </TouchableOpacity>
         </View>
 
@@ -57,48 +55,36 @@ const AccountScreen = () => {
           <View
             style={{
               width: '90%',
-              height: 2,
-              backgroundColor: COLORS.textLight,
+              height: 1.5,
+              backgroundColor: 'rgba(0,0,0,0.1)',
               position: 'absolute',
-              top: 22,
+              top: 17,
             }}
           />
-          <Text
+          <RegularText
+            text="Signin with Google or Apple"
+            bold
             style={{
+              fontSize: 17,
               color: COLORS.textLight,
-              fontSize: 18,
-              fontWeight: 'bold',
-              margin: 10,
+              textAlign: 'center',
               backgroundColor: COLORS.primaryBg,
-              textAlign: 'center',
-              width: 250,
-            }}>
-            Signin with Google or Apple
-          </Text>
+              paddingHorizontal: 10,
+              marginBottom: 20,
+            }}
+          />
         </View>
-        <TouchableOpacity
-          style={{marginBottom: 20}}
-          onPress={() => navigation.navigate('ForgetPasswordScreen')}>
-          <Text
-            style={{
-              color: COLORS.accentTwo,
-              fontSize: 13,
-              textAlign: 'center',
-            }}>
-            Forget Password ?
-          </Text>
-        </TouchableOpacity>
 
         <View
           style={{
             justifyContent: 'center',
             alignItems: 'center',
-            gap: 10,
+            gap: 20,
             flexDirection: 'row',
           }}>
           <TouchableOpacity
             style={{
-              backgroundColor: 'rgba(0,0,0,0.1)',
+              backgroundColor: 'rgba(0,0,0,0.05)',
               padding: 8,
               borderRadius: 25,
             }}>
@@ -114,7 +100,7 @@ const AccountScreen = () => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{
-              backgroundColor: 'rgba(0,0,0,0.1)',
+              backgroundColor: 'rgba(0,0,0,0.05)',
               padding: 8,
               borderRadius: 25,
             }}>
@@ -129,37 +115,29 @@ const AccountScreen = () => {
             />
           </TouchableOpacity>
         </View>
-        <Text
+        <RegularText
+          text="New User? Create an Account"
+          bold
           style={{
-            color: COLORS.textDark,
-            fontSize: 18,
-            fontWeight: 'bold',
-            margin: 10,
+            fontSize: 17,
+            color: COLORS.textLight,
             textAlign: 'center',
-          }}>
-          Refer your friends to receive more attempts!
-        </Text>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <TouchableOpacity
+            marginVertical: 20,
+          }}
+        />
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SignupScreen')}
+          style={{width: 120, alignSelf: 'center'}}>
+          <BoldText
+            text={'SINGUP'}
             style={{
-              backgroundColor: '#fce3ff',
-              borderRadius: 100,
-              width: 150,
-              height: 40,
-              margin: 6,
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderWidth: 1,
-              borderColor: COLORS.accentOne,
-            }}>
-            <BoldText text="INVITE FRIEND" style={{fontSize: 14}} />
-          </TouchableOpacity>
-        </View>
-
+              fontSize: 19,
+              backgroundColor: 'rgba(0,0,0,0.1)',
+              borderRadius: 5,
+              textAlign: 'center',
+            }}
+          />
+        </TouchableOpacity>
         {/* <View
           style={{
             flexDirection: 'row',

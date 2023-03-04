@@ -172,7 +172,7 @@ const HomeScreen = () => {
     );
   return (
     <View style={[styles.container]}>
-      {isFocused && (
+      {/* {isFocused && (
         <Camera
           ref={camera}
           photo={true}
@@ -181,7 +181,7 @@ const HomeScreen = () => {
           isActive={isCameraActive}
           torch={flash}
         />
-      )}
+      )} */}
 
       {imageUrl && <CropView imageUri={imageUrl} close={hideImageModeOn} />}
       <View style={styles.container}>
@@ -218,6 +218,7 @@ const HomeScreen = () => {
           <View style={{flexDirection: 'row', gap: 10, alignItems: 'center'}}>
             <BtnV1 containerStyle={{padding: 1, borderRadius: 5}}>
               <SmallText
+                bold
                 style={{color: COLORS.white, fontSize: 11}}
                 text={'plus +'}
               />

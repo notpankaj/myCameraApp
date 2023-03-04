@@ -7,7 +7,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {useNavigation, DrawerActions} from '@react-navigation/native';
 
 import {COLORS} from '../helper/COLOR';
-import {BoldText} from '../components/MyText';
+import {BoldText, RegularText, SmallText} from '../components/MyText';
 import AppIcon from '../components/icons/AppIcon';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {RootStackParams} from './types';
@@ -32,11 +32,19 @@ const Item = ({icon, title, des, onPress, disbaleRightArrow}: ItemProps) => {
         alignItems: 'center',
         paddingHorizontal: 20,
         marginBottom: 20,
+        shadowColor: '#9d9898',
+        shadowOffset: {
+          width: 0,
+          height: 9,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 9.22,
+        elevation: 12,
       }}>
       <View style={{marginRight: 10}}>{icon()}</View>
       <View style={{flex: 1}}>
-        <Text style={{fontSize: 15, fontWeight: 'bold'}}>{title}</Text>
-        <Text numberOfLines={1} style={{fontSize: 12}}>
+        <BoldText style={{fontSize: 18}} text={title} />
+        <Text numberOfLines={1} style={{fontSize: 12, marginLeft: 5}}>
           {des}
         </Text>
       </View>
@@ -70,7 +78,7 @@ const MyDrawer = () => {
           justifyContent: 'center',
           paddingTop: 20,
         }}>
-        <BoldText style={{fontSize: 30}} text="Settings" />
+        <BoldText style={{fontSize: 30, marginBottom: 15}} text="Settings" />
       </View>
 
       <Item
@@ -110,15 +118,16 @@ const MyDrawer = () => {
         des="invite friends and get a bonus for scan"
       />
 
-      <Text
+      <RegularText
+        text={'Others'}
+        bold
         style={{
-          textAlign: 'left',
           alignSelf: 'flex-start',
-          marginLeft: 25,
-          marginBottom: 10,
-        }}>
-        Others
-      </Text>
+          marginLeft: 20,
+          fontSize: 22,
+          marginBottom: 5,
+        }}
+      />
 
       {/* other */}
       <Item

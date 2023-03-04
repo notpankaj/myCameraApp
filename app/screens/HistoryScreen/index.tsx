@@ -111,10 +111,33 @@ function HistoryScreen() {
         customIcon={() => <></>}
         data={DATA}
         customTitle={item => (
-          <BoldText
-            text={item.title}
-            style={{fontSize: 19, fontWeight: 'bold', color: COLORS.textDark}}
-          />
+          <View style={{flexDirection: 'row', width: '100%'}}>
+            <BoldText
+              text={item.title}
+              style={{
+                fontSize: 19,
+                fontWeight: 'bold',
+                color: COLORS.textDark,
+                marginRight: 25,
+              }}
+            />
+            <View
+              style={{
+                width: 20,
+                height: 20,
+                justifyContent: 'center',
+                alignItems: 'center',
+                position: 'absolute',
+                top: 10,
+                right: 10,
+              }}>
+              <AntDesign
+                name={favFilter ? 'star' : 'staro'}
+                color={COLORS.textDark}
+                size={15}
+              />
+            </View>
+          </View>
         )}
         customBody={item => (
           <RegularText text={item.des} style={{fontSize: 14}} />

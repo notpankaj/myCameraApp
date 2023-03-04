@@ -59,8 +59,8 @@ const SplashScreen = ({hideSplash}: Props) => {
     <View style={{flex: 1}}>
       <LinearGradient
         colors={[COLORS.SPLASH_START, COLORS.SPLASH_END]}
-        start={{x: 1, y: 0.3}}
-        end={{x: 1, y: 0.7}}
+        start={{x: 1, y: 1}}
+        end={{x: 1, y: 0.5}}
         style={{
           flex: 1,
         }}>
@@ -75,8 +75,8 @@ const SplashScreen = ({hideSplash}: Props) => {
               width: LOGO_SIZE,
               height: logoHeightValue,
               //   backgroundColor: 'blue',
-              position: 'absolute',
-              bottom: '50%',
+              // position: 'absolute',
+              // bottom: '50%',
               overflow: 'hidden',
             }}>
             <Image
@@ -84,7 +84,7 @@ const SplashScreen = ({hideSplash}: Props) => {
               source={require('../../../assets/icons/applogo-one.png')}
             />
           </Animated.View>
-          <Animated.View
+          {/* <Animated.View
             style={{
               position: 'absolute',
               bottom: '50%',
@@ -102,7 +102,7 @@ const SplashScreen = ({hideSplash}: Props) => {
               }}>
               {APP_NAME}
             </Text>
-          </Animated.View>
+          </Animated.View> */}
         </View>
       </LinearGradient>
     </View>

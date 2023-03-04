@@ -23,7 +23,7 @@ import {shareAPI} from '../../../helper';
 const InviteScreen = () => {
   const navigation = useNavigation();
 
-  const [code, setCode] = React.useState('Chappie123');
+  const [code, setCode] = React.useState('AskMojo1234');
 
   const onShare = async () => {
     shareAPI();
@@ -52,12 +52,13 @@ const InviteScreen = () => {
               borderRadius: 10,
               justifyContent: 'center',
               alignItems: 'center',
-              height: 220,
-              width: 220,
+              height: 280,
+              width: 280,
             }}>
             <QRCode
+              size={200}
               value={code}
-              logoSize={50}
+              logoSize={100}
               logoBackgroundColor="transparent"
             />
           </View>
@@ -73,8 +74,8 @@ const InviteScreen = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-          <BoldText text={code} style={{}} />
-          <BtnV1
+          <BoldText text={`Code: ${code}`} />
+          {/* <BtnV1
             onPress={() => copyToClipboard(code)}
             containerStyle={{
               borderRadius: 5,
@@ -83,7 +84,21 @@ const InviteScreen = () => {
               text={'copy code'}
               style={{fontSize: 15, color: COLORS.white}}
             />
-          </BtnV1>
+          </BtnV1> */}
+          <TouchableOpacity>
+            <GradientWrapper
+              containerStyle={{
+                borderRadius: 8,
+                width: 60,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <BoldText
+                text={'COPY'}
+                style={{color: COLORS.white, fontSize: 15, textAlign: 'center'}}
+              />
+            </GradientWrapper>
+          </TouchableOpacity>
         </View>
 
         <View
@@ -96,12 +111,23 @@ const InviteScreen = () => {
             style={{textAlign: 'center'}}
             text="Share this code via link:"
           />
-          <FontAwesome
-            onPress={onShare}
-            name={'share-alt'}
-            size={20}
-            color={COLORS.accentOne}
-          />
+          <View
+            style={{
+              borderColor: COLORS.accentOne,
+              borderWidth: 2,
+              borderRadius: 15,
+              width: 25,
+              height: 25,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <FontAwesome
+              onPress={onShare}
+              name={'share-alt'}
+              size={15}
+              color={COLORS.accentOne}
+            />
+          </View>
         </View>
       </View>
     </DrawerPageContainer>

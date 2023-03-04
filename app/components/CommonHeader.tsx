@@ -9,7 +9,7 @@ import {COLORS} from '../helper/COLOR';
 import {SmallText} from './MyText';
 import BtnV1 from './BtnV1';
 
-const CommonHeader = ({isDark}: {isDark?: boolean}) => {
+const CommonHeader = ({isLight}: {isLight?: boolean}) => {
   const navigation = useNavigation();
   const openDrawer = () => {
     navigation?.dispatch(DrawerActions.openDrawer());
@@ -22,11 +22,15 @@ const CommonHeader = ({isDark}: {isDark?: boolean}) => {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: COLORS.transparentBlack,
+        backgroundColor: isLight ? COLORS.primaryBg : COLORS.transparentBlack,
       }}>
       <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <TouchableOpacity onPress={openDrawer}>
-          <Ionicons name="settings-sharp" size={24} color={COLORS.white} />
+          <Ionicons
+            name="settings-sharp"
+            size={24}
+            color={isLight ? COLORS.textLight : COLORS.white}
+          />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
@@ -35,10 +39,10 @@ const CommonHeader = ({isDark}: {isDark?: boolean}) => {
           <Text
             style={{
               marginLeft: 10,
-              borderColor: COLORS.white,
+              borderColor: isLight ? COLORS.textLight : COLORS.white,
               borderWidth: 0.9,
               borderRadius: 5,
-              color: COLORS.white,
+              color: isLight ? COLORS.textLight : COLORS.white,
               padding: 5,
               paddingHorizontal: 12,
             }}>
@@ -49,6 +53,7 @@ const CommonHeader = ({isDark}: {isDark?: boolean}) => {
       <View style={{flexDirection: 'row', gap: 10, alignItems: 'center'}}>
         <BtnV1 containerStyle={{padding: 1, borderRadius: 5}}>
           <SmallText
+            bold
             style={{color: COLORS.white, fontSize: 11}}
             text={'plus +'}
           />

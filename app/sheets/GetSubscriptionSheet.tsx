@@ -96,13 +96,13 @@ function GetSubscriptionSheet(props: SheetProps) {
           onPress={() => setSelectedRadio(RADIO_TYPE.month)}>
           <View>
             <BoldText text="Month to Month Subscription" />
-            <SmallText text="$ 8.99 / Month" />
+            <RegularText style={{fontSize: 12}} bold text="$8.99 / Month" />
           </View>
-          <RadioButton
+          {/* <RadioButton
             selected={selectedRadio === RADIO_TYPE.month}
             id="1"
             size={15}
-          />
+          /> */}
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -110,19 +110,24 @@ function GetSubscriptionSheet(props: SheetProps) {
           onPress={() => setSelectedRadio(RADIO_TYPE.year)}>
           <View>
             <BoldText text="Annual Subscription" />
-            <SmallText text="$ 55.99 / Year (*50% off)" />
+            <RegularText
+              style={{fontSize: 12}}
+              bold
+              text="$55.99 / Year (*50% off)"
+            />
+            <SmallText
+              text="$120.99"
+              bold
+              style={{textDecorationLine: 'line-through'}}
+            />
           </View>
-          <RadioButton
-            selected={selectedRadio === RADIO_TYPE.year}
-            id="2"
-            size={15}
-          />
         </TouchableOpacity>
 
         <TouchableOpacity
           style={{alignSelf: 'center', marginVertical: 10}}
           onPress={openPaymentSheet}>
           <GradientWrapper
+            reverse
             containerStyle={{
               width: 150,
               justifyContent: 'center',
@@ -142,16 +147,19 @@ function GetSubscriptionSheet(props: SheetProps) {
             alignItems: 'center',
             marginVertical: 20,
           }}>
-          <RegularText text="Invite friends and get 10 FREE scans for every new players" />
+          <RegularText
+            style={{fontSize: 17, marginHorizontal: 22, textAlign: 'center'}}
+            text="Invite friends and get 10 FREE scans for every new players"
+          />
 
           <TouchableOpacity onPress={() => shareAPI()}>
-            <RegularText
+            <BoldText
               text="Invite Friends"
               style={{color: COLORS.accentOne, textDecorationLine: 'underline'}}
             />
           </TouchableOpacity>
         </View>
-        <View
+        {/* <View
           style={{
             marginVertical: 20,
             justifyContent: 'center',
@@ -171,7 +179,7 @@ function GetSubscriptionSheet(props: SheetProps) {
               style={{color: COLORS.accentOne, textDecorationLine: 'underline'}}
             />
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     </ActionSheet>
   );

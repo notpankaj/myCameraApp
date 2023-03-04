@@ -6,10 +6,11 @@ import Input from '../../../components/Input';
 
 import {COLORS} from '../../../helper/COLOR';
 import GradientWrapper from '../../../components/GradientWrapper';
-import {BoldText} from '../../../components/MyText';
+import {BoldText, RegularText} from '../../../components/MyText';
 import CheckBox from '@react-native-community/checkbox';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParams} from '../../../navigation/types';
+import {FONTS} from '../../../../assets/fonts';
 
 const SignupScreen = () => {
   const navigation =
@@ -39,39 +40,6 @@ const SignupScreen = () => {
         <Input label="Password" placeholder="*Password" />
         <Input label="Confirm Password" placeholder="*Confirm Password" />
         <Input label="Invitation Code" placeholder="Referrer Code" />
-        <View
-          style={{
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            marginTop: 10,
-          }}>
-          <TouchableOpacity onPress={navigation.goBack}>
-            <GradientWrapper
-              containerStyle={{
-                borderRadius: 10,
-                width: 150,
-                height: 45,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <BoldText text={'CREATE'} style={{color: COLORS.white}} />
-            </GradientWrapper>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={navigation.goBack}>
-            <GradientWrapper
-              dark
-              containerStyle={{
-                borderRadius: 10,
-                width: 150,
-                height: 45,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <BoldText text={'CANCEL'} style={{color: COLORS.white}} />
-            </GradientWrapper>
-          </TouchableOpacity>
-        </View>
 
         <View
           style={{
@@ -80,6 +48,7 @@ const SignupScreen = () => {
           }}>
           {/* @ts-ignore */}
           <CheckBox
+            tintColors={{true: COLORS.accentTwo, false: COLORS.textLight}}
             disabled={false}
             value={toggleCheckBox}
             onValueChange={(newValue: boolean) => setToggleCheckBox(newValue)}
@@ -90,11 +59,54 @@ const SignupScreen = () => {
               fontSize: 15,
               fontWeight: 'bold',
               margin: 10,
+              marginRight: 30,
+              fontFamily: FONTS.Poppins,
             }}>
             By Continuing, you agree to the
             <Text style={{color: COLORS.accentOne}}>Terms of Services </Text> &
-            <Text style={{color: COLORS.accentOne}}>Privacy Policy</Text>
+            <Text style={{color: COLORS.accentOne}}> Privacy Policy</Text>
           </Text>
+        </View>
+        <View
+          style={{
+            justifyContent: 'center',
+            flexDirection: 'row',
+            marginTop: 10,
+            gap: 20,
+          }}>
+          <TouchableOpacity onPress={navigation.goBack}>
+            <GradientWrapper
+              containerStyle={{
+                borderRadius: 10,
+                width: 110,
+                height: 40,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+              reverse>
+              <BoldText
+                text={'CREATE'}
+                style={{color: COLORS.white, fontSize: 18}}
+              />
+            </GradientWrapper>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={navigation.goBack}>
+            <View
+              style={{
+                borderRadius: 10,
+                width: 110,
+                height: 40,
+                backgroundColor: 'rgba(0,0,0,0.12)',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <BoldText
+                text={'CANCEL'}
+                style={{color: COLORS.textDark, fontSize: 18}}
+              />
+            </View>
+          </TouchableOpacity>
         </View>
 
         <View
@@ -104,34 +116,12 @@ const SignupScreen = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Text
-            style={{
-              color: COLORS.textDark,
-              fontSize: 15,
-              fontWeight: 'bold',
-              marginRight: 10,
-            }}>
-            Already have an Account ?
-          </Text>
+          <BoldText text="Already have an Account ?" />
           <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-            <GradientWrapper
-              containerStyle={{
-                width: 90,
-                height: 30,
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 10,
-                marginTop: 10,
-              }}>
-              <Text
-                style={{
-                  color: COLORS.white,
-                  fontSize: 18,
-                  fontWeight: 'bold',
-                }}>
-                Login
-              </Text>
-            </GradientWrapper>
+            <BoldText
+              text={'Login'}
+              style={{color: COLORS.accentOne, textDecorationLine: 'underline'}}
+            />
           </TouchableOpacity>
         </View>
       </View>

@@ -11,7 +11,7 @@ const HelpScreen = () => {
   const navigation = useNavigation();
   return (
     <DrawerPageContainer title="Help and Support" onBack={navigation.goBack}>
-      <View style={{paddingHorizontal: 20, flex: 0.9}}>
+      <View style={{paddingHorizontal: 20, flex: 0.98}}>
         <ScrollView
           style={{
             backgroundColor: COLORS.white,
@@ -20,6 +20,9 @@ const HelpScreen = () => {
             paddingHorizontal: 20,
             marginBottom: 10,
             elevation: 0.8,
+          }}
+          contentContainerStyle={{
+            paddingBottom: 50,
           }}
           showsVerticalScrollIndicator={false}>
           <BoldText style={{fontSize: 22}} text={`Intro to ${APP_NAME}`} />
@@ -60,8 +63,19 @@ const HelpScreen = () => {
             }}
             text="If you have any questions or concerns that are not addressed in this section, please contact our customer support team by emailing them."
           />
-          <View style={{}}>
-            <YoutubePlayer height={300} play={true} videoId={'iee2TATGMyI'} />
+          <View
+            style={{
+              height: 170,
+              width: '100%',
+              backgroundColor: COLORS.accentTwo,
+              borderRadius: 10,
+            }}>
+            <YoutubePlayer
+              height={200}
+              // width={300}
+              play={true}
+              videoId={'iee2TATGMyI'}
+            />
           </View>
         </ScrollView>
       </View>

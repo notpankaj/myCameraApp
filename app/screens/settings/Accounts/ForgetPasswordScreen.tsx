@@ -6,7 +6,7 @@ import Input from '../../../components/Input';
 
 import {COLORS} from '../../../helper/COLOR';
 import GradientWrapper from '../../../components/GradientWrapper';
-import {BoldText} from '../../../components/MyText';
+import {BoldText, RegularText} from '../../../components/MyText';
 import CheckBox from '@react-native-community/checkbox';
 
 const ForgetPasswordScreen = () => {
@@ -16,8 +16,12 @@ const ForgetPasswordScreen = () => {
     navigation.goBack();
   };
   return (
-    <DrawerPageContainer title="Change Password" onBack={onBack}>
-      <View style={{paddingHorizontal: 20, flex: 0.9}}>
+    <DrawerPageContainer title="" onBack={onBack}>
+      <View style={{paddingHorizontal: 20, flex: 0.9, marginTop: 50}}>
+        <BoldText
+          text="Change Password"
+          style={{fontSize: 30, textAlign: 'center'}}
+        />
         <Input label="Email Addess" placeholder="Old Password" />
         <Input label="Password" placeholder="New Password" />
         <Input label="Confirm Password" placeholder="Confirm New Password" />
@@ -34,24 +38,15 @@ const ForgetPasswordScreen = () => {
               containerStyle={{
                 borderRadius: 10,
                 width: 120,
-                height: 45,
+                height: 40,
                 justifyContent: 'center',
                 alignItems: 'center',
-              }}>
-              <BoldText text={'REGISTER'} style={{color: COLORS.white}} />
-            </GradientWrapper>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <GradientWrapper
-              dark
-              containerStyle={{
-                borderRadius: 10,
-                width: 120,
-                height: 45,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <BoldText text={'CONFIRM'} style={{color: COLORS.white}} />
+              }}
+              reverse>
+              <RegularText
+                text={'UPDATE'}
+                style={{color: COLORS.white, fontSize: 20}}
+              />
             </GradientWrapper>
           </TouchableOpacity>
         </View>

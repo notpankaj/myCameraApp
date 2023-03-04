@@ -10,7 +10,7 @@ import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {COLORS} from '../../../helper/COLOR';
 import Feather from 'react-native-vector-icons/Feather';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {BoldText, RegularText, SmallText} from '../../../components/MyText';
 import GradientWrapper from '../../../components/GradientWrapper';
 import {api_stripePayment} from '../../../api';
@@ -20,6 +20,7 @@ import {
 } from '@stripe/stripe-react-native';
 import {myAlert} from '../../../helper/myAlert';
 import {ALERT_TYPE, Dialog} from 'react-native-alert-notification';
+import {FONTS} from '../../../../assets/fonts';
 
 const list = [
   'Free tail days',
@@ -63,8 +64,6 @@ const Subscription = () => {
 
   const initializePaymentSheet = async () => {
     const {paymentIntent, ephemeralKey, customer} = {
-      publishableKey:
-        'pk_test_51M0L2VSFJgtn9Lb9roXIXnZekNjTrHMsY4fpXNp5h4QQDIWdkE4ZWRipXmKFd216tS213M9MGRT0vK07udT1FkKI00t1mHCVh3',
       paymentIntent:
         'pi_3MhB6BSFJgtn9Lb90VD846cB_secret_Er8oehuB7n9tjPfknDS3nhoFE',
       customer: 'cus_NS5GH5IhCx4Rz2',
@@ -110,7 +109,7 @@ const Subscription = () => {
             position: 'absolute',
             right: 25,
           }}>
-          <AntDesign name="close" color={COLORS.textDark} size={15} />
+          <Ionicons name="close" color={COLORS.textDark} size={20} />
         </TouchableOpacity>
       </View>
       {/* header end */}
@@ -144,7 +143,7 @@ const Subscription = () => {
                     }}>
                     <Feather size={20} name="check" color={COLORS.accentOne} />
                   </View>
-                  <SmallText text={i} />
+                  <RegularText text={i} />
                 </View>
               );
             })}
@@ -153,19 +152,37 @@ const Subscription = () => {
           <View style={{flexDirection: 'row', gap: 10, marginVertical: 40}}>
             <TouchableOpacity
               style={{
-                borderWidth: 0.5,
-                borderRadius: 10,
                 flex: 1,
                 height: 150,
-                borderColor: COLORS.textLight,
-                justifyContent: 'space-evenly',
+                borderWidth: 1,
+                borderRadius: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderColor: COLORS.accentOne,
               }}>
-              <SmallText text="Month to Month" />
-              <RegularText text="Only $8.99 / Month" />
+              <RegularText
+                bold
+                text="Monthly"
+                style={{color: COLORS.textLight}}
+              />
+              <RegularText bold text="Only $8.99 / Month" />
+              <Text
+                style={{
+                  padding: 15,
+                  textDecorationLine: 'line-through',
+                  fontSize: 10,
+                  fontFamily: FONTS.Poppins,
+                  fontWeight: 'bold',
+                  opacity: 0,
+                }}>
+                00
+              </Text>
               <SmallText
+                bold
                 text="14 Days Free Trail"
                 style={{
-                  margin: 10,
+                  width: '80%',
+                  textAlign: 'center',
                   color: COLORS.greenDark,
                   backgroundColor: COLORS.greenLight,
                 }}
@@ -178,34 +195,43 @@ const Subscription = () => {
                 height: 150,
                 borderWidth: 1,
                 borderRadius: 10,
-                justifyContent: 'space-evenly',
+                justifyContent: 'center',
+                alignItems: 'center',
                 borderColor: COLORS.accentOne,
               }}>
-              <Text
+              <SmallText
                 style={{
                   fontSize: 15,
-                  marginLeft: 5,
                   position: 'absolute',
                   top: -30,
                   left: 40,
                   color: COLORS.accentOne,
-                }}>
-                50% off
-              </Text>
-              <SmallText text="Annual Subscription" />
-              <RegularText text="Only $59.99 / Year" />
+                }}
+                bold
+                text={'50% off'}
+              />
+              <RegularText
+                bold
+                text="Yearly"
+                style={{color: COLORS.textLight}}
+              />
+              <RegularText bold text="Only $59.99 / Year" />
               <Text
                 style={{
+                  padding: 15,
                   textDecorationLine: 'line-through',
                   fontSize: 10,
-                  marginLeft: 5,
+                  fontFamily: FONTS.Poppins,
+                  fontWeight: 'bold',
                 }}>
                 $120.99
               </Text>
               <SmallText
+                bold
                 text="14 Days Free Trail"
                 style={{
-                  margin: 10,
+                  width: '80%',
+                  textAlign: 'center',
                   color: COLORS.greenDark,
                   backgroundColor: COLORS.greenLight,
                 }}
@@ -221,13 +247,14 @@ const Subscription = () => {
                   width: 130,
                   justifyContent: 'center',
                   alignItems: 'center',
-                  borderRadius: 5,
+                  borderRadius: 8,
                   marginBottom: 10,
-                }}>
+                }}
+                reverse>
                 {loading ? (
                   <ActivityIndicator size={'small'} color={'white'} />
                 ) : (
-                  <RegularText text="START NOW" style={{color: COLORS.white}} />
+                  <BoldText text="START NOW" style={{color: COLORS.white}} />
                 )}
               </GradientWrapper>
             </TouchableOpacity>
@@ -236,11 +263,13 @@ const Subscription = () => {
 
             <View style={{flexDirection: 'row'}}>
               <RegularText
+                bold
                 style={{color: COLORS.accentOne}}
                 text="Terms of Services"
               />
-              <RegularText text={'&'} />
+              <RegularText text={'&'} bold />
               <RegularText
+                bold
                 style={{color: COLORS.accentOne}}
                 text="Privacy Policy"
               />

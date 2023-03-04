@@ -3,6 +3,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import MyDrawer from './MyDrawer';
 import TabNavigator from './TabNavigator';
 import {DrawerNavigatorParams} from './types';
+import {COLORS} from '../helper/COLOR';
 
 const Drawer = createDrawerNavigator<DrawerNavigatorParams>();
 
@@ -13,8 +14,9 @@ const DrawerNavigator = () => {
       screenOptions={{
         headerShown: false,
         drawerStyle: {
-          backgroundColor: '#e5e6d8',
-          width: '95%',
+          // backgroundColor: COLORS.primaryBg,
+          backgroundColor: '#f1f1f1',
+          width: '100%',
         },
       }}
       drawerContent={() => <MyDrawer />}>
