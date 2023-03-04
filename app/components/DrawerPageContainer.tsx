@@ -1,5 +1,5 @@
-import {View, Text, TouchableOpacity} from 'react-native';
-import React, {ReactNode} from 'react';
+import {View, Keyboard, TouchableOpacity, Animated} from 'react-native';
+import React, {ReactNode, useRef, useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {BoldText} from './MyText';
 import {COLORS} from '../helper/COLOR';
@@ -12,6 +12,24 @@ interface Props {
 }
 
 const DrawerPageContainer = ({children, onBack, title}: Props) => {
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+  let keyboardDidShowListener = useRef<any>().current;
+  let keyboardDidHideListener = useRef<any>().current;
+  const opacityValue = useRef(new Animated.Value(1)).current;
+  React.useEffect(() => {
+    keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
+      setKeyboardVisible(true);
+    });
+    keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardVisible(false);
+    });
+
+    return () => {
+      keyboardDidHideListener.remove();
+      keyboardDidShowListener.remove();
+    };
+  }, []);
   return (
     <View style={{flex: 1, backgroundColor: COLORS.primaryBg}}>
       <View>

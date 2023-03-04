@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import MyDrawer from './MyDrawer';
 import TabNavigator from './TabNavigator';
 import {DrawerNavigatorParams} from './types';
-import {COLORS} from '../helper/COLOR';
 
 const Drawer = createDrawerNavigator<DrawerNavigatorParams>();
 

@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
-  Alert,
+  Image,
 } from 'react-native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -172,7 +172,7 @@ const HomeScreen = () => {
     );
   return (
     <View style={[styles.container]}>
-      {/* {isFocused && (
+      {isFocused && (
         <Camera
           ref={camera}
           photo={true}
@@ -181,7 +181,7 @@ const HomeScreen = () => {
           isActive={isCameraActive}
           torch={flash}
         />
-      )} */}
+      )}
 
       {imageUrl && <CropView imageUri={imageUrl} close={hideImageModeOn} />}
       <View style={styles.container}>
@@ -294,8 +294,17 @@ const HomeScreen = () => {
                   borderRadius: 80,
                   borderWidth: 5,
                   borderColor: 'rgba(255,255,255,0.6)',
-                }}
-              />
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                {/* <Image
+                  style={{
+                    width: 80,
+                    height: 80,
+                  }}
+                  source={require('../../../assets/icons/cameraBtn-magic.png')}
+                /> */}
+              </TouchableOpacity>
             )}
 
             <TouchableOpacity

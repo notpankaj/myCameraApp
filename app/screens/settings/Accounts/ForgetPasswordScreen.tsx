@@ -8,6 +8,8 @@ import {COLORS} from '../../../helper/COLOR';
 import GradientWrapper from '../../../components/GradientWrapper';
 import {BoldText, RegularText} from '../../../components/MyText';
 import CheckBox from '@react-native-community/checkbox';
+import AppIcon from '../../../components/icons/AppIcon';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const ForgetPasswordScreen = () => {
   const navigation = useNavigation();
