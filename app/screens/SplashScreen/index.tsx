@@ -33,7 +33,7 @@ const SplashScreen = ({hideSplash}: Props) => {
     ]).start(() => {
       setTimeout(() => {
         // navigation.navigate('Drawer');
-        hideSplash();
+        // hideSplash();
       }, 500);
     });
   };
@@ -74,8 +74,8 @@ const SplashScreen = ({hideSplash}: Props) => {
             style={{
               width: LOGO_SIZE,
               height: logoHeightValue,
-              //   backgroundColor: 'blue',
-              // position: 'absolute',
+              // backgroundColor: 'blue',
+              position: 'absolute',
               // bottom: '50%',
               overflow: 'hidden',
             }}>
