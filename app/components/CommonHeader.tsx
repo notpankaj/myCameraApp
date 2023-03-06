@@ -54,7 +54,7 @@ const CommonHeader = ({isLight}: {isLight?: boolean}) => {
         <BtnV1 containerStyle={{padding: 1, borderRadius: 5}}>
           <SmallText
             bold
-            style={{color: COLORS.white, fontSize: 11}}
+            style={{color: COLORS.white, fontSize: 11, paddingHorizontal: 12}}
             text={'plus +'}
           />
         </BtnV1>

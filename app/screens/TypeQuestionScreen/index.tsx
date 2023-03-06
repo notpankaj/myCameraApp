@@ -5,6 +5,7 @@ import {BoldText} from '../../components/MyText';
 import {COLORS} from '../../helper/COLOR';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import CommonHeader from '../../components/CommonHeader';
+import QuestionMark from '../../components/icons/QuestionMark';
 
 function TypeQuestionScreen() {
   const [height, setHeight] = React.useState(250);
@@ -63,6 +64,10 @@ function TypeQuestionScreen() {
             </Text>
           </GradientWrapper>
         </TouchableOpacity>
+        <QuestionMark
+          containerStyle={{position: 'absolute', bottom: 30, left: 20}}
+          isDark
+        />
       </View>
     </>
   );

@@ -33,6 +33,7 @@ import BtnV1 from '../../components/BtnV1';
 import ImagePicker from 'react-native-image-crop-picker';
 import {APP_NAME} from '../../helper/constants';
 import useBackHandler from '../../hook/useBackHandler';
+import QuestionMark from '../../components/icons/QuestionMark';
 
 const {width} = Dimensions.get('window');
 
@@ -219,7 +220,11 @@ const HomeScreen = () => {
             <BtnV1 containerStyle={{padding: 1, borderRadius: 5}}>
               <SmallText
                 bold
-                style={{color: COLORS.white, fontSize: 11}}
+                style={{
+                  color: COLORS.white,
+                  fontSize: 11,
+                  paddingHorizontal: 12,
+                }}
                 text={'plus +'}
               />
             </BtnV1>
@@ -282,6 +287,14 @@ const HomeScreen = () => {
         {/* footer start */}
         <View style={{paddingBottom: 30}}>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <QuestionMark
+              containerStyle={{
+                margin: 10,
+                position: 'absolute',
+                top: 25,
+                left: 20,
+              }}
+            />
             {showImageModeOnValue ? null : (
               <TouchableOpacity
                 onPress={() => {
@@ -297,16 +310,15 @@ const HomeScreen = () => {
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}>
-                {/* <Image
+                <Image
                   style={{
                     width: 80,
                     height: 80,
                   }}
-                  source={require('../../../assets/icons/cameraBtn-magic.png')}
-                /> */}
+                  source={require('../../../assets/icons/magic-starts.png')}
+                />
               </TouchableOpacity>
             )}
-
             <TouchableOpacity
               onPress={pickPhotoFormGallery}
               style={{

@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {BoldText} from './MyText';
 import {COLORS} from '../helper/COLOR';
 import AppIcon from './icons/AppIcon';
+import BackBtn from './icons/BackBtn';
 
 interface Props {
   children: ReactNode;
@@ -43,9 +44,12 @@ const DrawerPageContainer = ({children, onBack, title}: Props) => {
             top: 35,
             left: 25,
             zIndex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
           onPress={onBack}>
-          <Ionicons name="chevron-back" size={24} color={COLORS.textLight} />
+          <BackBtn iconStyle={{width: 25, height: 25}} />
+          {/* <Ionicons name="chevron-back" size={24} color={COLORS.textLight} /> */}
         </TouchableOpacity>
         <View style={{paddingVertical: 20, alignItems: 'center'}}>
           <BoldText style={{fontSize: 30}} text={title} />

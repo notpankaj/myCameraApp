@@ -10,25 +10,73 @@ const AudioQuestionScreen = () => {
   const [result, setResult] = React.useState('');
   const [error, setError] = React.useState('');
 
-  Voice.onSpeechStart = () => setListening(true);
-  Voice.onSpeechEnd = () => setListening(false);
-  Voice.onSpeechResults = r => setResult(r.value[0]);
-  Voice.onSpeechError = e => setError(e.error);
-
   const startRec = async () => {
+    console.log('startRec() ');
     try {
-      await Voice.start('en-US');
+      const voiceAvailable = await Voice.isAvailable();
+      const getSpeechRecognitionServices =
+        await Voice.getSpeechRecognitionServices();
+      console.log(voiceAvailable, 'voiceAvailable');
+      console.log(getSpeechRecognitionServices, 'getSpeechRecognitionServices');
+      // const res = await Voice.start('en-US');
+      // const res = await Voice.start('en-US', {
+      //   RECOGNIZER_ENGINE: 'services',
+      //   EXTRA_PARTIAL_RESULTS: true,
+      // });
+      const res = await await Voice.start('en-US', {
+        RECOGNIZER_ENGINE: 'GOOGLE',
+        EXTRA_PARTIAL_RESULTS: true,
+      });
+      console.log('res 1', res);
     } catch (error) {
-      console.log(error);
+      console.log(error, 'error 1');
     }
   };
   const stopRec = async () => {
+    console.log('stopRec');
     try {
       await Voice.stop();
     } catch (error) {
       console.log(error);
     }
   };
+  const destroyRecognizer = async () => {
+    console.log('destroyRecognizer()');
+    try {
+      await Voice.destroy();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  //------LISTENERS START
+  const onSpeechStart = () => {
+    console.log('onSpeechStart');
+    setListening(true);
+  };
+  const onSpeechResults = (r: any) => {
+    console.log(r, 'onSpeechResults');
+  };
+  const onSpeechEnd = () => {
+    console.log('onSpeechEnd');
+    setListening(false);
+  };
+  const onSpeechError = (e: any) => {
+    console.log('onSpeechError', e);
+    destroyRecognizer();
+  };
+  //------LISTENERS END
+  React.useEffect(() => {
+    Voice.onSpeechStart = onSpeechStart;
+    Voice.onSpeechResults = onSpeechResults;
+    Voice.onSpeechEnd = onSpeechEnd;
+    Voice.onSpeechError = onSpeechError;
+    return () => {
+      destroyRecognizer().then(() => {
+        Voice.removeAllListeners();
+      });
+    };
+  }, []);
   return (
     <>
       <CommonHeader isLight />

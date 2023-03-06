@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import React, {ReactNode} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -11,6 +11,8 @@ import {BoldText, RegularText, SmallText} from '../components/MyText';
 import AppIcon from '../components/icons/AppIcon';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {RootStackParams} from './types';
+import NextBtn from '../components/icons/NextBtn';
+import BackBtn from '../components/icons/BackBtn';
 
 type ItemProps = {
   icon: () => ReactNode;
@@ -50,7 +52,8 @@ const Item = ({icon, title, des, onPress, disbaleRightArrow}: ItemProps) => {
       </View>
       {disbaleRightArrow || (
         <View>
-          <AntDesign name="right" size={24} color="black" />
+          <NextBtn />
+          {/* <AntDesign name="right" size={24} color="black" /> */}
         </View>
       )}
     </TouchableOpacity>
@@ -70,7 +73,8 @@ const MyDrawer = () => {
       <TouchableOpacity
         style={{position: 'absolute', left: 10, top: 30}}
         onPress={handleClose}>
-        <Ionicons name="arrow-back" size={24} color="black" />
+        <BackBtn />
+        {/* <Ionicons name="arrow-back" size={24} color="black" /> */}
       </TouchableOpacity>
       <View
         style={{
@@ -83,10 +87,14 @@ const MyDrawer = () => {
 
       <Item
         icon={() => (
-          <MaterialCommunityIcons
-            name="face-man-profile"
-            size={35}
-            color={COLORS.accentTwo}
+          // <MaterialCommunityIcons
+          //   name="face-man-profile"
+          //   size={35}
+          //   color={COLORS.accentTwo}
+          // />
+          <Image
+            style={styles.itemIcon}
+            source={require('../../assets/nav/account.png')}
           />
         )}
         onPress={() => navigation.navigate('Account')}
@@ -95,10 +103,14 @@ const MyDrawer = () => {
       />
       <Item
         icon={() => (
-          <MaterialCommunityIcons
-            name="email-plus-outline"
-            size={35}
-            color={COLORS.accentTwo}
+          // <MaterialCommunityIcons
+          //   name="email-plus-outline"
+          //   size={35}
+          //   color={COLORS.accentTwo}
+          // />
+          <Image
+            style={styles.itemIcon}
+            source={require('../../assets/nav/sub.png')}
           />
         )}
         onPress={() => navigation.navigate('Subscription')}
@@ -107,10 +119,14 @@ const MyDrawer = () => {
       />
       <Item
         icon={() => (
-          <Ionicons
-            name="mail-open-outline"
-            size={35}
-            color={COLORS.accentTwo}
+          // <Ionicons
+          //   name="mail-open-outline"
+          //   size={35}
+          //   color={COLORS.accentTwo}
+          // />
+          <Image
+            style={styles.itemIcon}
+            source={require('../../assets/nav/invite.png')}
           />
         )}
         onPress={() => navigation.navigate('InviteScreen')}
@@ -132,10 +148,14 @@ const MyDrawer = () => {
       {/* other */}
       <Item
         icon={() => (
-          <FontAwesome
-            name="question-circle-o"
-            size={35}
-            color={COLORS.accentTwo}
+          // <FontAwesome
+          //   name="question-circle-o"
+          //   size={35}
+          //   color={COLORS.accentTwo}
+          // />
+          <Image
+            style={styles.itemIcon}
+            source={require('../../assets/nav/help.png')}
           />
         )}
         onPress={() => navigation.navigate('HelpScreen')}
@@ -144,15 +164,15 @@ const MyDrawer = () => {
       />
       <Item
         icon={() => (
-          <FontAwesome
-            name="question-circle-o"
-            size={35}
-            color={COLORS.accentTwo}
-          />
-          // <Image
-          //   style={{width: 35, height: 35, resizeMode: 'contain'}}
-          //   source={require('../../assets/nav/faq.png')}
+          // <FontAwesome
+          //   name="question-circle-o"
+          //   size={35}
+          //   color={COLORS.accentTwo}
           // />
+          <Image
+            style={styles.itemIcon}
+            source={require('../../assets/nav/faq.png')}
+          />
         )}
         onPress={() => navigation.navigate('FaqScreen')}
         title="FAQ"
@@ -160,11 +180,11 @@ const MyDrawer = () => {
       />
       <Item
         icon={() => (
-          <AntDesign name="contacts" size={35} color={COLORS.accentTwo} />
-          // <Image
-          //   style={{width: 100, height: 100, resizeMode: 'center'}}
-          //   source={require('../../assets/nav/contact.png')}
-          // />
+          // <AntDesign name="contacts" size={35} color={COLORS.accentTwo} />
+          <Image
+            style={styles.itemIcon}
+            source={require('../../assets/nav/contact.png')}
+          />
         )}
         title="Contact Us"
         des="Send an email to us: app@gamail.com"
@@ -177,3 +197,7 @@ const MyDrawer = () => {
 };
 
 export default MyDrawer;
+
+const styles = StyleSheet.create({
+  itemIcon: {width: 38, height: 38, resizeMode: 'center'},
+});
