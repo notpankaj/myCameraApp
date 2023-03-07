@@ -1,32 +1,35 @@
-import {View, StyleSheet} from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/HomeScreen';
 import HistoryScreen from '../screens/HistoryScreen';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {COLORS} from '../helper/COLOR';
+import { COLORS } from '../helper/COLOR';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import GradientWrapper from '../components/GradientWrapper';
 import TypeQuestionScreen from '../screens/TypeQuestionScreen';
 import AudioQuestionScreen from '../screens/AudioQuestionScreen';
-import {useSelector} from 'react-redux';
-import {tabBarVisibilitySelector} from '../redux/features/theme/themeSlice';
-import {TabNavigatorParams} from './types';
+import { useSelector } from 'react-redux';
+import { tabBarVisibilitySelector } from '../redux/features/theme/themeSlice';
+import { TabNavigatorParams } from './types';
 
 const Tab = createBottomTabNavigator<TabNavigatorParams>();
+
+
+const TABBAR_HEIGHT = Platform.OS === 'ios' ? 90 : 75
 
 const TabNavigator = () => {
   const tabVisible = useSelector(tabBarVisibilitySelector);
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <GradientWrapper
         off={!tabVisible}
         containerStyle={{
           width: '100%',
           height: 5,
           position: 'absolute',
-          bottom: 70,
+          bottom: TABBAR_HEIGHT,
           zIndex: 1,
           left: 0,
           right: 0,
@@ -44,7 +47,7 @@ const TabNavigator = () => {
         }}>
         <Tab.Screen
           options={{
-            tabBarIcon: ({focused}) => {
+            tabBarIcon: ({ focused }) => {
               return (
                 <FontAwesome
                   color={focused ? COLORS.accentOne : COLORS.textDark}
@@ -59,7 +62,7 @@ const TabNavigator = () => {
         />
         <Tab.Screen
           options={{
-            tabBarIcon: ({focused}) => {
+            tabBarIcon: ({ focused }) => {
               return (
                 <Entypo
                   color={focused ? COLORS.accentOne : COLORS.textDark}
@@ -68,14 +71,14 @@ const TabNavigator = () => {
                 />
               );
             },
-            tabBarStyle: tabVisible ? styles.tabBar : {display: 'none'},
+            tabBarStyle: tabVisible ? styles.tabBar : { display: 'none' },
           }}
           name="Scan"
           component={HomeScreen}
         />
         <Tab.Screen
           options={{
-            tabBarIcon: ({focused, color}) => {
+            tabBarIcon: ({ focused, color }) => {
               return (
                 <FontAwesome5
                   color={focused ? COLORS.accentOne : COLORS.textDark}
@@ -90,7 +93,7 @@ const TabNavigator = () => {
         />
         <Tab.Screen
           options={{
-            tabBarIcon: ({focused}) => {
+            tabBarIcon: ({ focused }) => {
               return (
                 <FontAwesome
                   color={focused ? COLORS.accentOne : COLORS.textDark}
@@ -121,9 +124,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   tabBar: {
-    paddingBottom: 12,
+    paddingBottom: Platform.OS === 'ios' ? 25 : 12,
     paddingTop: 10,
-    height: 75,
+    height: TABBAR_HEIGHT,
     paddingLeft: 10,
     paddingRight: 10,
   },
