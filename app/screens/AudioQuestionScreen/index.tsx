@@ -1,13 +1,14 @@
-import {View, Pressable} from 'react-native';
+import { View, Pressable, Text } from 'react-native';
 import React from 'react';
-import {COLORS} from '../../helper/COLOR';
-import {BoldText, RegularText} from '../../components/MyText';
+import { COLORS } from '../../helper/COLOR';
+import { BoldText, RegularText } from '../../components/MyText';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CommonHeader from '../../components/CommonHeader';
 import Voice from '@react-native-voice/voice';
 const AudioQuestionScreen = () => {
   const [listening, setListening] = React.useState(false);
-  const [result, setResult] = React.useState('');
+  const [result, setResult] = React.useState([]);
+  const [partialResults, setPartialResults] = React.useState([]);
   const [error, setError] = React.useState('');
 
   const startRec = async () => {
@@ -18,15 +19,15 @@ const AudioQuestionScreen = () => {
         await Voice.getSpeechRecognitionServices();
       console.log(voiceAvailable, 'voiceAvailable');
       console.log(getSpeechRecognitionServices, 'getSpeechRecognitionServices');
-      // const res = await Voice.start('en-US');
+      const res = await Voice.start('en-US');
       // const res = await Voice.start('en-US', {
       //   RECOGNIZER_ENGINE: 'services',
       //   EXTRA_PARTIAL_RESULTS: true,
       // });
-      const res = await await Voice.start('en-US', {
-        RECOGNIZER_ENGINE: 'GOOGLE',
-        EXTRA_PARTIAL_RESULTS: true,
-      });
+      // const res = await await Voice.start('en-US', {
+      //   RECOGNIZER_ENGINE: 'GOOGLE',
+      //   EXTRA_PARTIAL_RESULTS: true,
+      // });
       console.log('res 1', res);
     } catch (error) {
       console.log(error, 'error 1');
@@ -56,6 +57,14 @@ const AudioQuestionScreen = () => {
   };
   const onSpeechResults = (r: any) => {
     console.log(r, 'onSpeechResults');
+    setResult(r.value);
+  };
+
+  const onSpeechPartialResults = (e: any) => {
+    //Invoked when any results are computed
+    console.log('onSpeechPartialResults: ', e);
+    setPartialResults(e.value);
+
   };
   const onSpeechEnd = () => {
     console.log('onSpeechEnd');
@@ -69,6 +78,7 @@ const AudioQuestionScreen = () => {
   React.useEffect(() => {
     Voice.onSpeechStart = onSpeechStart;
     Voice.onSpeechResults = onSpeechResults;
+    Voice.onSpeechPartialResults = onSpeechPartialResults;
     Voice.onSpeechEnd = onSpeechEnd;
     Voice.onSpeechError = onSpeechError;
     return () => {
@@ -86,10 +96,38 @@ const AudioQuestionScreen = () => {
           backgroundColor: COLORS.primaryBg,
           paddingHorizontal: 40,
         }}>
-        <View style={{flex: 1, justifyContent: 'center'}}>
+        <View style={{ flex: 1, justifyContent: 'center' }}>
           <BoldText
             text={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, aut sequi velit quisquam blanditiis quaerat maxime consequuntur veniam facilis? Quia ab perspiciatis labore est modi maxime unde sint nisi magni.`}
           />
+
+          <Text>
+            {JSON.stringify(partialResults)}
+          </Text>
+
+          <Text>
+            {JSON.stringify(result)}
+          </Text>
+          {/* {result?.map((result, index) => {
+            return (
+              <Text
+                key={`result-${index}`}
+              >
+                {result}
+              </Text>
+            );
+          })}
+
+          {partialResults?.map((result, index) => {
+            return (
+              <Text
+                key={`partial-result-${index}`}
+              >
+                {result}
+              </Text>
+            );
+          })} */}
+
         </View>
 
         <Pressable
@@ -113,7 +151,7 @@ const AudioQuestionScreen = () => {
             alignSelf: 'center',
             marginBottom: 20,
           }}>
-          {({pressed}) => {
+          {({ pressed }) => {
             // if (pressed) {
             //   return (
             //     <FontAwesome
@@ -134,7 +172,7 @@ const AudioQuestionScreen = () => {
         </Pressable>
 
         <RegularText
-          style={{textAlign: 'center'}}
+          style={{ textAlign: 'center' }}
           // text={listening ? 'Let go when done!' : 'Hold when speek!'}
           text={listening ? 'Let go when done!' : ''}
         />

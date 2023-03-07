@@ -8,8 +8,9 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs access to your Image Gallery.</string>
 
-	
-	<!-- optionally, if you want to record audio: -->
+	<key>NSSpeechRecognitionUsageDescription</key>
+  	<string>Description of why you require the use of the speech recognition</string>
+
 	<key>NSMicrophoneUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs access to your Microphone.</string>
 
