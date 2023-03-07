@@ -1,13 +1,50 @@
-import {View, Text, StyleSheet} from 'react-native';
-import React from 'react';
+import {View, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
 import {Platform, UIManager} from 'react-native';
 import DrawerPageContainer from '../../../components/DrawerPageContainer';
 import {useNavigation} from '@react-navigation/native';
-import {SmallText} from '../../../components/MyText';
+import {RegularText, SmallText} from '../../../components/MyText';
 import {COLORS} from '../../../helper/COLOR';
 
-import {AccordionList} from 'react-native-accordion-list-view';
-
+import {AccordionItem} from 'react-native-accordion-list-view';
+import {ScrollView} from 'react-native';
+type AIProps = {
+  title: string;
+  body: string;
+};
+const AI = ({title, body}: AIProps) => {
+  const [active, setActive] = React.useState(false);
+  return (
+    <AccordionItem
+      customTitle={() => (
+        <RegularText
+          style={{
+            color: COLORS.textDark,
+            fontSize: 17,
+          }}
+          text={title}
+        />
+      )}
+      customBody={() => <SmallText text={body} style={{fontSize: 12}} />}
+      animationDuration={400}
+      isOpen={false}
+      onPress={isOpen => {
+        if (isOpen) {
+          setActive(true);
+        } else {
+          setActive(false);
+        }
+      }}
+      containerStyle={{
+        padding: 10,
+        marginBottom: 10,
+        borderWidth: active ? 1.5 : 0,
+        borderColor: active ? COLORS.accentOne : 'white',
+      }}
+      customIcon={() => <></>}
+    />
+  );
+};
 const FaqScreen = () => {
   const navigation = useNavigation();
   const data = [
@@ -81,6 +118,8 @@ const FaqScreen = () => {
     },
   ];
 
+  const [openIndex, setOpenIndex] = useState<any>([]);
+  console.log({openIndex});
   React.useEffect(() => {
     if (Platform.OS === 'android') {
       if (UIManager.setLayoutAnimationEnabledExperimental) {
@@ -88,6 +127,7 @@ const FaqScreen = () => {
       }
     }
   }, []);
+  React.useEffect(() => {}, [openIndex]);
   return (
     <DrawerPageContainer title="FAQs" onBack={navigation.goBack}>
       <View
@@ -100,31 +140,11 @@ const FaqScreen = () => {
           style={{
             borderRadius: 10,
           }}>
-          <View style={styles.container}>
-            <AccordionList
-              customIcon={() => <></>}
-              style={{padding: 10}}
-              containerItemStyle={{
-                marginBottom: 10,
-              }}
-              data={data}
-              customTitle={item => (
-                <Text
-                  style={{
-                    fontWeight: 'bold',
-                    fontSize: 17,
-                    color: COLORS.textDark,
-                  }}>
-                  {item.title}
-                </Text>
-              )}
-              customBody={item => (
-                <SmallText text={item.body} style={{fontSize: 12}} />
-              )}
-              animationDuration={150}
-              expandMultiple={false}
-            />
-          </View>
+          <ScrollView style={styles.container}>
+            {data.map((item, index) => {
+              return <AI title={item.title} body={item.body} key={index} />;
+            })}
+          </ScrollView>
         </View>
       </View>
     </DrawerPageContainer>

@@ -18,6 +18,7 @@ import {
   DrawerActions,
   useNavigation,
   useIsFocused,
+  NavigationProp,
 } from '@react-navigation/native';
 import {SheetManager} from 'react-native-actions-sheet';
 import {GET_SUBSCRIPTION_SHEET} from '../../sheets/types';
@@ -32,8 +33,9 @@ import {
 import BtnV1 from '../../components/BtnV1';
 import ImagePicker from 'react-native-image-crop-picker';
 import {APP_NAME} from '../../helper/constants';
-import useBackHandler from '../../hook/useBackHandler';
+import {RootStackParams} from '../../navigation/types';
 import QuestionMark from '../../components/icons/QuestionMark';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const {width} = Dimensions.get('window');
 
@@ -54,7 +56,8 @@ const HomeScreen = () => {
   const [isCameraActive, setIsCameraActive] = React.useState(true);
   const [imageUrl, setImageUrl] = React.useState<null | string>(null);
   const [showImageModeOnValue, setShowImageModeOnValue] = React.useState(false);
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   const askForPermission = async () => {
     const newCameraPermission = await Camera.requestCameraPermission();
     console.log(newCameraPermission, 'newCameraPermission');
@@ -288,6 +291,7 @@ const HomeScreen = () => {
         <View style={{paddingBottom: 30}}>
           <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <QuestionMark
+              onPress={() => navigation.navigate('FaqScreen')}
               containerStyle={{
                 margin: 10,
                 position: 'absolute',

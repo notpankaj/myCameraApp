@@ -6,10 +6,14 @@ import {COLORS} from '../../helper/COLOR';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import CommonHeader from '../../components/CommonHeader';
 import QuestionMark from '../../components/icons/QuestionMark';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParams} from '../../navigation/types';
 
 function TypeQuestionScreen() {
   const [height, setHeight] = React.useState(250);
-
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
     <>
       <CommonHeader />
@@ -65,6 +69,7 @@ function TypeQuestionScreen() {
           </GradientWrapper>
         </TouchableOpacity>
         <QuestionMark
+          onPress={() => navigation.navigate('FaqScreen')}
           containerStyle={{position: 'absolute', bottom: 30, left: 20}}
           isDark
         />
