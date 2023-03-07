@@ -7,6 +7,7 @@ import {
   Dimensions,
   Image,
   SafeAreaView,
+  Platform,
 } from 'react-native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -155,11 +156,11 @@ const HomeScreen = () => {
 
   React.useEffect(() => {
     const init = async () => {
-      const cameraPermission = await Camera.getCameraPermissionStatus();
-      if (cameraPermission !== 'authorized') {
-        askForPermission();
-      }
-      console.log(cameraPermission, 'cameraPermission');
+        const cameraPermission = await Camera.getCameraPermissionStatus();
+        if (cameraPermission !== 'authorized') {
+          askForPermission();
+        }
+        console.log(cameraPermission, 'cameraPermission');
     };
     init();
   }, []);
@@ -172,8 +173,8 @@ const HomeScreen = () => {
   if (device == null)
     return (
       <MainContainer>
-      <View>
-        <Text>Loading</Text>
+      <View style={{justifyContent:'center',alignItems:'center'}}>
+        <Text>{ Platform.OS === 'ios'? 'use real device!': 'Loading'}</Text>
       </View>
       </MainContainer>
     );
