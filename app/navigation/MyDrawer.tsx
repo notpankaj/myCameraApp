@@ -13,6 +13,7 @@ import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {RootStackParams} from './types';
 import NextBtn from '../components/icons/NextBtn';
 import BackBtn from '../components/icons/BackBtn';
+import MainContainer from '../components/MainContainer';
 
 type ItemProps = {
   icon: () => ReactNode;
@@ -68,6 +69,8 @@ const MyDrawer = () => {
     navigation?.dispatch(DrawerActions.closeDrawer());
   };
   return (
+    <MainContainer>
+
     <View style={{flex: 1, alignItems: 'center'}}>
       {/* header */}
       <TouchableOpacity
@@ -193,6 +196,8 @@ const MyDrawer = () => {
 
       <AppIcon />
     </View>
+    </MainContainer>
+
   );
 };
 

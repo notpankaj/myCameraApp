@@ -1,4 +1,4 @@
-import {View, Keyboard, TouchableOpacity, Animated} from 'react-native';
+import {View, Keyboard, TouchableOpacity, Animated, SafeAreaView} from 'react-native';
 import React, {ReactNode, useRef, useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {BoldText} from './MyText';
@@ -32,7 +32,8 @@ const DrawerPageContainer = ({children, onBack, title}: Props) => {
     };
   }, []);
   return (
-    <View style={{flex: 1, backgroundColor: COLORS.primaryBg}}>
+
+    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.primaryBg}}>
       <View>
         <TouchableOpacity
           style={{
@@ -60,7 +61,7 @@ const DrawerPageContainer = ({children, onBack, title}: Props) => {
       <View style={{alignItems: 'center'}}>
         <AppIcon />
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

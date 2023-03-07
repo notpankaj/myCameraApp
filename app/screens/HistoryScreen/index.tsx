@@ -11,6 +11,7 @@ import {BoldText, RegularText} from '../../components/MyText';
 import {useNavigation} from '@react-navigation/native';
 import {RESULT_SHEET} from '../../sheets/types';
 import {AccordionList} from 'react-native-accordion-list-view';
+import MainContainer from '../../components/MainContainer';
 
 const DATA = [
   {
@@ -52,6 +53,8 @@ function HistoryScreen() {
   const [favFilter, setFavFilter] = React.useState(false);
   const navigation = useNavigation();
   return (
+    <MainContainer>
+
     <View
       style={{
         flex: 1,
@@ -146,6 +149,7 @@ function HistoryScreen() {
         expandMultiple={true}
       />
     </View>
+    </MainContainer>
   );
 }
 

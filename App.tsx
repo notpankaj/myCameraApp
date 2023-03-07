@@ -10,6 +10,7 @@ import {AlertNotificationRoot} from 'react-native-alert-notification';
 import {LogBox} from 'react-native';
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 import {COLORS} from './app/helper/COLOR';
+import MainContainer from './app/components/MainContainer';
 const STRIPE_PK =
   'pk_test_51M0L2VSFJgtn9Lb9roXIXnZekNjTrHMsY4fpXNp5h4QQDIWdkE4ZWRipXmKFd216tS213M9MGRT0vK07udT1FkKI00t1mHCVh3';
 
@@ -24,6 +25,9 @@ const alertThemeConfig = {
 
 const App = () => {
   return (
+    // <MainContainer bgColor='transparent' >
+
+    // <MainContainer bgColor='red'   >
     <AlertNotificationRoot
       theme="light"
       colors={[alertThemeConfig, alertThemeConfig]}>
@@ -37,6 +41,8 @@ const App = () => {
         </StripeProvider>
       </Provider>
     </AlertNotificationRoot>
+    // </MainContainer>
+
   );
 };
 

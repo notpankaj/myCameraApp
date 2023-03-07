@@ -6,10 +6,10 @@ import {
   TouchableOpacity,
   Dimensions,
   Image,
+  SafeAreaView,
 } from 'react-native';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {launchImageLibrary} from 'react-native-image-picker';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Octicons from 'react-native-vector-icons/Octicons';
@@ -36,6 +36,7 @@ import {APP_NAME} from '../../helper/constants';
 import {RootStackParams} from '../../navigation/types';
 import QuestionMark from '../../components/icons/QuestionMark';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import MainContainer from '../../components/MainContainer';
 
 const {width} = Dimensions.get('window');
 
@@ -170,11 +171,14 @@ const HomeScreen = () => {
 
   if (device == null)
     return (
+      <MainContainer>
       <View>
         <Text>Loading</Text>
       </View>
+      </MainContainer>
     );
   return (
+    <MainContainer>
     <View style={[styles.container]}>
       {isFocused && (
         <Camera
@@ -338,6 +342,7 @@ const HomeScreen = () => {
         {/* footer end */}
       </View>
     </View>
+    </MainContainer>
   );
 };
 

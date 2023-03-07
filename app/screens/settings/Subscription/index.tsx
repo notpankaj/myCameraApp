@@ -21,6 +21,7 @@ import {
 import {myAlert} from '../../../helper/myAlert';
 import {ALERT_TYPE, Dialog} from 'react-native-alert-notification';
 import {FONTS} from '../../../../assets/fonts';
+import MainContainer from '../../../components/MainContainer';
 
 const list = [
   'Free tail days',
@@ -88,6 +89,8 @@ const Subscription = () => {
     initializePaymentSheet();
   }, []);
   return (
+    <MainContainer>
+
     <View style={{flex: 1, backgroundColor: COLORS.primaryBg}}>
       {/* header start */}
       <View
@@ -278,6 +281,8 @@ const Subscription = () => {
         </ScrollView>
       </View>
     </View>
+    </MainContainer>
+
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput, Text, TouchableOpacity, View} from 'react-native';
+import {TextInput, Text, TouchableOpacity, View, SafeAreaView} from 'react-native';
 import GradientWrapper from '../../components/GradientWrapper';
 import {BoldText} from '../../components/MyText';
 import {COLORS} from '../../helper/COLOR';
@@ -16,7 +16,8 @@ function TypeQuestionScreen() {
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
     <>
-      <CommonHeader />
+    
+    <CommonHeader  />
       <View
         style={{
           flex: 1,
