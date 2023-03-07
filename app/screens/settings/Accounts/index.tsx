@@ -127,7 +127,7 @@ const AccountScreen = () => {
         />
         <TouchableOpacity
           onPress={() => navigation.navigate('SignupScreen')}
-          style={{width: 120, alignSelf: 'center'}}>
+          style={{width: 120, alignSelf: 'center', }}>
           <BoldText
             text={'SINGUP'}
             style={{
@@ -135,6 +135,7 @@ const AccountScreen = () => {
               backgroundColor: 'rgba(0,0,0,0.1)',
               borderRadius: 5,
               textAlign: 'center',
+              overflow:'hidden'
             }}
           />
         </TouchableOpacity>
