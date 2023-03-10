@@ -12,6 +12,7 @@ type Props = {
   oldPrice?: string;
   discount?: string;
   active?: boolean;
+  selectedColor?:string
 };
 const OfferBox = ({
   title,
@@ -20,11 +21,13 @@ const OfferBox = ({
   trialDetail,
   discount,
   active,
+  selectedColor
 }: Props) => {
   const [selected, setSelected] = React.useState(active);
   return (
     <TouchableOpacity
       style={{
+        justifyContent:"flex-end",
         alignItems: 'center',
         height: 180,
       }}>
@@ -37,23 +40,24 @@ const OfferBox = ({
       />
       <View
         style={{
-          flex: 1,
           borderWidth: 1,
           borderRadius: 10,
+          height: 160,
+          paddingVertical:10,
           justifyContent: 'center',
           alignItems: 'center',
           borderColor: selected ? COLORS.accentOne : 'rgba(0,0,0,0.2)',
-          backgroundColor: selected ? 'white' : 'transparent',
+          backgroundColor: selected ? selectedColor ||'white' : 'transparent',
         }}>
         <RegularText text={title} style={{color: COLORS.textLight}} />
         <RegularText text={priceDes} />
         <Text
           style={{
             padding: 15,
+            opacity:0.8,
             textDecorationLine: 'line-through',
-            fontSize: 10,
+            fontSize: 12,
             fontFamily: FONTS.Poppins,
-            fontWeight: 'bold',
           }}>
           {oldPrice ? oldPrice : ''}
         </Text>

@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   SafeAreaView,
+  Platform,
 } from 'react-native';
 import GradientWrapper from '../../components/GradientWrapper';
 import {BoldText, RegularText} from '../../components/MyText';
@@ -17,7 +18,6 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParams} from '../../navigation/types';
 
 function TypeQuestionScreen() {
-  const [height, setHeight] = React.useState(250);
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
@@ -34,12 +34,14 @@ function TypeQuestionScreen() {
           text="What would like you to know?"
         />
         <TextInput
-          onFocus={() => setHeight(450)}
-          onBlur={() => setHeight(250)}
+          onFocus={() => {}}
+          onBlur={() => {}}
           placeholder="Type your question here"
+          multiline
           style={{
             textAlign: 'center',
             verticalAlign: 'top',
+            textAlignVertical: 'top',
             borderRadius: 10,
             paddingHorizontal: 10,
             flex: 0.8,

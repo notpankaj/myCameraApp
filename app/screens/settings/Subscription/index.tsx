@@ -5,6 +5,7 @@ import {
   ScrollView,
   Alert,
   ActivityIndicator,
+  SafeAreaView,
 } from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
@@ -23,6 +24,7 @@ import {ALERT_TYPE, Dialog} from 'react-native-alert-notification';
 import {FONTS} from '../../../../assets/fonts';
 import MainContainer from '../../../components/MainContainer';
 import OfferBox from '../../../components/OfferBox';
+import AppIcon from '../../../components/icons/AppIcon';
 
 const list = [
   'Free tail days',
@@ -90,6 +92,7 @@ const Subscription = () => {
     initializePaymentSheet();
   }, []);
   return (
+    <>
     <MainContainer>
       <View style={{flex: 1, backgroundColor: COLORS.primaryBg}}>
         {/* header start */}
@@ -99,7 +102,7 @@ const Subscription = () => {
             alignItems: 'center',
             marginVertical: 20,
           }}>
-          <BoldText text="Try Chappie Plus!" style={{fontSize: 30}} />
+          <RegularText text="Try Chappie Plus!" style={{fontSize: 30}} />
           <TouchableOpacity
             onPress={navigation.goBack}
             style={{
@@ -112,7 +115,7 @@ const Subscription = () => {
               position: 'absolute',
               right: 25,
             }}>
-            <Ionicons name="close" color={COLORS.textDark} size={20} />
+            <Ionicons name="close" color={'#000'} size={20} />
           </TouchableOpacity>
         </View>
         {/* header end */}
@@ -128,26 +131,28 @@ const Subscription = () => {
               paddingHorizontal: 10,
               paddingVertical: 12,
             }}>
-            <BoldText text="Get access to: " />
+            <RegularText style={{fontSize:20 , marginBottom:10}} text="Get access to: " />
 
             <View>
               {list.map(i => {
                 return (
                   <View
                     key={i}
-                    style={{flexDirection: 'row', marginBottom: 10}}>
+                    style={{flexDirection: 'row', marginBottom: 10,
+                    
+                    alignItems: 'center',}}>
                     <View
                       style={{
-                        width: 25,
-                        height: 25,
-                        borderRadius: 25,
+                        width: 20,
+                        height: 20,
+                        borderRadius: 20,
                         borderColor: COLORS.accentOne,
-                        borderWidth: 2,
+                        borderWidth: 1.5,
                         justifyContent: 'center',
                         alignItems: 'center',
                       }}>
                       <Feather
-                        size={20}
+                        size={12}
                         name="check"
                         color={COLORS.accentOne}
                       />
@@ -158,11 +163,12 @@ const Subscription = () => {
               })}
             </View>
 
-            <View style={{flexDirection: 'row', gap: 10, marginVertical: 40}}>
+            <View style={{flexDirection: 'row', gap: 10, justifyContent:'center',marginVertical: 40}}>
               <OfferBox
                 title={'Monthly'}
                 priceDes={'Only $8.99 / Month'}
                 trialDetail={'14 Days Free Trail'}
+                selectedColor={COLORS.primaryBg}
               />
 
               <OfferBox
@@ -172,6 +178,7 @@ const Subscription = () => {
                 trialDetail={'14 Days Free Trail'}
                 discount={'50% off'}
                 active
+                selectedColor={COLORS.primaryBg}
               />
             </View>
 
@@ -190,7 +197,7 @@ const Subscription = () => {
                   {loading ? (
                     <ActivityIndicator size={'small'} color={'white'} />
                   ) : (
-                    <BoldText text="START NOW" style={{color: COLORS.white}} />
+                    <RegularText text="START NOW" style={{color: COLORS.white, fontSize:18}} />
                   )}
                 </GradientWrapper>
               </TouchableOpacity>
@@ -199,13 +206,12 @@ const Subscription = () => {
 
               <View style={{flexDirection: 'row'}}>
                 <RegularText
-                  bold
                   style={{color: COLORS.accentOne}}
                   text="Terms of Services"
                 />
                 <RegularText text={'&'} bold />
                 <RegularText
-                  bold
+                 
                   style={{color: COLORS.accentOne}}
                   text="Privacy Policy"
                 />
@@ -215,6 +221,10 @@ const Subscription = () => {
         </View>
       </View>
     </MainContainer>
+   <SafeAreaView style={{backgroundColor:COLORS.primaryBg, justifyContent:'center',alignItems:'center'}}>
+  <AppIcon/>
+   </SafeAreaView>
+    </>
   );
 };
 

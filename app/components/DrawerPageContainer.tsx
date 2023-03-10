@@ -1,4 +1,4 @@
-import {View, Keyboard, TouchableOpacity, Animated, SafeAreaView} from 'react-native';
+import {View, Keyboard, TouchableOpacity, Animated, SafeAreaView,StyleProp,ViewStyle} from 'react-native';
 import React, {ReactNode, useRef, useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {BoldText} from './MyText';
@@ -10,9 +10,10 @@ interface Props {
   children: ReactNode;
   onBack?: () => void;
   title: string;
+  containerStyle? : StyleProp<ViewStyle>
 }
 
-const DrawerPageContainer = ({children, onBack, title}: Props) => {
+const DrawerPageContainer = ({children, onBack, title,containerStyle}: Props) => {
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
 
   let keyboardDidShowListener = useRef<any>().current;
@@ -33,7 +34,7 @@ const DrawerPageContainer = ({children, onBack, title}: Props) => {
   }, []);
   return (
 
-    <SafeAreaView style={{flex: 1, backgroundColor: COLORS.primaryBg}}>
+    <SafeAreaView style={[{flex: 1, backgroundColor: COLORS.primaryBg},containerStyle]}>
       <View>
         <TouchableOpacity
           style={{

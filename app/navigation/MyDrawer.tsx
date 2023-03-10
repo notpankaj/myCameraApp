@@ -46,8 +46,8 @@ const Item = ({icon, title, des, onPress, disbaleRightArrow}: ItemProps) => {
       }}>
       <View style={{marginRight: 10}}>{icon()}</View>
       <View style={{flex: 1}}>
-        <BoldText style={{fontSize: 18}} text={title} />
-        <Text numberOfLines={1} style={{fontSize: 12, marginLeft: 5}}>
+        <RegularText style={{fontSize: 18}} text={title} />
+        <Text numberOfLines={1} style={{fontSize: 12, marginLeft: 5,opacity:0.35}} >
           {des}
         </Text>
       </View>
@@ -69,7 +69,7 @@ const MyDrawer = () => {
     navigation?.dispatch(DrawerActions.closeDrawer());
   };
   return (
-    <MainContainer>
+    <MainContainer  >
 
     <View style={{flex: 1, alignItems: 'center'}}>
       {/* header */}
@@ -85,7 +85,7 @@ const MyDrawer = () => {
           justifyContent: 'center',
           paddingTop: 20,
         }}>
-        <BoldText style={{fontSize: 30, marginBottom: 15}} text="Settings" />
+        <RegularText style={{fontSize: 30, marginBottom: 15}} text="Settings" />
       </View>
 
       <Item
@@ -122,11 +122,6 @@ const MyDrawer = () => {
       />
       <Item
         icon={() => (
-          // <Ionicons
-          //   name="mail-open-outline"
-          //   size={35}
-          //   color={COLORS.accentTwo}
-          // />
           <Image
             style={styles.itemIcon}
             source={require('../../assets/nav/invite.png')}
@@ -139,7 +134,6 @@ const MyDrawer = () => {
 
       <RegularText
         text={'Others'}
-        bold
         style={{
           alignSelf: 'flex-start',
           marginLeft: 20,
@@ -194,7 +188,9 @@ const MyDrawer = () => {
         disbaleRightArrow
       />
 
-      <AppIcon />
+    <View style={{marginTop:20}}>
+    <AppIcon />
+    </View>
     </View>
     </MainContainer>
 

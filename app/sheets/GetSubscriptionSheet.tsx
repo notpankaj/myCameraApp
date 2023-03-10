@@ -164,7 +164,7 @@ function GetSubscriptionSheet(props: SheetProps) {
             marginVertical: 20,
           }}>
           <RegularText
-            style={{fontSize: 17, marginHorizontal: 22, textAlign: 'center'}}
+            style={{fontSize: 15, marginHorizontal: 22, textAlign: 'center'}}
             text="Invite friends and get 10 FREE scans for every new players"
           />
 

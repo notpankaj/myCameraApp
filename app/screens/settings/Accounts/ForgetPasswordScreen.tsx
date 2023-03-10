@@ -18,9 +18,10 @@ const ForgetPasswordScreen = () => {
     navigation.goBack();
   };
   return (
-    <DrawerPageContainer title="" onBack={onBack}>
-      <View style={{paddingHorizontal: 20, flex: 0.9, marginTop: 50}}>
-        <BoldText
+    <DrawerPageContainer  title="" onBack={onBack} containerStyle={{backgroundColor:COLORS.white}}>
+      <View style={{paddingHorizontal: 20, flex: 0.9, marginTop: 50, }}>
+
+        <RegularText
           text="Change Password"
           style={{fontSize: 30, textAlign: 'center'}}
         />
