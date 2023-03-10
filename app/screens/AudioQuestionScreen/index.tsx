@@ -1,7 +1,7 @@
-import { View, Pressable, Text } from 'react-native';
+import {View, Pressable, Text} from 'react-native';
 import React from 'react';
-import { COLORS } from '../../helper/COLOR';
-import { BoldText, RegularText } from '../../components/MyText';
+import {COLORS} from '../../helper/COLOR';
+import {BoldText, RegularText} from '../../components/MyText';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CommonHeader from '../../components/CommonHeader';
 import Voice from '@react-native-voice/voice';
@@ -64,7 +64,6 @@ const AudioQuestionScreen = () => {
     //Invoked when any results are computed
     console.log('onSpeechPartialResults: ', e);
     setPartialResults(e.value);
-
   };
   const onSpeechEnd = () => {
     console.log('onSpeechEnd');
@@ -96,18 +95,15 @@ const AudioQuestionScreen = () => {
           backgroundColor: COLORS.primaryBg,
           paddingHorizontal: 40,
         }}>
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-          <BoldText
-            text={`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, aut sequi velit quisquam blanditiis quaerat maxime consequuntur veniam facilis? Quia ab perspiciatis labore est modi maxime unde sint nisi magni.`}
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          <RegularText
+            text={`Press and hold to ask your question..`}
+            style={{fontSize: 14}}
           />
 
-          <Text>
-            {JSON.stringify(partialResults)}
-          </Text>
+          {/* <Text>{JSON.stringify(partialResults)}</Text>
 
-          <Text>
-            {JSON.stringify(result)}
-          </Text>
+          <Text>{JSON.stringify(result)}</Text> */}
           {/* {result?.map((result, index) => {
             return (
               <Text
@@ -127,7 +123,6 @@ const AudioQuestionScreen = () => {
               </Text>
             );
           })} */}
-
         </View>
 
         <Pressable
@@ -151,7 +146,7 @@ const AudioQuestionScreen = () => {
             alignSelf: 'center',
             marginBottom: 20,
           }}>
-          {({ pressed }) => {
+          {({pressed}) => {
             // if (pressed) {
             //   return (
             //     <FontAwesome
@@ -164,7 +159,7 @@ const AudioQuestionScreen = () => {
             return (
               <FontAwesome
                 name="microphone"
-                size={35}
+                size={28}
                 color={COLORS.textLight}
               />
             );
@@ -172,9 +167,13 @@ const AudioQuestionScreen = () => {
         </Pressable>
 
         <RegularText
-          style={{ textAlign: 'center' }}
-          // text={listening ? 'Let go when done!' : 'Hold when speek!'}
-          text={listening ? 'Let go when done!' : ''}
+          style={{
+            textAlign: 'center',
+            fontSize: 14,
+            marginBottom: 30,
+            opacity: 0.7,
+          }}
+          text={listening ? 'Let go when done' : ''}
         />
       </View>
     </>

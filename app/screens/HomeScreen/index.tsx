@@ -156,11 +156,11 @@ const HomeScreen = () => {
 
   React.useEffect(() => {
     const init = async () => {
-        const cameraPermission = await Camera.getCameraPermissionStatus();
-        if (cameraPermission !== 'authorized') {
-          askForPermission();
-        }
-        console.log(cameraPermission, 'cameraPermission');
+      const cameraPermission = await Camera.getCameraPermissionStatus();
+      if (cameraPermission !== 'authorized') {
+        askForPermission();
+      }
+      console.log(cameraPermission, 'cameraPermission');
     };
     init();
   }, []);
@@ -173,97 +173,101 @@ const HomeScreen = () => {
   if (device == null)
     return (
       <MainContainer>
-      <View style={{justifyContent:'center',alignItems:'center'}}>
-        <Text>{ Platform.OS === 'ios'? 'use real device!': 'Loading'}</Text>
-      </View>
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Text>{Platform.OS === 'ios' ? 'use real device!' : 'Loading'}</Text>
+        </View>
       </MainContainer>
     );
   return (
     <MainContainer>
-    <View style={[styles.container]}>
-      {isFocused && (
-        <Camera
-          ref={camera}
-          photo={true}
-          style={StyleSheet.absoluteFill}
-          device={device}
-          isActive={isCameraActive}
-          torch={flash}
-        />
-      )}
+      <View style={[styles.container]}>
+        {isFocused && (
+          <Camera
+            ref={camera}
+            photo={true}
+            style={StyleSheet.absoluteFill}
+            device={device}
+            isActive={isCameraActive}
+            torch={flash}
+          />
+        )}
 
-      {imageUrl && <CropView imageUri={imageUrl} close={hideImageModeOn} />}
-      <View style={styles.container}>
-        {/* header start */}
-        <View
-          style={{
-            paddingHorizontal: 15,
-            paddingVertical: 10,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <TouchableOpacity onPress={openDrawer}>
-              <Ionicons name="settings-sharp" size={24} color="white" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                SheetManager.show(GET_SUBSCRIPTION_SHEET);
-              }}>
-              <Text
-                style={{
-                  marginLeft: 10,
-                  borderColor: COLORS.white,
-                  borderWidth: 0.9,
-                  borderRadius: 5,
-                  color: COLORS.white,
-                  padding: 5,
-                  paddingHorizontal: 12,
+        {imageUrl && <CropView imageUri={imageUrl} close={hideImageModeOn} />}
+        <View style={styles.container}>
+          {/* header start */}
+          <View
+            style={{
+              paddingHorizontal: 15,
+              paddingVertical: 10,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <TouchableOpacity onPress={openDrawer}>
+                <Ionicons name="settings-sharp" size={24} color="white" />
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  SheetManager.show(GET_SUBSCRIPTION_SHEET);
                 }}>
-                3 Scans Left
-              </Text>
-            </TouchableOpacity>
+                <Text
+                  style={{
+                    marginLeft: 10,
+                    borderColor: COLORS.white,
+                    borderWidth: 0.9,
+                    borderRadius: 5,
+                    color: COLORS.white,
+                    padding: 5,
+                    paddingHorizontal: 12,
+                  }}>
+                  3 Times Left
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{flexDirection: 'row', gap: 10, alignItems: 'center'}}>
+              <BtnV1 containerStyle={{padding: 1, borderRadius: 5}}>
+                <SmallText
+                  bold
+                  style={{
+                    color: COLORS.white,
+                    fontSize: 11,
+                    paddingHorizontal: 12,
+                  }}
+                  text={'plus +'}
+                />
+              </BtnV1>
+              <TouchableOpacity
+                onPress={() => {
+                  toggleTabBar(!isFullScreenMode);
+                  setIsFullScreenMode(!isFullScreenMode);
+                }}>
+                {isFullScreenMode ? (
+                  <MaterialIcons
+                    name="fullscreen-exit"
+                    size={24}
+                    color="white"
+                  />
+                ) : (
+                  <Octicons name="screen-full" size={24} color="white" />
+                )}
+              </TouchableOpacity>
+              <TouchableOpacity onPress={toggleFlash}>
+                <MaterialCommunityIcons
+                  name={flash === FLASH.ON ? 'flash-off' : 'flash'}
+                  size={24}
+                  color="white"
+                />
+              </TouchableOpacity>
+            </View>
           </View>
-          <View style={{flexDirection: 'row', gap: 10, alignItems: 'center'}}>
-            <BtnV1 containerStyle={{padding: 1, borderRadius: 5}}>
-              <SmallText
-                bold
-                style={{
-                  color: COLORS.white,
-                  fontSize: 11,
-                  paddingHorizontal: 12,
-                }}
-                text={'plus +'}
-              />
-            </BtnV1>
-            <TouchableOpacity
-              onPress={() => {
-                toggleTabBar(!isFullScreenMode);
-                setIsFullScreenMode(!isFullScreenMode);
-              }}>
-              {isFullScreenMode ? (
-                <MaterialIcons name="fullscreen-exit" size={24} color="white" />
-              ) : (
-                <Octicons name="screen-full" size={24} color="white" />
-              )}
-            </TouchableOpacity>
-            <TouchableOpacity onPress={toggleFlash}>
-              <MaterialCommunityIcons
-                name={flash === FLASH.ON ? 'flash-off' : 'flash'}
-                size={24}
-                color="white"
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
-        {/* header end */}
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          {/* {tabVisible && (
+          {/* header end */}
+          <View
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            {/* {tabVisible && (
             <View
               style={{
                 flexDirection: 'column',
@@ -291,58 +295,58 @@ const HomeScreen = () => {
               />
             </View>
           )} */}
-        </View>
-        {/* footer start */}
-        <View style={{paddingBottom: 30}}>
-          <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <QuestionMark
-              onPress={() => navigation.navigate('FaqScreen')}
-              containerStyle={{
-                margin: 10,
-                position: 'absolute',
-                top: 25,
-                left: 20,
-              }}
-            />
-            {showImageModeOnValue ? null : (
-              <TouchableOpacity
-                onPress={() => {
-                  tookPhoto();
+          </View>
+          {/* footer start */}
+          <View style={{paddingBottom: 30}}>
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+              <QuestionMark
+                onPress={() => navigation.navigate('FaqScreen')}
+                containerStyle={{
+                  margin: 10,
+                  position: 'absolute',
+                  top: 25,
+                  left: 20,
                 }}
-                style={{
-                  width: 80,
-                  height: 80,
-                  backgroundColor: COLORS.white,
-                  borderRadius: 80,
-                  borderWidth: 5,
-                  borderColor: 'rgba(255,255,255,0.6)',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                <Image
+              />
+              {showImageModeOnValue ? null : (
+                <TouchableOpacity
+                  onPress={() => {
+                    tookPhoto();
+                  }}
                   style={{
                     width: 80,
                     height: 80,
-                  }}
-                  source={require('../../../assets/icons/magic-starts.png')}
-                />
+                    backgroundColor: COLORS.white,
+                    borderRadius: 80,
+                    borderWidth: 5,
+                    borderColor: 'rgba(255,255,255,0.6)',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    style={{
+                      width: 80,
+                      height: 80,
+                    }}
+                    source={require('../../../assets/icons/magic-starts.png')}
+                  />
+                </TouchableOpacity>
+              )}
+              <TouchableOpacity
+                onPress={pickPhotoFormGallery}
+                style={{
+                  margin: 10,
+                  position: 'absolute',
+                  top: 25,
+                  right: 20,
+                }}>
+                <FontAwesome color={COLORS.white} size={24} name="image" />
               </TouchableOpacity>
-            )}
-            <TouchableOpacity
-              onPress={pickPhotoFormGallery}
-              style={{
-                margin: 10,
-                position: 'absolute',
-                top: 25,
-                right: 20,
-              }}>
-              <FontAwesome color={COLORS.white} size={24} name="image" />
-            </TouchableOpacity>
+            </View>
           </View>
+          {/* footer end */}
         </View>
-        {/* footer end */}
       </View>
-    </View>
     </MainContainer>
   );
 };
