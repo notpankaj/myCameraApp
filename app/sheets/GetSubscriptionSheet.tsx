@@ -20,6 +20,7 @@ import ActionSheet, {
 import {RadioButton} from 'react-native-radio-buttons-group';
 import GradientWrapper from '../components/GradientWrapper';
 import {BoldText, RegularText, SmallText} from '../components/MyText';
+import OfferBox from '../components/OfferBox';
 import {shareAPI} from '../helper';
 import {COLORS} from '../helper/COLOR';
 import {RootStackParams} from '../navigation/types';
@@ -86,26 +87,22 @@ function GetSubscriptionSheet(props: SheetProps) {
               borderColor: COLORS.accentTwo,
               backgroundColor: '#fdeaff',
             }}>
-            <BoldText text="3" style={{fontSize: 35}} />
+            <RegularText text="3" style={{fontSize: 30}} />
           </View>
-          <BoldText text="Scans Remaining" style={{fontSize: 24}} />
+          <RegularText text="Times Remaining" style={{fontSize: 20}} />
         </View>
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.dealBox}
           onPress={() => setSelectedRadio(RADIO_TYPE.month)}>
           <View>
             <BoldText text="Month to Month Subscription" />
             <RegularText style={{fontSize: 12}} bold text="$8.99 / Month" />
           </View>
-          {/* <RadioButton
-            selected={selectedRadio === RADIO_TYPE.month}
-            id="1"
-            size={15}
-          /> */}
-        </TouchableOpacity>
+  
+        </TouchableOpacity> */}
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.dealBox}
           onPress={() => setSelectedRadio(RADIO_TYPE.year)}>
           <View>
@@ -121,7 +118,28 @@ function GetSubscriptionSheet(props: SheetProps) {
               style={{textDecorationLine: 'line-through'}}
             />
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        <View
+          style={{
+            flexDirection: 'row',
+            gap: 10,
+            marginVertical: 20,
+          }}>
+          <OfferBox
+            title={'Monthly'}
+            priceDes={'Only $8.99 / Month'}
+            trialDetail={'14 Days Free Trail'}
+          />
+
+          <OfferBox
+            title={'Yearly'}
+            priceDes={'Only $59.99 / Year'}
+            oldPrice={'$120.99'}
+            trialDetail={'14 Days Free Trail'}
+            discount={'50% off'}
+            active
+          />
+        </View>
 
         <TouchableOpacity
           style={{alignSelf: 'center', marginVertical: 10}}
@@ -135,9 +153,7 @@ function GetSubscriptionSheet(props: SheetProps) {
               height: 40,
               borderRadius: 10,
             }}>
-            <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
-              Subscribe
-            </Text>
+            <Text style={{fontSize: 20, color: 'white'}}>SUBSCRIBE</Text>
           </GradientWrapper>
         </TouchableOpacity>
 
@@ -153,7 +169,7 @@ function GetSubscriptionSheet(props: SheetProps) {
           />
 
           <TouchableOpacity onPress={() => shareAPI()}>
-            <BoldText
+            <RegularText
               text="Invite Friends"
               style={{color: COLORS.accentOne, textDecorationLine: 'underline'}}
             />
