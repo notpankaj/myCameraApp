@@ -124,6 +124,8 @@ function GetSubscriptionSheet(props: SheetProps) {
             flexDirection: 'row',
             gap: 10,
             marginVertical: 20,
+            justifyContent:'center',
+            alignItems:'center'
           }}>
           <OfferBox
             title={'Monthly'}
