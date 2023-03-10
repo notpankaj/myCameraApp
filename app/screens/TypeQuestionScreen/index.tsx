@@ -1,7 +1,13 @@
 import React from 'react';
-import {TextInput, Text, TouchableOpacity, View, SafeAreaView} from 'react-native';
+import {
+  TextInput,
+  Text,
+  TouchableOpacity,
+  View,
+  SafeAreaView,
+} from 'react-native';
 import GradientWrapper from '../../components/GradientWrapper';
-import {BoldText} from '../../components/MyText';
+import {BoldText, RegularText} from '../../components/MyText';
 import {COLORS} from '../../helper/COLOR';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import CommonHeader from '../../components/CommonHeader';
@@ -16,24 +22,23 @@ function TypeQuestionScreen() {
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
     <>
-    
-    <CommonHeader  />
+      <CommonHeader />
       <View
         style={{
           flex: 1,
           paddingHorizontal: 30,
           paddingTop: 10,
         }}>
-        <BoldText
-          style={{textAlign: 'center', paddingVertical: 50}}
+        <RegularText
+          style={{textAlign: 'center', fontWeight: '700', paddingVertical: 50}}
           text="What would like you to know?"
         />
         <TextInput
           onFocus={() => setHeight(450)}
           onBlur={() => setHeight(250)}
-          placeholder="Type a question"
+          placeholder="Type your question here"
           style={{
-            textAlign: 'left',
+            textAlign: 'center',
             verticalAlign: 'top',
             borderRadius: 10,
             paddingHorizontal: 10,
@@ -51,7 +56,7 @@ function TypeQuestionScreen() {
               alignItems: 'center',
               borderRadius: 10,
               height: 40,
-              width: 180,
+              width: 200,
             }}>
             <MaterialCommunityIcons
               color={COLORS.white}
@@ -61,11 +66,10 @@ function TypeQuestionScreen() {
             <Text
               style={{
                 fontSize: 17,
-                fontWeight: 'bold',
                 color: 'white',
                 paddingRight: 10,
               }}>
-              Ask Question
+              ASK QUESTION
             </Text>
           </GradientWrapper>
         </TouchableOpacity>
