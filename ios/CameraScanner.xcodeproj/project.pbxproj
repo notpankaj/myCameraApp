@@ -12,6 +12,14 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		76560F1D29BB540E00528480 /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76560F1529BB540E00528480 /* Ubuntu-LightItalic.ttf */; };
+		76560F1E29BB540E00528480 /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76560F1629BB540E00528480 /* Ubuntu-MediumItalic.ttf */; };
+		76560F1F29BB540E00528480 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76560F1729BB540E00528480 /* Ubuntu-Italic.ttf */; };
+		76560F2029BB540E00528480 /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76560F1829BB540E00528480 /* Ubuntu-Regular.ttf */; };
+		76560F2129BB540E00528480 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76560F1929BB540E00528480 /* Ubuntu-Light.ttf */; };
+		76560F2229BB540E00528480 /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76560F1A29BB540E00528480 /* Ubuntu-Bold.ttf */; };
+		76560F2329BB540E00528480 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76560F1B29BB540E00528480 /* Ubuntu-Medium.ttf */; };
+		76560F2429BB540E00528480 /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76560F1C29BB540E00528480 /* Ubuntu-BoldItalic.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-CameraScanner-CameraScannerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-CameraScanner-CameraScannerTests.a */; };
 		76E03F9629B72CCF001C900F /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76E03F8629B72CCF001C900F /* Fontisto.ttf */; };
 		76E03F9729B72CCF001C900F /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76E03F8729B72CCF001C900F /* Octicons.ttf */; };
@@ -64,6 +72,14 @@
 		5709B34CF0A7D63546082F79 /* Pods-CameraScanner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraScanner.release.xcconfig"; path = "Target Support Files/Pods-CameraScanner/Pods-CameraScanner.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-CameraScanner-CameraScannerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CameraScanner-CameraScannerTests.debug.xcconfig"; path = "Target Support Files/Pods-CameraScanner-CameraScannerTests/Pods-CameraScanner-CameraScannerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-CameraScanner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CameraScanner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		76560F1529BB540E00528480 /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-LightItalic.ttf"; path = "../../../assets/fonts/Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
+		76560F1629BB540E00528480 /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-MediumItalic.ttf"; path = "../../../assets/fonts/Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
+		76560F1729BB540E00528480 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Italic.ttf"; path = "../../../assets/fonts/Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
+		76560F1829BB540E00528480 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Regular.ttf"; path = "../../../assets/fonts/Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
+		76560F1929BB540E00528480 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Light.ttf"; path = "../../../assets/fonts/Ubuntu-Light.ttf"; sourceTree = "<group>"; };
+		76560F1A29BB540E00528480 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Bold.ttf"; path = "../../../assets/fonts/Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
+		76560F1B29BB540E00528480 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Medium.ttf"; path = "../../../assets/fonts/Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
+		76560F1C29BB540E00528480 /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-BoldItalic.ttf"; path = "../../../assets/fonts/Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
 		76E03F8629B72CCF001C900F /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		76E03F8729B72CCF001C900F /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		76E03F8829B72CCF001C900F /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -157,6 +173,14 @@
 			isa = PBXGroup;
 			children = (
 				76E03FAB29B73D78001C900F /* Poppins-Bold.ttf */,
+				76560F1A29BB540E00528480 /* Ubuntu-Bold.ttf */,
+				76560F1C29BB540E00528480 /* Ubuntu-BoldItalic.ttf */,
+				76560F1729BB540E00528480 /* Ubuntu-Italic.ttf */,
+				76560F1929BB540E00528480 /* Ubuntu-Light.ttf */,
+				76560F1529BB540E00528480 /* Ubuntu-LightItalic.ttf */,
+				76560F1B29BB540E00528480 /* Ubuntu-Medium.ttf */,
+				76560F1629BB540E00528480 /* Ubuntu-MediumItalic.ttf */,
+				76560F1829BB540E00528480 /* Ubuntu-Regular.ttf */,
 				76E03FA829B73D77001C900F /* Poppins-ExtraBold.ttf */,
 				76E03FA729B73D76001C900F /* Poppins-ExtraLight.ttf */,
 				76E03FAA29B73D77001C900F /* Poppins-Light.ttf */,
@@ -331,7 +355,9 @@
 				76E03FAE29B73D78001C900F /* Poppins-ExtraLight.ttf in Resources */,
 				76E03F9629B72CCF001C900F /* Fontisto.ttf in Resources */,
 				76E03FA129B72CCF001C900F /* FontAwesome.ttf in Resources */,
+				76560F1F29BB540E00528480 /* Ubuntu-Italic.ttf in Resources */,
 				76E03F9D29B72CCF001C900F /* Foundation.ttf in Resources */,
+				76560F2029BB540E00528480 /* Ubuntu-Regular.ttf in Resources */,
 				76E03FA029B72CCF001C900F /* FontAwesome5_Regular.ttf in Resources */,
 				76E03F9E29B72CCF001C900F /* Ionicons.ttf in Resources */,
 				76E03FA329B72CCF001C900F /* EvilIcons.ttf in Resources */,
@@ -342,17 +368,23 @@
 				76E03FAF29B73D78001C900F /* Poppins-ExtraBold.ttf in Resources */,
 				76E03FA429B72CCF001C900F /* SimpleLineIcons.ttf in Resources */,
 				76E03F9829B72CCF001C900F /* Feather.ttf in Resources */,
+				76560F1D29BB540E00528480 /* Ubuntu-LightItalic.ttf in Resources */,
 				76E03FB329B73D78001C900F /* Poppins-Thin.ttf in Resources */,
 				76E03FB029B73D78001C900F /* Poppins-SemiBold.ttf in Resources */,
+				76560F2229BB540E00528480 /* Ubuntu-Bold.ttf in Resources */,
 				76E03F9729B72CCF001C900F /* Octicons.ttf in Resources */,
 				76E03F9A29B72CCF001C900F /* FontAwesome5_Brands.ttf in Resources */,
 				76E03F9C29B72CCF001C900F /* AntDesign.ttf in Resources */,
+				76560F2129BB540E00528480 /* Ubuntu-Light.ttf in Resources */,
 				76E03FA529B72CCF001C900F /* MaterialIcons.ttf in Resources */,
 				76E03FB229B73D78001C900F /* Poppins-Bold.ttf in Resources */,
 				76E03F9F29B72CCF001C900F /* FontAwesome5_Solid.ttf in Resources */,
 				76E03F9B29B72CCF001C900F /* MaterialCommunityIcons.ttf in Resources */,
 				76E03FAD29B73D78001C900F /* Poppins-Regular.ttf in Resources */,
+				76560F2429BB540E00528480 /* Ubuntu-BoldItalic.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				76560F2329BB540E00528480 /* Ubuntu-Medium.ttf in Resources */,
+				76560F1E29BB540E00528480 /* Ubuntu-MediumItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

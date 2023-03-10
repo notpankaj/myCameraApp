@@ -9,6 +9,8 @@ type TextProps = {
   bold?: boolean;
 };
 
+
+const FONT_FAMILY = FONTS.Ubuntu
 export const BoldText = ({text, style}: TextProps) => {
   return (
     <Text
@@ -18,7 +20,8 @@ export const BoldText = ({text, style}: TextProps) => {
           fontWeight: 'bold',
           padding: 5,
           color: COLORS.textDark,
-          fontFamily: FONTS.Poppins,
+          // fontFamily: FONTS.Poppins,
+          fontFamily: FONT_FAMILY,
         },
         style,
       ]}>
@@ -35,9 +38,11 @@ export const RegularText = ({text, style, bold}: TextProps) => {
           fontSize: 15,
           padding: 5,
           color: COLORS.textDark,
-          fontFamily: FONTS.Poppins,
+          // fontFamily: FONTS.Poppins,
+          fontFamily: FONT_FAMILY,
           fontWeight: bold ? 'bold' : 'normal',
         },
+        
         style,
       ]}>
       {text}
@@ -52,7 +57,8 @@ export const SmallText = ({text, style, bold}: TextProps) => {
           color: COLORS.textLight,
           fontSize: 11,
           padding: 5,
-          fontFamily: FONTS.Poppins,
+          // fontFamily: FONTS.Poppins,
+          fontFamily: FONT_FAMILY,
           fontWeight: bold ? 'bold' : 'normal',
         },
         style,
