@@ -22,12 +22,12 @@ const SplashScreen = ({hideSplash}: Props) => {
     Animated.parallel([
       Animated.timing(logoHeightValue, {
         toValue: LOGO_SIZE,
-        duration: 1500,
+        duration: 1900,
         useNativeDriver: false,
       }),
       Animated.timing(textHeightValue, {
         toValue: 50,
-        duration: 1500,
+        duration: 1900,
         useNativeDriver: false,
       }),
     ]).start(() => {
@@ -84,7 +84,7 @@ const SplashScreen = ({hideSplash}: Props) => {
               source={require('../../../assets/icons/applogo-one.png')}
             />
           </Animated.View>
-          {/* <Animated.View
+          <Animated.View
             style={{
               position: 'absolute',
               bottom: '50%',
@@ -102,7 +102,7 @@ const SplashScreen = ({hideSplash}: Props) => {
               }}>
               {APP_NAME}
             </Text>
-          </Animated.View> */}
+          </Animated.View>
         </View>
       </LinearGradient>
     </View>
