@@ -1,4 +1,4 @@
-import {View, Keyboard, TouchableOpacity, Animated, SafeAreaView,StyleProp,ViewStyle} from 'react-native';
+import {View, Keyboard, TouchableOpacity, Animated, SafeAreaView,StyleProp,ViewStyle, TextStyle, ImageStyle} from 'react-native';
 import React, {ReactNode, useRef, useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {BoldText} from './MyText';
@@ -10,10 +10,13 @@ interface Props {
   children: ReactNode;
   onBack?: () => void;
   title: string;
-  containerStyle? : StyleProp<ViewStyle>
+  containerStyle? : StyleProp<ViewStyle>;
+  titleStyle?: StyleProp<TextStyle>;
+  iconContainerStyle? :StyleProp<ViewStyle>;
+  iconStyle?: StyleProp<ImageStyle>
 }
 
-const DrawerPageContainer = ({children, onBack, title,containerStyle}: Props) => {
+const DrawerPageContainer = ({children, onBack, title,containerStyle,titleStyle,iconContainerStyle,iconStyle}: Props) => {
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
 
   let keyboardDidShowListener = useRef<any>().current;
@@ -37,7 +40,7 @@ const DrawerPageContainer = ({children, onBack, title,containerStyle}: Props) =>
     <SafeAreaView style={[{flex: 1, backgroundColor: COLORS.primaryBg},containerStyle]}>
       <View>
         <TouchableOpacity
-          style={{
+          style={[{
             backgroundColor: 'rgba(0,0,0,0.12)',
             width: 25,
             height: 25,
@@ -48,13 +51,13 @@ const DrawerPageContainer = ({children, onBack, title,containerStyle}: Props) =>
             zIndex: 1,
             justifyContent: 'center',
             alignItems: 'center',
-          }}
+          },iconContainerStyle]}
           onPress={onBack}>
-          <BackBtn iconStyle={{width: 25, height: 25}} />
+          <BackBtn iconStyle={[{width: 25, height: 25},iconStyle]} />
           {/* <Ionicons name="chevron-back" size={24} color={COLORS.textLight} /> */}
         </TouchableOpacity>
         <View style={{paddingVertical: 20, alignItems: 'center'}}>
-          <BoldText style={{fontSize: 30}} text={title} />
+          <BoldText style={[{fontSize: 30},titleStyle]} text={title}  />
         </View>
       </View>
       {children}

@@ -1,11 +1,13 @@
-import {View, Text, TextInput, StyleProp, ViewStyle} from 'react-native';
+import {View, Text, TextInput, StyleProp, ViewStyle,TextStyle} from 'react-native';
 import {COLORS} from '../helper/COLOR';
 type InputProps = {
   placeholder: string;
   label: string;
   inputWrapperStyle?: StyleProp<ViewStyle>;
+
+  inputStyle?: StyleProp<TextStyle>;
 };
-const Input = ({placeholder, label, inputWrapperStyle}: InputProps) => {
+const Input = ({placeholder, label, inputStyle,inputWrapperStyle}: InputProps) => {
   return (
     <View style={[{width: '100%', paddingHorizontal: 10}, inputWrapperStyle]}>
       {/* <Text
@@ -19,7 +21,8 @@ const Input = ({placeholder, label, inputWrapperStyle}: InputProps) => {
       </Text> */}
       <TextInput
         placeholder={placeholder}
-        style={{
+        style={[{
+
           // backgroundColor: '#fff',
           borderColor: COLORS.textLight,
           borderWidth: 0.5,
@@ -27,7 +30,7 @@ const Input = ({placeholder, label, inputWrapperStyle}: InputProps) => {
           paddingVertical: 12,
           paddingHorizontal: 10,
           marginVertical: 10,
-        }}
+        },inputStyle]}
       />
     </View>
   );

@@ -129,7 +129,7 @@ const FaqScreen = () => {
   }, []);
   React.useEffect(() => {}, [openIndex]);
   return (
-    <DrawerPageContainer title="FAQs" onBack={navigation.goBack}>
+    <DrawerPageContainer title="FAQs" onBack={navigation.goBack} iconContainerStyle={{display:'flex'}} titleStyle={{fontWeight:'normal'}} >
       <View
         style={{
           paddingHorizontal: 10,

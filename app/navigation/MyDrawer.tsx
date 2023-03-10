@@ -129,7 +129,7 @@ const MyDrawer = () => {
         )}
         onPress={() => navigation.navigate('InviteScreen')}
         title="Invite Friends"
-        des="invite friends and get a bonus for scan"
+        des="invite friends and get bonus scans"
       />
 
       <RegularText

@@ -10,7 +10,10 @@ import {APP_NAME} from '../../../helper/constants';
 const HelpScreen = () => {
   const navigation = useNavigation();
   return (
-    <DrawerPageContainer title="Help and Support" onBack={navigation.goBack}>
+    <DrawerPageContainer title="Help and Support" onBack={navigation.goBack}
+    titleStyle={{fontWeight:'normal'}}
+    iconContainerStyle={{backgroundColor: COLORS.white}}  iconStyle={{tintColor: COLORS.textDark}} 
+    >
       <View style={{paddingHorizontal: 20, flex: 0.98}}>
         <ScrollView
           style={{
@@ -25,14 +28,14 @@ const HelpScreen = () => {
             paddingBottom: 50,
           }}
           showsVerticalScrollIndicator={false}>
-          <BoldText style={{fontSize: 22}} text={`Intro to ${APP_NAME}`} />
+          <RegularText style={{fontSize: 22, marginBottom:-5}} text={`Intro to ${APP_NAME}`} />
           <RegularText text="Updated * 1 month ago" />
           <RegularText
             style={{
               color: COLORS.textLight,
               textAlign: 'left',
               marginVertical: 5,
-              fontSize: 15,
+              fontSize: 14,
             }}
             text="Welcome to the Chappie Help and Support Section!"
           />
@@ -41,7 +44,7 @@ const HelpScreen = () => {
               color: COLORS.textLight,
               textAlign: 'left',
               marginVertical: 5,
-              fontSize: 15,
+              fontSize: 14,
             }}
             text="Chappie is here to help you with all problems by providing you with the best answers and helping you to make the most out of the application.            "
           />
@@ -50,7 +53,7 @@ const HelpScreen = () => {
               color: COLORS.textLight,
               textAlign: 'left',
               marginVertical: 5,
-              fontSize: 15,
+              fontSize: 14,
             }}
             text="Watch the video below for step-by-step instructions on downloading and installing the app, creating an account, and using the photo scanner to get answers."
           />
@@ -59,12 +62,13 @@ const HelpScreen = () => {
               color: COLORS.textLight,
               textAlign: 'left',
               marginVertical: 5,
-              fontSize: 15,
+              fontSize: 14,
             }}
             text="If you have any questions or concerns that are not addressed in this section, please contact our customer support team by emailing them."
           />
           <View
             style={{
+              marginTop:10,
               height: 170,
               width: '100%',
               backgroundColor: COLORS.accentTwo,

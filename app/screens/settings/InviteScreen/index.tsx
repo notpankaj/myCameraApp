@@ -19,11 +19,12 @@ import GradientWrapper from '../../../components/GradientWrapper';
 import QRCode from 'react-native-qrcode-svg';
 import BtnV1 from '../../../components/BtnV1';
 import {shareAPI} from '../../../helper';
+import { APP_NAME } from '../../../helper/constants';
 
 const InviteScreen = () => {
   const navigation = useNavigation();
 
-  const [code, setCode] = React.useState('AskMojo1234');
+  const [code, setCode] = React.useState( APP_NAME  +'1234');
 
   const onShare = async () => {
     shareAPI();
@@ -35,9 +36,9 @@ const InviteScreen = () => {
   };
 
   return (
-    <DrawerPageContainer title="Invite Friends" onBack={navigation.goBack}>
+    <DrawerPageContainer titleStyle={{fontWeight:'normal', }} title="Invite Friends" onBack={navigation.goBack} iconContainerStyle={{backgroundColor: COLORS.white}}  iconStyle={{tintColor: COLORS.textDark}} >
       <View style={{paddingHorizontal: 20, flex: 0.9}}>
-        <BoldText
+        <RegularText
           style={{textAlign: 'center', marginVertical: 25}}
           text="Invite friends and get 10 FREE scans everyday for every new player."
         />
@@ -74,26 +75,17 @@ const InviteScreen = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
-          <BoldText text={`Code: ${code}`} />
-          {/* <BtnV1
-            onPress={() => copyToClipboard(code)}
-            containerStyle={{
-              borderRadius: 5,
-            }}>
-            <RegularText
-              text={'copy code'}
-              style={{fontSize: 15, color: COLORS.white}}
-            />
-          </BtnV1> */}
+          <RegularText text={`Code: ${code}`} />
+        
           <TouchableOpacity>
             <GradientWrapper
               containerStyle={{
                 borderRadius: 8,
-                width: 60,
+                width: 80,
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <BoldText
+              <RegularText
                 text={'COPY'}
                 style={{color: COLORS.white, fontSize: 15, textAlign: 'center'}}
               />
@@ -107,24 +99,24 @@ const InviteScreen = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <BoldText
+          <RegularText
             style={{textAlign: 'center'}}
             text="Share this code via link:"
           />
           <View
             style={{
               borderColor: COLORS.accentOne,
-              borderWidth: 2,
-              borderRadius: 15,
-              width: 25,
-              height: 25,
+              borderWidth: 1,
+              borderRadius: 20,
+              width: 20,
+              height: 20,
               justifyContent: 'center',
               alignItems: 'center',
             }}>
             <FontAwesome
               onPress={onShare}
               name={'share-alt'}
-              size={15}
+              size={10}
               color={COLORS.accentOne}
             />
           </View>

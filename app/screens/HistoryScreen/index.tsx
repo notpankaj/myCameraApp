@@ -80,7 +80,7 @@ function HistoryScreen() {
           }}>
           <AntDesign name="close" color={COLORS.textDark} size={15} />
         </TouchableOpacity>
-        <BoldText
+        <RegularText
           text="History"
           style={{fontSize: 33, textAlign: 'center', paddingTop: 10}}
         />
@@ -115,13 +115,13 @@ function HistoryScreen() {
         data={DATA}
         customTitle={item => (
           <View style={{flexDirection: 'row', width: '100%'}}>
-            <BoldText
+            <RegularText
               text={item.title}
               style={{
-                fontSize: 19,
-                fontWeight: 'bold',
+                fontSize: 16,
                 color: COLORS.textDark,
                 marginRight: 25,
+                marginHorizontal: 10
               }}
             />
             <View
@@ -131,19 +131,19 @@ function HistoryScreen() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 position: 'absolute',
-                top: 10,
-                right: 10,
+                top: 0,
+                right: 0,
               }}>
               <AntDesign
                 name={favFilter ? 'star' : 'staro'}
                 color={COLORS.textDark}
-                size={15}
+                size={13}
               />
             </View>
           </View>
         )}
         customBody={item => (
-          <RegularText text={item.des} style={{fontSize: 14}} />
+          <RegularText text={item.des} style={{fontSize: 12,opacity:0.7, marginHorizontal: 10}} />
         )}
         animationDuration={140}
         expandMultiple={true}

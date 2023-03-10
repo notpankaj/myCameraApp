@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import DrawerPageContainer from '../../../components/DrawerPageContainer';
 import {useNavigation} from '@react-navigation/native';
@@ -18,17 +18,17 @@ const SignupScreen = () => {
 
   const [toggleCheckBox, setToggleCheckBox] = React.useState(false);
   return (
-    <DrawerPageContainer title="Sign Up" onBack={navigation.goBack}>
+    <DrawerPageContainer titleStyle={{fontWeight:'normal'}}  title="Sign Up" onBack={navigation.goBack} containerStyle={{backgroundColor:COLORS.white}}>
       <View style={{paddingHorizontal: 20, flex: 0.9}}>
         <View style={{flexDirection: 'row'}}>
-          <Input
+          <Input inputStyle={styles.input}
             inputWrapperStyle={{
               flex: 1,
             }}
             label="Email Addess"
             placeholder="*First Name"
           />
-          <Input
+          <Input inputStyle={styles.input}
             inputWrapperStyle={{
               flex: 1,
             }}
@@ -36,10 +36,10 @@ const SignupScreen = () => {
             placeholder="*Last Name"
           />
         </View>
-        <Input label="Email Addess" placeholder="*Email Address" />
-        <Input label="Password" placeholder="*Password" />
-        <Input label="Confirm Password" placeholder="*Confirm Password" />
-        <Input label="Invitation Code" placeholder="Referrer Code" />
+        <Input inputStyle={styles.input} label="Email Addess" placeholder="*Email Address" />
+        <Input inputStyle={styles.input} label="Password" placeholder="*Password" />
+        <Input inputStyle={styles.input} label="Confirm Password" placeholder="*Confirm Password" />
+        <Input inputStyle={styles.input} label="Invitation Code" placeholder="Referrer Code" />
 
         <View
           style={{
@@ -57,7 +57,6 @@ const SignupScreen = () => {
             style={{
               color: COLORS.textDark,
               fontSize: 15,
-              fontWeight: 'bold',
               margin: 10,
               marginRight: 30,
               fontFamily: FONTS.Poppins,
@@ -84,7 +83,7 @@ const SignupScreen = () => {
                 alignItems: 'center',
               }}
               reverse>
-              <BoldText
+              <RegularText
                 text={'CREATE'}
                 style={{color: COLORS.white, fontSize: 18}}
               />
@@ -101,7 +100,7 @@ const SignupScreen = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <BoldText
+              <RegularText
                 text={'CANCEL'}
                 style={{color: COLORS.textDark, fontSize: 18}}
               />
@@ -116,9 +115,9 @@ const SignupScreen = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <BoldText text="Already have an Account ?" />
+          <RegularText text="Already have an Account ?" />
           <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-            <BoldText
+            <RegularText
               text={'Login'}
               style={{color: COLORS.accentOne, textDecorationLine: 'underline'}}
             />
@@ -130,3 +129,10 @@ const SignupScreen = () => {
 };
 
 export default SignupScreen;
+
+
+const styles = StyleSheet.create({
+  input :{
+    height: 55
+  }
+})
